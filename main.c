@@ -22,12 +22,10 @@ static bool get_input(void){
 	printf("\n");
 	return input_captured;
 }
-
-
-int main (){
+main (){
 	printf("Welcome to our VIRTUAL ESCAPE ROOM!\n");
 	
-	 && get_input() ;
+	while(get_input());
 	printf("\nByeBye!\n");
 	
 	return 0;

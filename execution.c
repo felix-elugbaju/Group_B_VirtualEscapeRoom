@@ -108,4 +108,19 @@ void execute_use(const char *arg){
 		printf("Nothing happened!\n", arg);
 	}
 }
+
+void execute_help(){
+	printf("This is a list of helpful common commands:\n"
+	"****************************************************************************\n"
+	"1. look around: 	look around to find interactive objects\n"
+	"2. examine <object>: 	examine to get detailed information about an object\n"
+	"3. go <stage>: 	go to a different stage\n"
+	"4. get <object>: 	put a usable object in your bag for later use\n"
+	"5. use <object>: 	try to make use of an object in your bag\n"
+	"6. open <door>: 	try to open a door\n"
+	"7. bag: 		check your bag to see what you can find\n"
+	"8. hint: 		get a hint if you are stuck\n"
+	"9. help: 		get a list of helpful common commands\n"
+	"****************************************************************************\n");
+}
 }

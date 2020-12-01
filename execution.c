@@ -123,4 +123,24 @@ void execute_help(){
 	"9. help: 		get a list of helpful common commands\n"
 	"****************************************************************************\n");
 }
+
+void execute_open(const char *arg){
+	if (arg == NULL){
+		printf("Maybe you should find something to open first\n");	
+		return;
+	}
+	OBJECT_t *obj = get_object(arg);
+	if (obj == NULL){
+		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
+	} else if (obj->location != player->location){				// door and player not in the same room
+		printf("You don't see any %s in here\n", arg);	
+	} else if (obj->state == closed){					
+		printf("It seems that %s is locked\n"
+		"You should find something that can open it\n", arg);				
+	} else {			// Push and open the door
+		player->location->state = unrestricted;
+		printf("The door opens with a loud creak!\n"
+		"You see two dark passages lighting up\n"
+		"You are now able to move from this place\n");
+	}
 }

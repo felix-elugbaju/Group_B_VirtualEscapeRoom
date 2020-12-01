@@ -22,10 +22,29 @@ static bool get_input(void){
 	printf("\n");
 	return input_captured;
 }
-main (){
+
+/**
+ * A function to check whether all three stages were cleared
+ * @return whether the game was cleared
+ */
+static bool game_cleared(void){
+	if (stage1->state == unrestricted && stage2->state == unrestricted && stage3->state == unrestricted){
+		printf("CONGRATS!!\n"
+		"You have just cleared the game!\n"
+		"You get a GRANDPRIZEXYZ!!!\n");
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Continuously calls the three major functions to keep the game going
+ */
+int main (){
 	printf("Welcome to our VIRTUAL ESCAPE ROOM!\n");
 	
-	while(get_input());
+	while (parse_and_execute(input) && get_input() && !game_cleared());
 	printf("\nByeBye!\n");
 	
 	return 0;

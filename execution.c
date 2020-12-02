@@ -60,4 +60,87 @@ void execute_get(const char *arg){
 		}
 	}
 }
+
+void execute_check(void){
+	if (list_objects_at_location(player, usable_object) == 0){
+		printf("You couldn't find anything of importance\n");
+	}
+}
+
+void execute_use(const char *arg){
+	if (arg == NULL){
+		printf("Maybe you should decide what you want to use first\n");	
+		return;
+	}
+	OBJECT_t *obj = get_object(arg);
+	if (obj == NULL){
+		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
+	} else if (obj->type != usable_object){
+		printf("%s is not usable\n", arg);	
+	} else if (obj->location != player){					// player does not have object yet
+		printf("You have not found %s yet\n", arg);	
+	} else if (obj->location == player){					
+		if (strcmp(obj->tag,"key1")==0 && strcmp(player->location->tag,"stage1")==0)	{
+			if (door1->state == open){
+				printf("The silver door seems to be already open\n");
+			} else {
+				door1->state = open;
+				printf("You used %s on the silver door\nThe door can now be opened\n", arg);
+			}
+		} else if (strcmp(obj->tag,"key2")==0 && strcmp(player->location->tag,"stage2")==0)	{
+			if (door2->state == open){
+				printf("The gold door seems to be already open\n");
+			} else {
+				door2->state = open;
+				printf("You used %s on the gold door\nThe door can now be opened\n", arg);
+			}
+		} else if (strcmp(obj->tag,"key3")==0 && strcmp(player->location->tag,"stage3")==0)	{
+			if (door3->state == open){
+				printf("The ruby door seems to be already open\n");
+			} else {
+				door3->state = open;
+				printf("You used %s on the ruby door\nThe door can now be opened\n", arg);
+			}
+		} else {
+			printf("Nothing happened!\n", arg);
+		}
+	} else {	
+		printf("Nothing happened!\n", arg);
+	}
+}
+
+void execute_help(){
+	printf("This is a list of helpful common commands:\n"
+	"****************************************************************************\n"
+	"1. look around: 	look around to find interactive objects\n"
+	"2. examine <object>: 	examine to get detailed information about an object\n"
+	"3. go <stage>: 	go to a different stage\n"
+	"4. get <object>: 	put a usable object in your bag for later use\n"
+	"5. use <object>: 	try to make use of an object in your bag\n"
+	"6. open <door>: 	try to open a door\n"
+	"7. bag: 		check your bag to see what you can find\n"
+	"8. hint: 		get a hint if you are stuck\n"
+	"9. help: 		get a list of helpful common commands\n"
+	"****************************************************************************\n");
+}
+
+void execute_open(const char *arg){
+	if (arg == NULL){
+		printf("Maybe you should find something to open first\n");	
+		return;
+	}
+	OBJECT_t *obj = get_object(arg);
+	if (obj == NULL){
+		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
+	} else if (obj->location != player->location){				// door and player not in the same room
+		printf("You don't see any %s in here\n", arg);	
+	} else if (obj->state == closed){					
+		printf("It seems that %s is locked\n"
+		"You should find something that can open it\n", arg);				
+	} else {			// Push and open the door
+		player->location->state = unrestricted;
+		printf("The door opens with a loud creak!\n"
+		"You see two dark passages lighting up\n"
+		"You are now able to move from this place\n");
+	}
 }

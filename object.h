@@ -51,9 +51,11 @@ extern OBJECT_t objs[];
 #define key3 	(objs + 11)
 #define door3 	(objs + 12)
 #define puzzle1 (objs + 13)
+#define puzzle2 (objs + 14)
 /* End: always update this! */
-#define end_of_objs (objs + 14)
+#define end_of_objs (objs + 15)
 
 
 
 #endif
+

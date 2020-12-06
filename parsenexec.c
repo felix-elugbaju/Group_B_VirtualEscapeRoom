@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "parsenexec.h"
 #include "puzzle.h"
+#include "execution.h"
 
 bool parse_and_execute(char *input){
 	/* Use the space delimiter to separate the command and argument */

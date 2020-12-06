@@ -8,6 +8,6 @@
   * @param[in] input the input captured from the user
   * @return whether the user wants to continue or quit
   */
-extern bool parse_and_execute(char *input);
+bool parse_and_execute(char *input);
 
-#endif
+#endif//__PARSENEXEC_H__

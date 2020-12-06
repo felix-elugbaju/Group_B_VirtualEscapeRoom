@@ -12,12 +12,11 @@
 /**
  * A function that returns whether the <arg> provided by the user has a valid object target/tag or not 
  */
-extern bool object_has_tag(OBJECT_t *obj, const char *arg);
+bool object_has_tag(OBJECT_t *obj, const char *arg);
 
 /**
  * Get the pointer to a valid OBJECT or a NULL pointer (objectHasTag returns false)
  */ 
-extern OBJECT_t *get_object(const char *arg);
+OBJECT_t *get_object(const char *arg);
 
-
-#endif
+#endif//__ARGHANDLING_H__

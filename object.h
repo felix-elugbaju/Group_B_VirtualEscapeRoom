@@ -1,12 +1,10 @@
 #ifndef __OBJECT_H__
 #define __OBJECT_H__
 
-
-
 /***** OBJECT Types and States *****/
 typedef enum type{
 	location = 0,
-	visible_object = 1, 
+	visible_object = 1,
 	hidden_object = 2,
 	usable_object = 3,
 	puzzle = 4,
@@ -56,6 +54,4 @@ extern OBJECT_t objs[];
 #define end_of_objs (objs + 15)
 
 
-
-#endif
-
+#endif//__OBJECT_H__

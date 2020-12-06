@@ -8,18 +8,17 @@
 void trigger_puzzle1(){
 	printf("Do you want to manually set the time? y/n\n");
 	char user_intent = fgetc(stdin);
-	fflush(stdin);		// flush the input buffer
+	printf("\n");
 	
 	if(tolower(user_intent) == 'n'){
 		return;
 	} else if (tolower(user_intent) == 'y'){
 		do {
 			int hour_hand, minute_hand = 0;
-			printf("\nSet hour hand to: ");
+			printf("Set hour hand to: ");
 			scanf("%d", &hour_hand);
 			printf("Set minute hand to: ");
 			scanf("%d", &minute_hand);
-			fflush(stdin);
 			if (hour_hand>=1 && hour_hand<=12 && minute_hand>=0 && minute_hand<=59){
 //				printf("\nThe time is now  %d:%d\n", hour_hand, minute_hand);
 				if (hour_hand==7 && minute_hand==12){
@@ -38,7 +37,6 @@ void trigger_puzzle1(){
 			}
 			printf("Do you want to try again? y/n\n");
 			user_intent = fgetc(stdin);
-			fflush(stdin);
 		} while(tolower(user_intent) == 'y');
 	} else {
 		printf("It seems you want to do neither!\n");

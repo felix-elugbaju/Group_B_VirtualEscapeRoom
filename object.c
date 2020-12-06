@@ -37,7 +37,7 @@ OBJECT_t objs[] = {
 	/******************** stage 2 objects ********************/
 	{"a gold key", "key2", usable_object, regular, NULL, stage2},
 	{"a gold door", "door2", visible_object, closed, NULL, stage2},
-	{"a jigsaw puzzle", "jigsawpuzzle", puzzle, unsolved, NULL, stage2},
+	{"a jigsaw puzzle", "jigsaw", puzzle, unsolved, NULL, stage2},
 	
 	/******************** stage 3 objects ********************/
 	{"a ruby key", "key3", usable_object, regular, NULL, stage3},

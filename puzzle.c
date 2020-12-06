@@ -34,7 +34,7 @@ int main()
 	printf("S => down\n");
 	printf("D => right\n");
 	printf("Type in enter to confirm your selection\n");
-	printf("The '?' is a free space\n");
+	printf("The '?' is a free space to slide tiles in\n");
 	printf("\n");
 	
 	

@@ -21,32 +21,28 @@ extern int list_objects_at_location(OBJECT_t *location, type_t type);
  */
 extern void check_solved_stage1();
 
-
 /**
  * @brief checks whether all puzzles in stage 2 has been solved
  */
 extern void check_solved_stage2();
-
-
 
 /**
  * @brief checks whether all puzzles in stage 3 has been solved
  */
 extern void check_solved_stage3();
 
-
-
 /**
  * @brief calculates the amount of hints used in that particular stage, and prints a reward
+ * 
+ * @param[in] stage TODO
  */
 extern void get_reward(int stage);
 
-
 /**
  * @brief capitalize a word
+ * 
+ * @param[in] word TODO
  */
 extern void capitalize(char *word);
 
-
-#endif
-
+#endif//__HELPER_H__

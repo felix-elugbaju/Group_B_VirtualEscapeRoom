@@ -21,17 +21,16 @@ typedef enum state{
 	hidden = 6, revealed = 7,			// For keys
 	used = 8, unused =9,				// For hints
 	regular = 10						// generic state
-} state_t;
-
-
+} state_t;      
+	 
 /***** OBJECT Structure *****/
 typedef struct object{
-	const char *description;
-	const char *tag;
-	type_t type;
-	state_t state;
-	const char *detailed_description;
-	struct object *location;
+	const char *description;			//!< Short text description of object
+	const char *tag;					//!< Short name for object
+	type_t type;						//!< Type of object
+	state_t state;						//!< State of object
+	const char *detailed_description;	//!< Long text description of object
+	struct object *location;			//!< Location of object
 } OBJECT_t;
 extern OBJECT_t objs[];
 
@@ -95,4 +94,4 @@ extern OBJECT_t objs[];
 #define end_of_objs 		(objs + 41)
 
 
-#endif
+#endif//__OBJECT_H__

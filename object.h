@@ -53,5 +53,4 @@ extern OBJECT_t objs[];
 /* End: always update this! */
 #define end_of_objs (objs + 15)
 
-
 #endif//__OBJECT_H__

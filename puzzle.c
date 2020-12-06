@@ -19,7 +19,10 @@ int main()
 	{
 		for (int j = 0; j < PUZZLE_LENGTH; j++)
 		{
-			puzzle2[i][j] = puzzle[i][j];
+			if (puzzle[i][j] == '0')
+				puzzle2[i][j] = '?';
+			else
+				puzzle2[i][j] = puzzle[i][j];
 		}
 	}
 	
@@ -37,7 +40,7 @@ int main()
 	
 	int cursX = 1;
 	int cursY = 0;
-	for (int k = 0; k < 15; k++)
+	for (int k = 0; k < 1000; k++)
 	{
 		int choice = rand() % 4;
 		
@@ -108,6 +111,7 @@ int main()
 	
 	printf("\n");
 	printf("\n");
+	printf("YOUR PUZZLE\n");
 	for (int i = 0; i < PUZZLE_LENGTH; i++)
 	{
 		for (int j = 0; j < PUZZLE_LENGTH; j++)
@@ -135,7 +139,6 @@ int main()
 		if (input_char == 119)
 		{
 		
-			printf("Upward move\n");
 			
 			
 			if (cursY != PUZZLE_LENGTH - 1)
@@ -150,7 +153,7 @@ int main()
 		}
 		if (input_char == 97)
 		{
-			printf("Left move\n");	
+			
 			if (cursX != PUZZLE_LENGTH - 1)
 			{
 				char temp = puzzle2[cursY][cursX + 1];
@@ -163,7 +166,7 @@ int main()
 		
 		if (input_char == 115)
 		{
-			printf("Down move\n");
+			
 			if (cursY != 0)
 			{
 				char temp = puzzle2[cursY - 1][cursX];
@@ -177,7 +180,7 @@ int main()
 		
 		if(input_char == 100)
 		{
-			printf("Right move\n");
+			
 			if (cursX != 0)
 			{
 				char temp = puzzle2[cursY][cursX - 1];
@@ -215,12 +218,12 @@ int main()
 			}
 			printf("\n");
 			printf("\n");
-			
+			printf("YOUR PUZZLE\n");
 			for (int i2 = 0; i2 < PUZZLE_LENGTH; i2++)
 			{
 				for (int j2 = 0; j2 < PUZZLE_LENGTH; j2++)
 				{
-				printf("%c", puzzle2[i2][j2]);
+					printf("%c", puzzle2[i2][j2]);
 				}
 				printf("\n");
 			}
@@ -253,6 +256,36 @@ int main()
 	
 		
 	}
+	
+	printf("TARGET\n");
+	printf("\n");
+	for (int i2 = 0; i2 < PUZZLE_LENGTH; i2++)
+	{
+		for (int j2 = 0; j2 < PUZZLE_LENGTH; j2++)
+		{
+			printf("%c", puzzle[i2][j2]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	printf("\n");
+	printf("YOUR PUZZLE\n");
+	for (int i2 = 0; i2 < PUZZLE_LENGTH; i2++)
+	{
+		for (int j2 = 0; j2 < PUZZLE_LENGTH; j2++)
+		{
+			if (puzzle2[i2][j2] == '?')
+					puzzle2[i2][j2] = '0';
+			printf("%c", puzzle2[i2][j2]);
+		}
+		printf("\n");
+	}
+			
+			
+			
+			
+			
+		
 		
 	printf("The puzzle has been solved!\n");
 	return 0;

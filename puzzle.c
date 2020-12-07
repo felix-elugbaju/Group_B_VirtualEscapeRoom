@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include <stdlib.h>
 #include <unistd.h>
 #include "object.h"
@@ -45,7 +46,6 @@ void trigger_puzzle1(){
 	} else {
 		printf("It seems you want to do neither!\n");
 	}
-}
 
 void trigger_puzzle2() 
 {

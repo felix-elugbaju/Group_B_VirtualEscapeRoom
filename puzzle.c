@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include "object.h"
 #include "ctype.h"
+#include "helper.h"
 
 /**
  * The first puzzle triggered from the clock
@@ -32,6 +33,7 @@ void trigger_puzzle1(){
 					"There seems to be a different energy source somewhere.\n"
 					"But that doesn't seem to be quite enough as the clock stops again.\n"
 					"Congrats! You have solved this puzzle!\n\n");
+					check_solved_stage1();		// check if all puzzles have been solved
 					return;
 				} else {
 					printf("But nothing happened!\n\n");
@@ -47,6 +49,9 @@ void trigger_puzzle1(){
 	} else {
 		printf("It seems you want to do neither!\n");
 	}
+}
+
+
 
 void trigger_puzzle2() 
 {

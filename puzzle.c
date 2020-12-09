@@ -23,6 +23,7 @@ void trigger_puzzle1(){
 			printf("Set minute hand to: ");
 			scanf("%d", &minute_hand);
 			fflush(stdin);
+			printf("\nYou turned the clock hands using the knobs at the back.\n");
 			if (hour_hand>=1 && hour_hand<=12 && minute_hand>=0 && minute_hand<=59){
 //				printf("\nThe time is now  %d:%d\n", hour_hand, minute_hand);
 				if (hour_hand==7 && minute_hand==12){
@@ -33,7 +34,7 @@ void trigger_puzzle1(){
 					"Congrats! You have solved this puzzle!\n\n");
 					return;
 				} else {
-					printf("Nothing else happened!\n\n");
+					printf("But nothing happened!\n\n");
 				}
 			} else {
 				printf("\nI'm not sure what you're trying to do.\n"

@@ -18,7 +18,7 @@ OBJECT_t objs[] = {
 	"You immediately stand up as it creaks under your weight\n"
 	"There is also a letter on the table\n"
 	"Some parts of the letter seems to be legible\n"
-	"Reading the letter might give you a better idea about its contents\n"", stage1},
+	"Reading the letter might give you a better idea about its contents\n", stage1},
 	/** A letter **/
 	{"a dusty letter", "letter", hidden_object, regular, 
 	  "dear ashford,\n"
@@ -31,7 +31,7 @@ OBJECT_t objs[] = {
 	"days away.\n"
 	"i really wish you could be here with all of us during the holiday. we..\n"
 	"............................\n"
-	"The rest of the letter is illegible", stage1},", stage1},
+	"The rest of the letter is illegible", stage1},
 	/** A clock **/
 	{"a broken clock", "clock", visible_object, regular, 
 	"The clock hands are not moving.\n"

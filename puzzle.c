@@ -81,6 +81,7 @@ void trigger_puzzle2()
 	printf("A => left\n");
 	printf("S => down\n");
 	printf("D => right\n");
+	printf("Enter 'q' to quit, or reset the puzzle\n");
 	printf("Type in enter to confirm your selection\n");
 	printf("The '?' is a free space to slide tiles in\n");
 	printf("\n");
@@ -229,7 +230,16 @@ void trigger_puzzle2()
 
 			}
 		}
+<<<<<<< HEAD
 
+=======
+		if (input_char == 113)
+		{
+			printf("Resetting the puzzle\n");
+			return;
+		}
+		
+>>>>>>> 06d3b5eb186b7d17711a16d76bf2d9d75204ae95
 		printf("\n");
 		printf("\n");
 
@@ -240,6 +250,7 @@ void trigger_puzzle2()
 			printf("A => left\n");
 			printf("S => down\n");
 			printf("D => right\n");
+			printf("Enter 'q' to quit, or reset the puzzle\n");
 			printf("Type in enter to confirm your selection\n");
 			printf("The '?' is a free space\n");
 			printf("\n");
@@ -311,5 +322,6 @@ void trigger_puzzle2()
 		printf("\n");
 	}
 	printf("The puzzle has been solved!\n");
+	puzzle2->state = solved;
 	return 0;
 }

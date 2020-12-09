@@ -5,14 +5,15 @@
 
 /** 
  * Maximum size of input buffer is 100
- * Initialize the array to "look around" so it can be the default command 
- * that is executed whenever we enter a new stage.
+ * Initialize the array to "look around" so it can be the default 
+ * command that is executed whenever we enter a new stage.
  */
 static char input[100] = "look around";
  
+
 /**
- * A function to get user inputs from the stdin stream
- * @return whether an input was captured properly or not
+ * @brief A function to get user inputs from the stdin stream
+ * @return 1 if input captured properly, 0 in case of a Null
  */
 static bool get_input(void){
 	// Prompt the user to enter a command using "> ".
@@ -23,9 +24,10 @@ static bool get_input(void){
 	return input_captured;
 }
 
+
 /**
- * A function to check whether all three stages were cleared
- * @return whether the game was cleared
+ * @brief A function to check whether all three stages were cleared
+ * @return 1 if all three stages are cleared, 0 otherwise
  */
 static bool game_cleared(void){
 	if (stage1->state == unrestricted && stage2->state == unrestricted && stage3->state == unrestricted){
@@ -38,11 +40,15 @@ static bool game_cleared(void){
 	}
 }
 
+
 /**
- * Continuously calls the three major functions to keep the game going
+ * @brief The main function that continuously calls the three major functions to keep the game going
+ * @return 0 always
  */
 int main (){
-	printf("Welcome to our VIRTUAL ESCAPE ROOM!\n");
+	printf("WELCOME to our VIRTUAL ESCAPE ROOM!\n\n");
+	execute_help();
+	printf("\n");
 	
 	while (parse_and_execute(input) && get_input() && !game_cleared());
 	printf("\nByeBye!\n");

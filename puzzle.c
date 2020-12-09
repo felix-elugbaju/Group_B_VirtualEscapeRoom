@@ -230,16 +230,13 @@ void trigger_puzzle2()
 
 			}
 		}
-<<<<<<< HEAD
 
-=======
 		if (input_char == 113)
 		{
 			printf("Resetting the puzzle\n");
 			return;
 		}
-		
->>>>>>> 06d3b5eb186b7d17711a16d76bf2d9d75204ae95
+
 		printf("\n");
 		printf("\n");
 

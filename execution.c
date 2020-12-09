@@ -102,7 +102,7 @@ void execute_get(const char *arg){
 	} else {
 		if (strcmp(arg, "key1") == 0){
 			/** Conditions for getting key1 **/
-			if (puzzle1->state == solved){
+			if (puzzle1->state == solved && puzzle2->state == solved){
 				obj->location = player;				
 				printf("You moved %s to your bag\n", arg);
 			} else {

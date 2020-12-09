@@ -5,8 +5,8 @@
 
 /** 
  * Maximum size of input buffer is 100
- * Initialize the array to "look around" so it can be the default command 
- * that is executed whenever we enter a new stage.
+ * Initialize the array to "look around" so it can be the default 
+ * command that is executed whenever we enter a new stage.
  */
 static char input[100] = "look around";
  
@@ -40,12 +40,15 @@ static bool game_cleared(void){
 	}
 }
 
+
 /**
  * @brief The main function that continuously calls the three major functions to keep the game going
  * @return 0 always
  */
 int main (){
-	printf("Welcome to our VIRTUAL ESCAPE ROOM!\n");
+	printf("WELCOME to our VIRTUAL ESCAPE ROOM!\n\n");
+	execute_help();
+	printf("\n");
 	
 	while (parse_and_execute(input) && get_input() && !game_cleared());
 	printf("\nByeBye!\n");

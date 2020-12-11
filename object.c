@@ -18,7 +18,7 @@ OBJECT_t objs[] = {
 	"You immediately stand up as it creaks under your weight\n"
 	"There is also a letter on the table\n"
 	"Some parts of the letter seems to be legible\n"
-	"Reading the letter might give you a better idea about its contents\n", stage1},
+	"Reading the Letter might give you a better idea about its contents\n", stage1},
 	/** A letter **/
 	{"a dusty letter", "letter", hidden_object, regular, 
 	"dear ashford,\n"
@@ -43,11 +43,6 @@ OBJECT_t objs[] = {
 	/** PuzzleA: uses table, letter, and clock **/
 	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
 	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
-	{"a hint for the clock_puzzle", "clock_hint", hint, unused, 
-	"hands of the clock..\n"
-	"dance as they flock...\n"
-	"towards the writings of the old....\n"
-	"CAPITAL of wishes manifold\n", stage1},
 	
 	/******************** stage 2 objects ********************/
 	{"a gold_key", "gold_key", usable_object, hidden, NULL, stage2},
@@ -55,5 +50,18 @@ OBJECT_t objs[] = {
 	
 	/******************** stage 3 objects ********************/
 	{"a ruby_key", "ruby_key", usable_object, hidden, NULL, stage3},
-	{"a ruby_door", "ruby_door", visible_object, closed, NULL, stage3}
+	{"a ruby_door", "ruby_door", visible_object, closed, NULL, stage3},
+	
+	/* hints */
+	{"a hint for the clock_puzzle", "clock_hint", hint, unused, 
+	"hands of the clock..\n"
+	"dance as they flock...\n"
+	"towards the writings of the old....\n"
+	"CAPITAL of wishes manifold\n", stage1},
+	/* the graffiti and the puzzle */
+	{"a hand-drawn graffiti", "graffiti", visible_object, regular, 
+	"You see a carefully curved garffiti with fine knifework\n"
+	"The design seems to match that of several criss-crossing lines\n"
+	"Looking Closely might lead to some interesting patterns\n", stage2},
+	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2}
 };

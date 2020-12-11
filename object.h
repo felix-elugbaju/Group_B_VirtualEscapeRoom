@@ -59,8 +59,10 @@ extern OBJECT_t objs[];
 #define sliding_puzzle 	(objs + 14)
 /* Hints */
 #define clock_hint		(objs + 15)
+#define graffiti 		(objs + 16)
+#define graffiti_puzzle (objs + 17)
 /* End: always update this! */
-#define end_of_objs (objs + 16)
+#define end_of_objs (objs + 18)
 
 
 

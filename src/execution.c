@@ -207,5 +207,6 @@ void execute_help(){
 	"*  7. bag:              check your bag to see what you can find              *\n"
 	"*  8. hint:             get a hint if you are stuck                          *\n"
 	"*  9. help:             get a list of helpful common commands                *\n"
+    "* 10. quit              exit the program gracefully                          *\n"
 	"******************************************************************************\n");
 }

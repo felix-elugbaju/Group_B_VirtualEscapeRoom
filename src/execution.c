@@ -80,7 +80,7 @@ void execute_go(const char *arg){
 		printf("%s is not a location\n", arg);
 	} else if (player->location->state == confined){			// trying to move from a confined loaction
 		printf("It seems that all exits from this room are sealed\n"
-		"You should look for a way to open doors\n", arg);
+		"You should look for a way to open doors\n");
 	} else if (player->location->state == unrestricted){			// move from an unrestricted area
 		printf("Moving...\n");
 		printf("... ... ...\n");
@@ -167,10 +167,10 @@ void execute_use(const char *arg){
 				printf("You used %s on the ruby door\nThe door can now be opened\n", arg);
 			}
 		} else {
-			printf("Nothing happened!\n", arg);
+			printf("Nothing happened!\n");
 		}
 	} else {	
-		printf("Nothing happened!\n", arg);
+		printf("Nothing happened!\n");
 	}
 }
 

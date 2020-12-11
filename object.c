@@ -43,7 +43,7 @@ OBJECT_t objs[] = {
 	"It might be useful in opening a door of some kind.\n", stage1},
 	{"a silver_door", "silver_door", visible_object, closed, 
 	"It seems like there is only one lock on the door.\n"
-	"The lock requires a matching key to open\.n", stage1},
+	"The lock requires a matching key to open.\n", stage1},
 	/** the first puzzle: uses table, letter, and clock **/
 	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
 	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
@@ -54,7 +54,7 @@ OBJECT_t objs[] = {
 	"It might be useful in opening a door of some kind.\n", stage2},
 	{"a gold_door", "gold_door", visible_object, closed, 
 	"It seems like there is only one lock on the door.\n"
-	"The lock requires a matching key to open\.n", stage2},
+	"The lock requires a matching key to open.\n", stage2},
 	
 	/******************** stage 3 objects ********************/
 	{"a ruby_key", "ruby_key", usable_object, hidden, 
@@ -66,7 +66,7 @@ OBJECT_t objs[] = {
 	"The red_lock seems to require a matching key.\n"
 	"The blue_lock can be opened with a code.\n"
 	"The blue_lock seems to have something attached to it.\n"
-	"You should examine it further\n", stage3},
+	"You should examine it further.\n", stage3},
 	
 	/* hints */
 	{"a hint for the clock_puzzle", "clock_hint", hint, unused, 

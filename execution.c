@@ -28,7 +28,7 @@ void execute_examine(const char *arg){
 		if (obj == NULL){
 			/* When the examination target doesn't match any object */
 			printf("Unfortunately, you couldn't find anything new\n");
-		} else if (!(obj->type == visible_object)){
+		} else if (!(obj->type == visible_object || obj->type == usable_object)){
 			/* When the examination is not possible because of type restrictions */
 			printf("Maybe you should try to examine something different\n");
 		} else {

@@ -15,7 +15,7 @@ typedef enum type{
 } type_t;
 
 typedef enum state{
-	closed = 0, open = 1,				// For doors
+	closed = 0, open = 1,				// For doors and locks
 	confined = 2, unrestricted = 3,		// For stages
 	unsolved = 4, solved = 5,			// For puzzles
 	hidden = 6, revealed = 7,			// For keys
@@ -61,8 +61,13 @@ extern OBJECT_t objs[];
 #define clock_hint		(objs + 15)
 #define graffiti 		(objs + 16)
 #define graffiti_puzzle (objs + 17)
+/* Lock with code */
+#define blue_lock 		(objs + 18)
+#define manual 			(objs + 19)
+#define code_puzzle		(objs + 20)
+
 /* End: always update this! */
-#define end_of_objs (objs + 18)
+#define end_of_objs (objs + 21)
 
 
 

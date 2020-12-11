@@ -11,10 +11,11 @@
  * The first puzzle triggered from the clock
  */
 void trigger_puzzle1(){
+	printf("\nYou found a clock-puzzle!\n");
 	printf("Do you want to manually set the time? y/n\n");
 	char user_intent = fgetc(stdin);
 	fflush(stdin);		// flush the input buffer
-
+	
 	if(tolower(user_intent) == 'n'){
 		return;
 	} else if (tolower(user_intent) == 'y'){
@@ -29,7 +30,7 @@ void trigger_puzzle1(){
 			if (hour_hand>=1 && hour_hand<=12 && minute_hand>=0 && minute_hand<=59){
 //				printf("\nThe time is now  %d:%d\n", hour_hand, minute_hand);
 				if (hour_hand==7 && minute_hand==12){
-					puzzle1->state = solved;
+					clock_puzzle->state = solved;
 					printf("Suddenly, the clock starts to tick!\n"
 					"There seems to be a different energy source somewhere.\n"
 					"But that doesn't seem to be quite enough as the clock stops again.\n"

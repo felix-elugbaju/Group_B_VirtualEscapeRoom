@@ -6,11 +6,12 @@
 /***** OBJECT Types and States *****/
 typedef enum type{
 	location = 0,
-	visible_object = 1, 
+	visible_object = 1,
 	hidden_object = 2,
 	usable_object = 3,
 	puzzle = 4,
-	actor = 5
+	hint = 5,
+	actor = 6
 } type_t;
 
 typedef enum state{
@@ -18,7 +19,8 @@ typedef enum state{
 	confined = 2, unrestricted = 3,		// For stages
 	unsolved = 4, solved = 5,			// For puzzles
 	hidden = 6, revealed = 7,			// For keys
-	regular = 8
+	used = 8, unused =9,				// For hints
+	regular = 10						// generic state
 } state_t;
 
 
@@ -45,18 +47,23 @@ extern OBJECT_t objs[];
 #define table 	(objs + 4)
 #define letter	(objs + 5)
 #define clock 	(objs + 6)
-#define key1 	(objs + 7)
-#define door1 	(objs + 8)
-#define key2 	(objs + 9)
-#define door2 	(objs + 10)
-#define key3 	(objs + 11)
-#define door3 	(objs + 12)
-#define puzzle1 (objs + 13)
-#define puzzle2 (objs + 14)
+/* Doors and Keys */
+#define silver_key 		(objs + 7)
+#define silver_door 	(objs + 8)
+#define gold_key 		(objs + 9)
+#define gold_door 		(objs + 10)
+#define ruby_key 		(objs + 11)
+#define ruby_door 		(objs + 12)
+/* Puzzles */
+#define clock_puzzle 	(objs + 13)
+#define sliding_puzzle 	(objs + 14)
+/* Hints */
+#define clock_hint		(objs + 15)
+#define graffiti 		(objs + 16)
+#define graffiti_puzzle (objs + 17)
 /* End: always update this! */
-#define end_of_objs (objs + 15)
+#define end_of_objs (objs + 18)
 
 
 
 #endif
-

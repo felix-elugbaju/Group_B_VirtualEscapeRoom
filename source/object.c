@@ -13,7 +13,7 @@ OBJECT_t objs[] = {
 	/******************** stage 1 objects ********************/
 	/** Table with a letter **/
 	{"a wooden table", "table", visible_object, regular,
-	"The table seems strudy at first glance\n"
+	"The table seems sturdy at first glance\n" //TODO: Changed from strudy to sturdy
 	"You tried to sit down\n"
 	"You immediately stand up as it creaks under your weight\n"
 	"There is also a letter on the table\n"
@@ -41,13 +41,17 @@ OBJECT_t objs[] = {
 	{"a silver key", "key1", usable_object, hidden, NULL, stage1},
 	{"a silver door", "door1", visible_object, closed, NULL, stage1},
 	/** PuzzleA: uses table, letter, and clock **/
+    {"a small sliding_puzzle", "sliding_puzzle", visible_object, regular, //TODO: ADD THIS
+        "It looks like a piece is missing.\n"                    // TODO: ADD THIS
+        "You might be able to slide the pieces around\n", stage1},
+    /** PuzzleB uses jigsaw only*/
 	{"the first puzzle", "puzzle1", puzzle, unsolved, NULL , stage1},
-	
+    {"the second puzzle", "puzzle2", puzzle, unsolved, NULL, stage1},// TODO: CHANGE this
 	
 	/******************** stage 2 objects ********************/
 	{"a gold key", "key2", usable_object, hidden, NULL, stage2},
 	{"a gold door", "door2", visible_object, closed, NULL, stage2},
-	{"a jigsaw puzzle", "jigsaw", puzzle, unsolved, NULL, stage2},
+	
 	
 	/******************** stage 3 objects ********************/
 	{"a ruby key", "key3", usable_object, hidden, NULL, stage3},

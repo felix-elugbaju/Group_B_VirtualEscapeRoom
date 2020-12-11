@@ -17,7 +17,8 @@ typedef enum state{
 	closed = 0, open = 1,				// For doors
 	confined = 2, unrestricted = 3,		// For stages
 	unsolved = 4, solved = 5,			// For puzzles
-	regular = 6
+	hidden = 6, revealed = 7,			// For keys
+	regular = 8
 } state_t;
 
 

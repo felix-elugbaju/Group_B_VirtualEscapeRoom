@@ -38,18 +38,18 @@ OBJECT_t objs[] = {
 	"You check the battery, only to find that it's long dead\n"
 	"The hand for seconds is missing.\n"
 	"You might be able to move the hour and minute hand.\n", stage1},
-	{"a silver key", "key1", usable_object, regular, NULL, stage1},
+	{"a silver key", "key1", usable_object, hidden, NULL, stage1},
 	{"a silver door", "door1", visible_object, closed, NULL, stage1},
 	/** PuzzleA: uses table, letter, and clock **/
 	{"the first puzzle", "puzzle1", puzzle, unsolved, NULL , stage1},
 	
 	
 	/******************** stage 2 objects ********************/
-	{"a gold key", "key2", usable_object, regular, NULL, stage2},
+	{"a gold key", "key2", usable_object, hidden, NULL, stage2},
 	{"a gold door", "door2", visible_object, closed, NULL, stage2},
 	{"a jigsaw puzzle", "jigsaw", puzzle, unsolved, NULL, stage2},
 	
 	/******************** stage 3 objects ********************/
-	{"a ruby key", "key3", usable_object, regular, NULL, stage3},
+	{"a ruby key", "key3", usable_object, hidden, NULL, stage3},
 	{"a ruby door", "door3", visible_object, closed, NULL, stage3}
 };

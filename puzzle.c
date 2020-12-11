@@ -327,7 +327,7 @@ void trigger_puzzle2()
 
 void trigger_puzzle4(){
 	printf("You look closely at the lines\n"
-	"This seems like a lot of effort was put into the carving\n"
+	"It seems like a lot of effort was put into the carvings\n"
 	"The carvings are traceable.\n");
 	
 	printf("\nYou found a graffiti-puzzle!\n"

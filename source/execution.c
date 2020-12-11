@@ -3,6 +3,7 @@
 #include "arghandling.h"
 #include "object.h"
 #include "helper.h"
+#include "puzzle.h" // TODO: ADD THIS
 
 
 void execute_look(const char *arg){
@@ -33,6 +34,9 @@ void execute_examine(const char *arg){
 			if (strcmp(arg, "clock") == 0 && player->location == stage1){
 				trigger_puzzle1();
 			}
+            if (strcmp(arg, "sliding_puzzle") == 0 && player->location == stage1) {
+                trigger_puzzle2();
+            }
 		}
 	} else {
 		/* When there's no examination target */
@@ -74,7 +78,7 @@ void execute_go(const char *arg){
 		printf("%s is not a location\n", arg);
 	} else if (player->location->state == confined){			// trying to move from a confined loaction
 		printf("It seems that all exits from this room are sealed\n"
-		"You should look for a way to open doors\n", arg);
+		"You should look for a way to open doors\n");
 	} else if (player->location->state == unrestricted){			// move from an unrestricted area
 		printf("Moving...\n");
 		printf("... ... ...\n");
@@ -161,10 +165,10 @@ void execute_use(const char *arg){
 				printf("You used %s on the ruby door\nThe door can now be opened\n", arg);
 			}
 		} else {
-			printf("Nothing happened!\n", arg);
+			printf("Nothing happened!\n"); // TODO: REMOVE ARG
 		}
 	} else {	
-		printf("Nothing happened!\n", arg);
+		printf("Nothing happened!\n"); //TODO: REMOVE ARG
 	}
 }
 
@@ -201,5 +205,7 @@ void execute_help(){
 	"*  7. bag:              check your bag to see what you can find              *\n"
 	"*  8. hint:             get a hint if you are stuck                          *\n"
 	"*  9. help:             get a list of helpful common commands                *\n"
+    "* 10. quit:             exit the game                                        *\n"
 	"******************************************************************************\n");
 }
+ 

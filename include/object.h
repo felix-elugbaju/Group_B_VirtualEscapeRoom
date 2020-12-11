@@ -47,14 +47,15 @@ extern OBJECT_t objs[];
 #define clock 	(objs + 6)
 #define key1 	(objs + 7)
 #define door1 	(objs + 8)
-#define key2 	(objs + 9)
-#define door2 	(objs + 10)
-#define key3 	(objs + 11)
-#define door3 	(objs + 12)
-#define puzzle1 (objs + 13)
-#define puzzle2 (objs + 14)
+#define puzzle1 (objs + 9) // TODO: CHANGED FROM objs + 13
+#define sliding_puzzle (objs + 10) // TODO: ADDED THIS
+#define puzzle2 (objs + 11) // TODO: CHANGED from objs + 14
+#define key2 	(objs + 12) // TODO: CHANGED from objs + 9
+#define door2 	(objs + 13) // TODO: Changed from objs + 10
+#define key3 	(objs + 14) // TODO: Changed from objs + 11
+#define door3 	(objs + 15) // TODO: " " 12
 /* End: always update this! */
-#define end_of_objs (objs + 15)
+#define end_of_objs (objs + 16) //TODO: was 15
 
 
 

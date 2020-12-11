@@ -1,11 +1,12 @@
 #include <stdio.h>
 
 #include <stdlib.h>
-//#include <unistd.h>
+
 #include "object.h"
 #include "ctype.h"
 #include "helper.h"
 #include "puzzle.h"
+#include "object.h"
 
 /**
  * The first puzzle triggered from the clock
@@ -320,8 +321,9 @@ void trigger_puzzle2()
 		printf("\n");
 	}
 	printf("The puzzle has been solved!\n");
-	puzzle2->state = solved;
-	return 0;
+	sliding_puzzle->state = solved;
+    check_solved_stage1();
+	return;
 }
 
 

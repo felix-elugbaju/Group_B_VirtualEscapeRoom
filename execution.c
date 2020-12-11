@@ -3,14 +3,16 @@
 #include "arghandling.h"
 #include "object.h"
 #include "helper.h"
+#include "puzzle.h"
 
 
 void execute_look(const char *arg){
 	if ((arg != NULL) && (strcmp(arg, "around") == 0)){
 		printf("You are in %s.\n", player->location->description);
 		list_objects_at_location(player->location, visible_object);
-	}
-	else {
+	} else if (strcmp(arg, "closely") == 0)){
+		trigger_puzzle4();
+	} else {
 		/* Another witty message dictating what the user sees when he tries to look at something weird */
 		printf("Even you're not sure what you want to see.\n");
 	}

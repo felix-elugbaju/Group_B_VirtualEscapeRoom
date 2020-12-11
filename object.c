@@ -21,7 +21,7 @@ OBJECT_t objs[] = {
 	"Reading the letter might give you a better idea about its contents\n", stage1},
 	/** A letter **/
 	{"a dusty letter", "letter", hidden_object, regular, 
-	  "dear ashford,\n"
+	"dear ashford,\n"
 	"it has been a Long time since i wrote a letter to you. the weather is\n"
 	"getting pretty cold right now, enough to freeze my Hand. i bought a\n"
 	"cheap sweater for Twelve dollars, and it's better now.\n"
@@ -38,18 +38,18 @@ OBJECT_t objs[] = {
 	"You check the battery, only to find that it's long dead\n"
 	"The hand for seconds is missing.\n"
 	"You might be able to move the hour and minute hand.\n", stage1},
-	{"a silver key", "key1", usable_object, hidden, NULL, stage1},
-	{"a silver door", "door1", visible_object, closed, NULL, stage1},
+	{"a silver_key", "silver_key", usable_object, hidden, NULL, stage1},
+	{"a silver_door", "silver_door", visible_object, closed, NULL, stage1},
 	/** PuzzleA: uses table, letter, and clock **/
-	{"the first puzzle", "puzzle1", puzzle, unsolved, NULL , stage1},
+	{"the clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
+	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
 	
 	
 	/******************** stage 2 objects ********************/
-	{"a gold key", "key2", usable_object, hidden, NULL, stage2},
-	{"a gold door", "door2", visible_object, closed, NULL, stage2},
-	{"a jigsaw puzzle", "jigsaw", puzzle, unsolved, NULL, stage2},
+	{"a gold_key", "gold_key", usable_object, hidden, NULL, stage2},
+	{"a gold_door", "gold_door", visible_object, closed, NULL, stage2},
 	
 	/******************** stage 3 objects ********************/
-	{"a ruby key", "key3", usable_object, hidden, NULL, stage3},
-	{"a ruby door", "door3", visible_object, closed, NULL, stage3}
+	{"a ruby_key", "ruby_key", usable_object, hidden, NULL, stage3},
+	{"a ruby_door", "ruby_door", visible_object, closed, NULL, stage3}
 };

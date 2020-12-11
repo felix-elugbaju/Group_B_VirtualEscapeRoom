@@ -98,22 +98,22 @@ void execute_get(const char *arg){
 	} else if (obj->location == player){					
 		printf("You already have %s\n", arg);
 	} else if (obj->location != player->location){			// player and object are not in the same location
-		printf("You don't see any %s in here\n", arg);		// player might try to get key2 while in stage1
+		printf("You don't see any %s in here\n", arg);		// player might try to get gold_key while in stage1
 	} else {
-		if (strcmp(arg, "key1") == 0){
-			/** Conditions for getting key1 **/
-			if (puzzle1->state == solved && puzzle2->state == solved){
+		if (strcmp(arg, "silver_key") == 0){
+			/** Conditions for getting silver_key **/
+			if (silver_key->state == revealed){
 				obj->location = player;				
 				printf("You moved %s to your bag\n", arg);
 			} else {
 				printf("You have not found %s yet\n", arg);
 			}
-		} else if (strcmp(arg, "key2") == 0){
-			/** Conditions for getting key2 **/
+		} else if (strcmp(arg, "gold_key") == 0){
+			/** Conditions for getting gold_key **/
 			obj->location = player;				
 			printf("You moved %s to your bag\n", arg);
-		} else if (strcmp(arg, "key3") == 0){
-			/** Conditions for getting key3 **/
+		} else if (strcmp(arg, "ruby_key") == 0){
+			/** Conditions for getting ruby_key **/
 			obj->location = player;				
 			printf("You moved %s to your bag\n", arg);
 		}
@@ -139,25 +139,25 @@ void execute_use(const char *arg){
 	} else if (obj->location != player){					// player does not have object yet
 		printf("You have not found %s yet\n", arg);	
 	} else if (obj->location == player){					
-		if (strcmp(obj->tag,"key1")==0 && strcmp(player->location->tag,"stage1")==0)	{
-			if (door1->state == open){
+		if (strcmp(obj->tag,"silver_key")==0 && strcmp(player->location->tag,"stage1")==0)	{
+			if (silver_door->state == open){
 				printf("The silver door seems to be already open\n");
 			} else {
-				door1->state = open;
+				silver_door->state = open;
 				printf("You used %s on the silver door\nThe door can now be opened\n", arg);
 			}
-		} else if (strcmp(obj->tag,"key2")==0 && strcmp(player->location->tag,"stage2")==0)	{
-			if (door2->state == open){
+		} else if (strcmp(obj->tag,"gold_key")==0 && strcmp(player->location->tag,"stage2")==0)	{
+			if (gold_door->state == open){
 				printf("The gold door seems to be already open\n");
 			} else {
-				door2->state = open;
+				gold_door->state = open;
 				printf("You used %s on the gold door\nThe door can now be opened\n", arg);
 			}
-		} else if (strcmp(obj->tag,"key3")==0 && strcmp(player->location->tag,"stage3")==0)	{
-			if (door3->state == open){
+		} else if (strcmp(obj->tag,"ruby_key")==0 && strcmp(player->location->tag,"stage3")==0)	{
+			if (ruby_door->state == open){
 				printf("The ruby door seems to be already open\n");
 			} else {
-				door3->state = open;
+				ruby_door->state = open;
 				printf("You used %s on the ruby door\nThe door can now be opened\n", arg);
 			}
 		} else {

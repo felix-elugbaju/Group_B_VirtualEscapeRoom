@@ -25,7 +25,7 @@ void check_solved_stage1(){
 		printf("\nYou hear a clank!\n"
 		"Suddently, out of nowhere, a silver key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"
-		"You might be able to pick up (get) the silver_key.");
+		"You might be able to pick up (get) the silver_key.\n");
 		return;
 	}
 }

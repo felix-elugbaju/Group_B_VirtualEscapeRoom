@@ -22,12 +22,12 @@ OBJECT_t objs[] = {
 	/** A letter **/
 	{"a dusty letter", "letter", hidden_object, regular, 
 	"dear ashford,\n"
-	"it has been a Long time since i wrote a letter to you. the weather is\n"
-	"getting pretty cold right now, enough to freeze my Hand. i bought a\n"
-	"cheap sweater for Twelve dollars, and it's better now.\n"
-	"the farmers' market is a Short walk from where i live. i remember how\n"
-	"i injured my left Hand once while trying to ride a bicycle there. The\n"
-	"vendors are preparing their stalls for christmas which is only Seven \n"
+	"it has been a LONG time since i wrote a letter to you. the weather is\n"
+	"getting pretty cold right now, enough to freeze my HAND. i bought a\n"
+	"cheap sweater for TWELVE dollars, and it's better now.\n"
+	"the farmers' market is a SHORT walk from where i live. i remember how\n"
+	"i injured my left HAND once while trying to ride a bicycle there. The\n"
+	"vendors are preparing their stalls for christmas which is only SEVEN \n"
 	"days away.\n"
 	"i really wish you could be here with all of us during the holiday. we..\n"
 	"............................\n"
@@ -41,9 +41,13 @@ OBJECT_t objs[] = {
 	{"a silver_key", "silver_key", usable_object, hidden, NULL, stage1},
 	{"a silver_door", "silver_door", visible_object, closed, NULL, stage1},
 	/** PuzzleA: uses table, letter, and clock **/
-	{"the clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
+	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
 	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
-	
+	{"a hint for the clock_puzzle", "clock_hint", hint, unused, 
+	"hands of the clock..\n"
+	"dance as they flock...\n"
+	"towards the writings of the old....\n"
+	"CAPITAL of wishes manifold\n", stage1},
 	
 	/******************** stage 2 objects ********************/
 	{"a gold_key", "gold_key", usable_object, hidden, NULL, stage2},

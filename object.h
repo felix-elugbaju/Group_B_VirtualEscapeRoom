@@ -10,7 +10,8 @@ typedef enum type{
 	hidden_object = 2,
 	usable_object = 3,
 	puzzle = 4,
-	actor = 5
+	hint = 5,
+	actor = 6
 } type_t;
 
 typedef enum state{
@@ -18,7 +19,8 @@ typedef enum state{
 	confined = 2, unrestricted = 3,		// For stages
 	unsolved = 4, solved = 5,			// For puzzles
 	hidden = 6, revealed = 7,			// For keys
-	regular = 8							// generic state
+	used = 8, unused =9,				// For hints
+	regular = 10						// generic state
 } state_t;
 
 
@@ -55,8 +57,10 @@ extern OBJECT_t objs[];
 /* Puzzles */
 #define clock_puzzle 	(objs + 13)
 #define sliding_puzzle 	(objs + 14)
+/* Hints */
+#define clock_hint		(objs + 15)
 /* End: always update this! */
-#define end_of_objs (objs + 15)
+#define end_of_objs (objs + 16)
 
 
 

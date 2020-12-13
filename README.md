@@ -75,9 +75,9 @@ In order to compile the program:
 
 
 # <a name = "gameplay"></a>
-### Gameplay 
+### User Manual
 
-See the [Gameplay Section](https://www.google.com) in the Wiki. 
+See the [User Manual](https://www.google.com) in the Wiki. 
 
 # <a name = "development"></a>
 ### For developers

@@ -24,17 +24,20 @@ Opening one door will lead to a different room with a distinctively different se
 
     Makefile
     src/arghandling.c
-    include/arghandling.h
     src/execution.c
-    include/execution.h
     src/helper.c
-    include/helper.h
     src/main.c
     src/object.c
-    include/object.h
     src/parsenexec.c
-    include/parsenexec.h
     src/puzzle.c
+
+## Header Files
+
+    include/arghandling.h
+    include/execution.h
+    include/helper.h
+    include/object.h
+    include/parsenexec.h
     include/puzzle.h
 
 ## Building the project

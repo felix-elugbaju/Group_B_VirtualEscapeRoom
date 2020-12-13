@@ -22,20 +22,20 @@ Opening one door will lead to a different room with a distinctively different se
 
 ## Source Files
 
-    makefile
-    arghandling.c
-    arghandling.h
-    execution.c
-    execution.h
-    helper.c
-    helper.h
-    main.c
-    object.c
-    object.h
-    parsenexec.c
-    parsenexec.h
-    puzzle.c
-    puzzle.h
+    Makefile
+    src/arghandling.c
+    include/arghandling.h
+    src/execution.c
+    include/execution.h
+    src/helper.c
+    include/helper.h
+    src/main.c
+    src/object.c
+    include/object.h
+    src/parsenexec.c
+    include/parsenexec.h
+    src/puzzle.c
+    include/puzzle.h
 
 ## Building the project
 
@@ -47,9 +47,9 @@ Opening one door will lead to a different room with a distinctively different se
 
 3. Call make by typing
 
-        make
+        make all
 
-4. The program will be built into `build/VirtualEscapeRoom`, so you can run the program by
+4. The program will be built into `bin/Application.OUT`, so you can run the program by
 
-        ./build/VirtualEscapeRoom
+        ./bin/Application.OUT
 

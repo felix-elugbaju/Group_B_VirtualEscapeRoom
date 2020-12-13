@@ -4,9 +4,11 @@
 #### Carleton University
 
 # Table of Contents
-1. [Descripton](#Description)
+1. [Description](#Description)
 2. [Source File Organization](#dirstructure)
-
+3. [Installation Instructions](#install)
+4. [Game Play](#gameplay)
+5. [For Developers](#development)
 
 # <a name="Description"></a>
 ## Description
@@ -30,6 +32,8 @@ through the grand door of the final room.
 ## Source File Organization
 
 The complete file structure is as follows: 
+
+
 /bin
 
 /build
@@ -60,7 +64,18 @@ The complete file structure is as follows:
 
 /test
 
-### Installing
-Lorem ipsum ...
+# <a name ="install"></a>
+### Compilation Instructions
 
-### Packaging
+In order to compile the program:
+1) Open the command prompt
+2) Navigate to the root directory of the project
+3) Enter ""make all"" into the command line
+4) The application may now be run by entering ""./bin/Application.OUT""" into the command line
+
+
+# <a name = "gameplay"></a>
+### Gameplay 
+
+# <a name = "development"></a>
+### For developers

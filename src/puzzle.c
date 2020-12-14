@@ -12,15 +12,35 @@
  */
 void trigger_puzzle1(){
 	printf("\nYou found a clock-puzzle!\n");
-	printf("Do you want to manually set the time? y/n\n");
-	char user_intent = fgetc(stdin);
-	fflush(stdin);		// flush the input buffer
-	
-	if(tolower(user_intent) == 'n'){
-		return;
-	} else if (tolower(user_intent) == 'y'){
-		do {
+	/********** Instructions for puzzle 1 **********/
+	instructions:
+		printf("\nInstructions:\n"
+		"********************************************************************\n"
+		"*  c. continue:     continue solving the puzzle                    *\n"
+		"*  h. hint:         get a hint about the puzzle (reduced reward)   *\n"
+		"*  i. instructions: see instructions for this puzzle               *\n"
+		"*  q. quit:         quit solving the puzzle and do something else  *\n"
+		"********************************************************************\n");
+	/********** Start of the puzzle **********/
+	puzzle:
+		printf("\nWhat would you like to do? c/h/i/q\n");
+		char user_intent = fgetc(stdin);
+		fflush(stdin);		// flush the input buffer
+		
+		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
+			return;
+		} else if (tolower(user_intent) == 'i'){
+			goto instructions;
+		} else if (tolower(user_intent) == 'h'){
+			printf("\n%s\n", clock_hint->detailed_description); 	//show hint for the clock_puzzle
+			clock_hint->state = used;
+			goto puzzle;
+		} else if (tolower(user_intent) == 'c'){
 			int hour_hand, minute_hand = 0;
+			printf("\nYou try to rotate the clock hands using your fingers.\n"
+			"Years of dust seems to have made that impossible.\n"
+			"You try the knob at the back.\n"
+			"It rotates...\n");
 			printf("\nSet hour hand to: ");
 			scanf("%d", &hour_hand);
 			printf("Set minute hand to: ");
@@ -28,29 +48,25 @@ void trigger_puzzle1(){
 			fflush(stdin);
 			printf("\nYou turned the clock hands using the knobs at the back.\n");
 			if (hour_hand>=1 && hour_hand<=12 && minute_hand>=0 && minute_hand<=59){
-//				printf("\nThe time is now  %d:%d\n", hour_hand, minute_hand);
 				if (hour_hand==7 && minute_hand==12){
 					clock_puzzle->state = solved;
 					printf("Suddenly, the clock starts to tick!\n"
 					"There seems to be a different energy source somewhere.\n"
 					"But that doesn't seem to be quite enough as the clock stops again.\n"
-					"Congrats! You have solved this puzzle!\n\n");
+					"Congrats! You have solved this puzzle!\n");
 					check_solved_stage1();		// check if all puzzles have been solved
 					return;
 				} else {
-					printf("But nothing happened!\n\n");
+					printf("But nothing happened!\n");
 				}
 			} else {
 				printf("\nI'm not sure what you're trying to do.\n"
-				"You must have never seen a real clock!\n\n");
+				"You must have never seen a real clock!\n");
 			}
-			printf("Do you want to try again? y/n\n");
-			user_intent = fgetc(stdin);
-			fflush(stdin);
-		} while(tolower(user_intent) == 'y');
-	} else {
-		printf("It seems you want to do neither!\n");
-	}
+			goto puzzle;
+		} else {
+			printf("It seems you don't want to do anything at all!\n");
+		}
 }
 
 

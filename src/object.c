@@ -87,11 +87,11 @@ OBJECT_t objs[] = {
     {"a piano_puzzle", "piano_puzzle", puzzle, unsolved, NULL, stage2},
 	
 	/********************  Hints ********************/
-    {"a hint for the clock_puzzle", "clock_hint", hint, unused,
-    "hands of the clock..\n"
-    "dance as they flock...\n"
-    "towards the writings of the old....\n"
-    "CAPITAL of wishes manifold\n", stage2},
+    {"a hint for the clock_puzzle", "clock_hint", hint, unused, 
+	"hands of the clock..\n"
+	"dance as they flock...\n"
+	"towards the writings of the old....\n"
+	"CAPITAL of wishes manifold.\n", clock_puzzle},
 	
     
 	/* the graffiti and the 4th puzzle */

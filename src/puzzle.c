@@ -58,14 +58,14 @@ void trigger_puzzle1(){
 
 void trigger_puzzle2()
 {
-    printf("Do you want to attempt sliding the pieces around? (y/n)"); // TODO: ADD
-    char user_intent = fgetc(stdin); // TODO: ADD
+    printf("Do you want to attempt sliding the pieces around? (y/n)");
+    char user_intent = fgetc(stdin);
     fflush(stdin);        // flush the input buffer
-    if(tolower(user_intent) == 'n'){ // TODO: ADD
-        return; //TODO: ADD
-    } // TODO: ADD
-    else //TODO: ADD
-    { //TODO: ADD
+    if(tolower(user_intent) == 'n'){
+        return;
+    }
+    else
+    { 
     
 
         char puzzle[PUZZLE_LENGTH][PUZZLE_LENGTH] = {
@@ -333,6 +333,7 @@ void trigger_puzzle2()
         printf("The puzzle has been solved!\n");
         sliding_puzzle->state = solved;
         check_solved_stage1();
+        fflush(stdin);        // flush the input buffer
         return;
     }
 }

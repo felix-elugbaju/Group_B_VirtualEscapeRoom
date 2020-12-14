@@ -39,6 +39,9 @@ void execute_examine(const char *arg){
 			if (strcmp(arg, "clock") == 0 && player->location == stage1){
 				trigger_puzzle1();
 			}
+            if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
+                trigger_puzzle2();
+            }
 		}
 	} else {
 		/* When there's no examination target */

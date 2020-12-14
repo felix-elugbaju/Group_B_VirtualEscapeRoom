@@ -3,14 +3,20 @@
 #include "arghandling.h"
 #include "object.h"
 #include "helper.h"
+#include "puzzle.h"
 
 
 void execute_look(const char *arg){
 	if ((arg != NULL) && (strcmp(arg, "around") == 0)){
 		printf("You are in %s.\n", player->location->description);
 		list_objects_at_location(player->location, visible_object);
-	}
-	else {
+	} else if (strcmp(arg, "closely") == 0){
+		if(player->location == graffiti_puzzle->location){
+			trigger_puzzle4();
+		} else {
+			printf("There's nothing here that warrants that much attention!");
+		}
+	} else {
 		/* Another witty message dictating what the user sees when he tries to look at something weird */
 		printf("Even you're not sure what you want to see.\n");
 	}
@@ -22,7 +28,7 @@ void execute_examine(const char *arg){
 		if (obj == NULL){
 			/* When the examination target doesn't match any object */
 			printf("Unfortunately, you couldn't find anything new\n");
-		} else if (!(obj->type == visible_object)){
+		} else if (!(obj->type == visible_object || obj->type == usable_object)){
 			/* When the examination is not possible because of type restrictions */
 			printf("Maybe you should try to examine something different\n");
 		} else {
@@ -74,7 +80,7 @@ void execute_go(const char *arg){
 		printf("%s is not a location\n", arg);
 	} else if (player->location->state == confined){			// trying to move from a confined loaction
 		printf("It seems that all exits from this room are sealed\n"
-		"You should look for a way to open doors\n", arg);
+		"You should look for a way to open doors\n");
 	} else if (player->location->state == unrestricted){			// move from an unrestricted area
 		printf("Moving...\n");
 		printf("... ... ...\n");
@@ -98,22 +104,22 @@ void execute_get(const char *arg){
 	} else if (obj->location == player){					
 		printf("You already have %s\n", arg);
 	} else if (obj->location != player->location){			// player and object are not in the same location
-		printf("You don't see any %s in here\n", arg);		// player might try to get key2 while in stage1
+		printf("You don't see any %s in here\n", arg);		// player might try to get gold_key while in stage1
 	} else {
-		if (strcmp(arg, "key1") == 0){
-			/** Conditions for getting key1 **/
-			if (puzzle1->state == solved && puzzle2->state == solved){
+		if (strcmp(arg, "silver_key") == 0){
+			/** Conditions for getting silver_key **/
+			if (silver_key->state == revealed){
 				obj->location = player;				
 				printf("You moved %s to your bag\n", arg);
 			} else {
 				printf("You have not found %s yet\n", arg);
 			}
-		} else if (strcmp(arg, "key2") == 0){
-			/** Conditions for getting key2 **/
+		} else if (strcmp(arg, "gold_key") == 0){
+			/** Conditions for getting gold_key **/
 			obj->location = player;				
 			printf("You moved %s to your bag\n", arg);
-		} else if (strcmp(arg, "key3") == 0){
-			/** Conditions for getting key3 **/
+		} else if (strcmp(arg, "ruby_key") == 0){
+			/** Conditions for getting ruby_key **/
 			obj->location = player;				
 			printf("You moved %s to your bag\n", arg);
 		}
@@ -139,32 +145,32 @@ void execute_use(const char *arg){
 	} else if (obj->location != player){					// player does not have object yet
 		printf("You have not found %s yet\n", arg);	
 	} else if (obj->location == player){					
-		if (strcmp(obj->tag,"key1")==0 && strcmp(player->location->tag,"stage1")==0)	{
-			if (door1->state == open){
+		if (strcmp(obj->tag,"silver_key")==0 && strcmp(player->location->tag,"stage1")==0)	{
+			if (silver_door->state == open){
 				printf("The silver door seems to be already open\n");
 			} else {
-				door1->state = open;
+				silver_door->state = open;
 				printf("You used %s on the silver door\nThe door can now be opened\n", arg);
 			}
-		} else if (strcmp(obj->tag,"key2")==0 && strcmp(player->location->tag,"stage2")==0)	{
-			if (door2->state == open){
+		} else if (strcmp(obj->tag,"gold_key")==0 && strcmp(player->location->tag,"stage2")==0)	{
+			if (gold_door->state == open){
 				printf("The gold door seems to be already open\n");
 			} else {
-				door2->state = open;
+				gold_door->state = open;
 				printf("You used %s on the gold door\nThe door can now be opened\n", arg);
 			}
-		} else if (strcmp(obj->tag,"key3")==0 && strcmp(player->location->tag,"stage3")==0)	{
-			if (door3->state == open){
+		} else if (strcmp(obj->tag,"ruby_key")==0 && strcmp(player->location->tag,"stage3")==0)	{
+			if (ruby_door->state == open){
 				printf("The ruby door seems to be already open\n");
 			} else {
-				door3->state = open;
+				ruby_door->state = open;
 				printf("You used %s on the ruby door\nThe door can now be opened\n", arg);
 			}
 		} else {
-			printf("Nothing happened!\n", arg);
+			printf("Nothing happened!\n");
 		}
 	} else {	
-		printf("Nothing happened!\n", arg);
+		printf("Nothing happened!\n");
 	}
 }
 
@@ -201,5 +207,6 @@ void execute_help(){
 	"*  7. bag:              check your bag to see what you can find              *\n"
 	"*  8. hint:             get a hint if you are stuck                          *\n"
 	"*  9. help:             get a list of helpful common commands                *\n"
+    "* 10. quit              exit the program gracefully                          *\n"
 	"******************************************************************************\n");
 }

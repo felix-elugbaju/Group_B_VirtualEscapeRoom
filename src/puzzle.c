@@ -94,6 +94,7 @@ void trigger_puzzle2()
         printf("S => down\n");
         printf("D => right\n");
         printf("Enter 'q' to quit, or reset the puzzle\n");
+        printf("Enter 'h' for a hint, but be careful! Your prize will be affected!\n");
         printf("Type in enter to confirm your selection\n");
         printf("The '?' is a free space to slide tiles in\n");
         printf("\n");
@@ -101,6 +102,7 @@ void trigger_puzzle2()
 
         int cursX = 1;
         int cursY = 0;
+        int toggle_screen = 0;
         for (int k = 0; k < 100; k++)
         {
             int choice = rand() % 4;
@@ -246,7 +248,18 @@ void trigger_puzzle2()
             if (input_char == 113)
             {
                 printf("Resetting the puzzle\n");
+                fflush(stdin);
                 return;
+            }
+            
+            if (input_char == 104)
+            {
+            	printf("HINT\n");
+            	printf("%s", slider_hint->detailed_description);
+            	printf("Press the ENTER key to continue...\n");
+            	fflush(stdin);
+            	getchar();
+            	slider_hint->state = used;
             }
             
 
@@ -261,6 +274,7 @@ void trigger_puzzle2()
                 printf("S => down\n");
                 printf("D => right\n");
                 printf("Enter 'q' to quit, or reset the puzzle\n");
+                printf("Enter 'h' for a hint, but be careful! Your prize will be affected!\n");
                 printf("Type in enter to confirm your selection\n");
                 printf("The '?' is a free space\n");
                 printf("\n");
@@ -481,6 +495,7 @@ void trigger_puzzle5()
     		printf("What string of notes do you play on the piano? (For simplicity, assume"
     		" that the only valid notes are any combination of (notes may repeat) "
     		"of 'A', 'B', 'C', 'D', 'E', 'F', 'G' \n");
+    		printf("Enter h for a hint, but be careful! Your prize will be affected\n");
     		printf("Enter 'q' to quit\n");
     		scanf("%s", noteString);
 
@@ -491,6 +506,12 @@ void trigger_puzzle5()
     		else if (strcmp(noteString, "q") == 0) {
     			fflush(stdin); 
     			return;
+    		}
+    		else if (strcmp(noteString, "h") == 0) {
+    			fflush(stdin);
+    			printf("%s", piano_hint->detailed_description);
+    			printf("Press the ENTER key to continue\n");
+    			getchar();
     		}
     		else {
     			printf("The out of tune piano is ghastly to listen to.\n");
@@ -512,6 +533,7 @@ void trigger_puzzle5()
     		printf("What string of notes do you play on the piano? (For simplicity, assume"
     		"that the only valid notes are any combination of (notes may repeat) "
     		"of 'A', 'B', 'C', 'D', 'E', 'F', 'G' \n");
+    		printf("Enter h for a hint, but be careful! Your prize will be affected\n");
     		printf("Enter 'q' to quit\n");
     		scanf("%s", noteString);
 
@@ -522,6 +544,12 @@ void trigger_puzzle5()
     		else if (strcmp(noteString, "q") == 0) {
     			fflush(stdin); 
     			return;
+    		}
+    		else if (strcmp(noteString, "h") == 0) {
+    			fflush(stdin);
+    			printf("%s", piano_hint->detailed_description);
+    			printf("Press the ENTER key to continue\n");
+    			getchar();
     		}
     		else {
     			printf("The out of tune piano is ghastly to listen to.\n");

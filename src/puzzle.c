@@ -1,7 +1,6 @@
 #include <stdio.h>
-
 #include <stdlib.h>
-
+#include <string.h>
 #include "object.h"
 #include "ctype.h"
 #include "helper.h"
@@ -53,6 +52,8 @@ void trigger_puzzle1(){
 		printf("It seems you want to do neither!\n");
 	}
 }
+
+
 
 
 
@@ -333,6 +334,8 @@ void trigger_puzzle2()
         printf("The puzzle has been solved!\n");
         sliding_puzzle->state = solved;
         check_solved_stage1();
+        
+        
         fflush(stdin);        // flush the input buffer
         return;
     }
@@ -439,7 +442,7 @@ void trigger_puzzle4(){
 						"In place of the question mark, you now see a 4.\n"
 						"The keypad doesn't respond to your presses anymore.\n"
 						"Congrats! You have solved this puzzle!\n\n");
-//						check_solved_stage2();		// check if all puzzles have been solved
+						check_solved_stage2();		// check if all puzzles have been solved
 						return;
 					} else {
 						printf("But nothing happened!\n\n");
@@ -459,3 +462,81 @@ void trigger_puzzle4(){
 		printf("It seems you want to do neither!\n");
 	}
 }
+
+void trigger_puzzle5()
+{
+	printf("This piano is grossly out of tune!\n");
+	printf("Do you play it anyways?\n");
+	char user_intent = fgetc(stdin);
+    fflush(stdin);        // flush the input buffer
+    if(tolower(user_intent) == 'n'){
+        return;
+    }
+    else {
+    	int done = 0;
+    	char * firstVerse = "CGCGCGCEG";
+    	char * quit = "q";
+    	while (!done) {
+    		char noteString[10];
+    		printf("What string of notes do you play on the piano? (For simplicity, assume"
+    		" that the only valid notes are any combination of (notes may repeat) "
+    		"of 'A', 'B', 'C', 'D', 'E', 'F', 'G' \n");
+    		printf("Enter 'q' to quit\n");
+    		scanf("%s", noteString);
+
+    		if (strcmp(noteString, firstVerse) == 0) {
+    			printf("An amazing first verse, albeit out of tune\n");
+    			done = 1;
+    		}
+    		else if (strcmp(noteString, "q") == 0) {
+    			fflush(stdin); 
+    			return;
+    		}
+    		else {
+    			printf("The out of tune piano is ghastly to listen to.\n");
+    			printf("This string of notes doesn't sound like a song at all\n");
+    			printf("Maybe there is sheet music nearby?\n");
+    		}
+    	}
+    	
+    	printf("An internal mechanism clinks around in the piano.\n");
+    	printf("However, it stopped! It looks like another combination\n");
+    	printf("Of notes is needed. A second verse if you will.\n");
+    	printf("\n");
+    	
+    	done = 0;
+    	char * secondVerse = "FDFDFDBDG";
+    	while (!done) {
+    		char noteString[10];
+    		printf("It is time to enter the second verse\n");
+    		printf("What string of notes do you play on the piano? (For simplicity, assume"
+    		"that the only valid notes are any combination of (notes may repeat) "
+    		"of 'A', 'B', 'C', 'D', 'E', 'F', 'G' \n");
+    		printf("Enter 'q' to quit\n");
+    		scanf("%s", noteString);
+
+    		if (strcmp(noteString, secondVerse) == 0) {
+    			printf("An amazing first verse, albeit out of tune\n");
+    			done = 1;
+    		}
+    		else if (strcmp(noteString, "q") == 0) {
+    			fflush(stdin); 
+    			return;
+    		}
+    		else {
+    			printf("The out of tune piano is ghastly to listen to.\n");
+    			printf("This string of notes doesn't sound like a song at all\n");
+    			printf("Maybe there is sheet music nearby?\n");
+    		}
+    	}
+    	printf("The piano's internal mechanism rotates again\n");
+    	printf("It appears you have solved the puzzle!\n");
+    	fflush(stdin);        // flush the input buffer
+    	piano_puzzle->state = solved;
+    	check_solved_stage2();
+    }
+} 
+
+
+
+

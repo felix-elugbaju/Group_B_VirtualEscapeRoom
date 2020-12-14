@@ -48,27 +48,31 @@ extern OBJECT_t objs[];
 #define letter	(objs + 5)
 #define clock 	(objs + 6)
 #define jigsaw_puzzle (objs + 7)
+/* Objects Visible in Stage 2 */
+#define sheet_musc (objs + 8)
+#define old_piano    (objs + 9)
 /* Doors and Keys */
-#define silver_key 		(objs + 8)
-#define silver_door 	(objs + 9)
-#define gold_key 		(objs + 10)
-#define gold_door 		(objs + 11)
-#define ruby_key 		(objs + 12)
-#define ruby_door 		(objs + 13)
+#define silver_key 		(objs + 10)
+#define silver_door 	(objs + 11)
+#define gold_key 		(objs + 12)
+#define gold_door 		(objs + 13)
+#define ruby_key 		(objs + 14)
+#define ruby_door 		(objs + 15)
 /* Puzzles */
-#define clock_puzzle 	(objs + 14)
-#define sliding_puzzle 	(objs + 15)
+#define clock_puzzle 	(objs + 16)
+#define sliding_puzzle 	(objs + 17)
+#define piano_puzzle    (objs + 18)
 /* Hints */
-#define clock_hint		(objs + 16)
-#define graffiti 		(objs + 17)
-#define graffiti_puzzle (objs + 18)
+#define clock_hint		(objs + 19)
+#define graffiti 		(objs + 20)
+#define graffiti_puzzle (objs + 21)
 /* Lock with code */
-#define blue_lock 		(objs + 19)
-#define manual 			(objs + 20)
-#define code_puzzle		(objs + 21)
+#define blue_lock 		(objs + 22)
+#define manual 			(objs + 23)
+#define code_puzzle		(objs + 24)
 
 /* End: always update this! */
-#define end_of_objs (objs + 22)
+#define end_of_objs (objs + 25)
 
 
 

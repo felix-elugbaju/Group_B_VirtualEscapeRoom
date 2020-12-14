@@ -42,6 +42,10 @@ void execute_examine(const char *arg){
             if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
                 trigger_puzzle2();
             }
+            if (strcmp(arg, "old_piano") == 0 && player->location == stage2)
+            {
+            	trigger_puzzle5();
+            } 
 		}
 	} else {
 		/* When there's no examination target */
@@ -183,6 +187,7 @@ void execute_open(const char *arg){
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
+	printf("It seems that %s however is in state %d\n", silver_door->tag, silver_door->state);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
 	} else if (obj->location != player->location){				// door and player not in the same room

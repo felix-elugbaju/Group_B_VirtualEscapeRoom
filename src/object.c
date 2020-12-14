@@ -43,7 +43,20 @@ OBJECT_t objs[] = {
         "It looks like a piece is missing.\n"
         "You might be able to slide the pieces around\n", stage1},
         
-    
+    /************************* Objects Visible in Stage 2 *************************/
+    {"Some sheet_music", "sheet_music", visible_object, regular,
+      "It reads 'Eine Kleine Nachtmusik en C MAJOR' by J.S. Bach\n"
+      "CGCGCG??? there appears to be a massive blot of ink spilled on the page\n"
+      "Looking further down the page yields 'C Major Triad'\n"
+      "Followed by another massive blot of ink, followed by a note: \n"
+      "My apologies for ruining Bach's work. In Unix: FILE DESCRIPTOR,"
+      "FILE DESCRIPTOR, FILE DESCRIPTOR, for debugging use GDB. However a BROKEN TRIAD"
+      " IN G MAJOR might work a bit better.\n", stage2}, 
+      
+    {"An old_piano", "old_piano", visible_object, regular, 
+    "This piano is grossly out of tune!\n"
+    "And to make matters worse, someone tore off the sharps and flats!\n"
+    "This crime couldn't be... accidental?! Ha! \n", stage2}, 
     /************************* Doors and Keys *************************/
 	{"a silver_key", "silver_key", usable_object, hidden, 
 	"The key glows with a bright silver color\n"
@@ -71,7 +84,7 @@ OBJECT_t objs[] = {
     /************************* Puzzles *************************/
 	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
 	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
-
+    {"a piano_puzzle", "piano_puzzle", puzzle, unsolved, NULL, stage2},
 	
 	/********************  Hints ********************/
     {"a hint for the clock_puzzle", "clock_hint", hint, unused,

@@ -21,4 +21,10 @@ extern int list_objects_at_location(OBJECT_t *location, type_t type);
 extern void check_solved_stage1();
 
 
+/**
+ * @brief checks whether all puzzles in stage 1 has been solved
+ */
+extern void check_solved_stage2();
+
+
 #endif

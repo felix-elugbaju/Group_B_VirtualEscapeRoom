@@ -19,3 +19,11 @@ extern void trigger_puzzle2();
  * @brief a function that is triggered when the fourth graffiti_puzzle is activated
  */
 extern void trigger_puzzle4();
+
+
+
+/**
+ * @brief a function that is triggered when the fourth graffiti_puzzle is activated
+ */
+
+extern void trigger_puzzle5();

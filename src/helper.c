@@ -23,9 +23,22 @@ void check_solved_stage1(){
 	if (clock_puzzle->state == solved && sliding_puzzle->state == solved){
 		silver_key->state = revealed;		//reveal the first key
 		printf("\nYou hear a clank!\n"
-		"Suddently, out of nowhere, a silver key falls in front of you.\n"
+		"Suddenly, out of nowhere, a silver key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the silver_key.\n");
 		return;
 	}
+}
+
+void check_solved_stage2(){
+	if (piano_puzzle->state == solved && graffiti_puzzle->state == solved){
+		gold_key->state = revealed;		//reveal the first key
+		printf("\nYou hear a clank!\n"
+		"Suddenly, out of nowhere, a silver key falls in front of you.\n"
+		"The color of the key seems to resemble that of the door.\n"
+		"You might be able to pick up (get) the gold_key.\n");
+		return;
+	}
+
+
 }

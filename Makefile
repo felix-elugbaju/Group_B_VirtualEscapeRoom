@@ -9,12 +9,7 @@ build_folder := $(shell mkdir -p build)
 results_folder := $(shell mkdir -p program_output)
 
 
-#TARGET TO GENERATE ALL THE EXECUTABLES
-.PHONY: all
-all: bin/Application.OUT
-
 #TARGETS TO GENERATE THE OBJECT FILES
-
 build/arghandling.o: src/arghandling.c
 	$(CC) -g -c $(INCLUDE_DIR) src/arghandling.c -o build/arghandling.o 
 
@@ -37,9 +32,14 @@ build/puzzle.o: src/puzzle.c
 	$(CC) -g -c $(INCLUDE_DIR) src/puzzle.c -o build/puzzle.o
 	
 #TARGET TO GENERATE THE EXECUTABLE OF THE PROGRAM
-bin/Application.OUT:  build/execution.o build/arghandling.o build/helper.o build/main.o build/object.o build/parsenexec.o build/puzzle.o 
+executable:  build/execution.o build/arghandling.o build/helper.o build/main.o build/object.o build/parsenexec.o build/puzzle.o 
 	$(CC) -g build/execution.o build/arghandling.o build/helper.o build/main.o \
-                 build/object.o build/parsenexec.o build/puzzle.o -o bin/Application.OUT
+                 build/object.o build/parsenexec.o build/puzzle.o -o bin/VER.exe
+
+
+#TARGET TO GENERATE ALL THE EXECUTABLES
+.PHONY: all
+all: executable
 
 #CLEAN COMMANDS
 .PHONY: clean

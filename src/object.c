@@ -100,6 +100,9 @@ OBJECT_t objs[] = {
 	"The design seems to match that of several criss-crossing lines\n"
 	"Looking Closely might lead to some interesting patterns\n", stage2},
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
+	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
+	"Intertwined fates connect the occult...\n"
+	"the connections define the ultimate result.\n" , graffiti_puzzle},
     
     
     /******************** Lock with code ********************/

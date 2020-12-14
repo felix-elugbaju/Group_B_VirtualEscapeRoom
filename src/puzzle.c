@@ -358,86 +358,106 @@ void trigger_puzzle2()
 }
 
 
+/**
+ * The fourth puzzle triggered from the graffiti
+ */
 void trigger_puzzle4(){
 	printf("You look closely at the lines\n"
-	"This seems like a lot of effort was put into the carving\n"
+	"It seems like a lot of effort was put into the carvings\n"
 	"The carvings are traceable.\n");
 	
-	printf("\nYou found a graffiti-puzzle!\n"
-	"Do you trace the lines? y/n\n");
-	char user_intent = fgetc(stdin);
-	fflush(stdin);		// flush the input buffer
-	
-	if(tolower(user_intent) == 'n'){
-		return;
-	} else if (tolower(user_intent) == 'y'){
-		/* Show the graffiti puzzle */
-		printf("\nAs you trace your finger through the lines...\n"
-		"you start to see some common alignments.\n"
-		"You find: \n"
-		"\n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"________|________|________|________\n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"________|________|________|________\n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"________|________|________|________\n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"        |        |        |        \n"
-		"\n"
-		"and\n"
-		"\n"
-		"        |       \n"
-		"        |       \n"
-		"        |       \n"
-		"________|_______\n"
-		"        |       \n"
-		"        |       \n"
-		"        |       \n"
-		"        |       \n"
-		"\n"
-		"and\n"
-		"\n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"________|________|________\n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"________|________|________\n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"        |        |        \n"
-		"\n");
-		
-		
-		printf("You also find three bright red number slots.\n"
-		"\n"
-		"[9] [1] [?]\n"
-		"\n"
-		"The [?] slot is accompanied by a keypad containing single-digit keys\n"
-		"you might be able to press the keys and see what happens.\n\n");
-		
-		printf("Do you use the keypad? y/n\n");
-		user_intent = fgetc(stdin);
+	printf("\nYou found a graffiti-puzzle!\n");
+	/********** Instructions for puzzle 4 **********/
+	instructions:
+		printf("\nInstructions:\n"
+		"********************************************************************\n"
+		"*  c. continue:     continue solving the puzzle                    *\n"
+		"*  k. keypad:       start using the keypad again                   *\n"
+		"*  p. pattern:      watch the puzzle pattern again                 *\n"
+		"*  h. hint:         get a hint about the puzzle (reduced reward)   *\n"
+		"*  i. instructions: see instructions for this puzzle               *\n"
+		"*  q. quit:         quit solving the puzzle and do something else  *\n"
+		"********************************************************************\n");
+	/********** Start of the puzzle **********/
+	puzzle:
+		printf("\nWhat would you like to do? c/k/p/h/i/q\n");
+		char user_intent = fgetc(stdin);
 		fflush(stdin);		// flush the input buffer
-
-		if(tolower(user_intent) == 'n'){
+		
+		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
 			return;
-		} else if (tolower(user_intent) == 'y'){
-			int user_result = 0;
-			do{ 
+		} else if (tolower(user_intent) == 'i'){
+			goto instructions;
+		} else if (tolower(user_intent) == 'h'){
+			printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
+			clock_hint->state = used;
+			goto puzzle;
+		} else if (tolower(user_intent) == 'k'){
+			goto keypad;
+		} else if (tolower(user_intent) == 'p'){
+			goto pattern;
+		} else if (tolower(user_intent) == 'c'){
+			/***** Watch the pattern *****/
+			pattern:
+				printf("\nAs you trace your finger through the lines...\n"
+				"you start to see some common alignments.\n"
+				"You find: \n"
+				"\n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"________|________|________|________\n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"________|________|________|________\n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"________|________|________|________\n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"        |        |        |        \n"
+				"\n"
+				"and\n"
+				"\n"
+				"        |       \n"
+				"        |       \n"
+				"        |       \n"
+				"________|_______\n"
+				"        |       \n"
+				"        |       \n"
+				"        |       \n"
+				"        |       \n"
+				"\n"
+				"and\n"
+				"\n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"________|________|________\n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"________|________|________\n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"        |        |        \n"
+				"\n");
+				
+				
+				printf("You also find three bright red number slots.\n"
+				"\n"
+				"[9] [1] [?]\n"
+				"\n"
+				"The [?] slot is accompanied by a keypad containing single-digit keys\n"
+				"you might be able to press the keys and see what happens.\n\n");
+			/***** start pressing the keypad *****/	
+			keypad:
 				printf("\nWhich key would you like to press?\n");
+				int user_result = 10;	// initialize with an invalid keypad number
 				scanf("%d", &user_result);
 				fflush(stdin);
 				if (user_result == 0 
@@ -449,34 +469,27 @@ void trigger_puzzle4(){
 					printf("\nThe slots now read:\n"
 					"\n"
 					"[9] [1] [%d]\n"
-					"\n"
-					, user_result);
+					"\n", user_result);
 					
 					if (user_result == 4){
 						graffiti_puzzle->state = solved;
 						printf("Suddenly, all the slots light up!\n"
 						"In place of the question mark, you now see a 4.\n"
 						"The keypad doesn't respond to your presses anymore.\n"
-						"Congrats! You have solved this puzzle!\n\n");
-						check_solved_stage2();		// check if all puzzles have been solved
+						"Congrats! You have solved this puzzle!\n");
+//						check_solved_stage2();		// check if all puzzles have been solved
 						return;
 					} else {
-						printf("But nothing happened!\n\n");
+						printf("But nothing happened!\n");
 					}
 				} else {
 					printf("\nI'm not sure what you're trying to do.\n"
-					"Even elementary kids know what single-digit means!\n\n");
+					"Even elementary kids know what a single-digit number is!\n");
 				}
-				printf("Do you want to try again? y/n\n");
-				user_intent = fgetc(stdin);
-				fflush(stdin);
-			} while(tolower(user_intent) == 'y');
+				goto puzzle;
 		} else {
-		printf("It seems you want to do neither!\n");
+			printf("It seems you want to nothing at all!\n");
 		}
-	} else {
-		printf("It seems you want to do neither!\n");
-	}
 }
 
 void trigger_puzzle5()

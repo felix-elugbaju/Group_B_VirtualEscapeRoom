@@ -38,6 +38,8 @@ void execute_examine(const char *arg){
 			/** Trigger puzzle1 **/
 			if (strcmp(arg, "clock") == 0 && player->location == stage1){
 				trigger_puzzle1();
+			} else if (strcmp(arg, "manual") == 0 && player->location == stage3){
+				trigger_puzzle7();
 			}
             if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
                 trigger_puzzle2();

@@ -71,9 +71,10 @@ extern OBJECT_t objs[];
 #define blue_lock 		(objs + 23)
 #define manual 			(objs + 24)
 #define code_puzzle		(objs + 25)
+#define code_hint 		(objs + 26)
 
 /* End: always update this! */
-#define end_of_objs (objs + 26)
+#define end_of_objs 		(objs + 27)
 
 
 

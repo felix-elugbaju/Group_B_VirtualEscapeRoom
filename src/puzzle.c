@@ -390,7 +390,7 @@ void trigger_puzzle4(){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
 			printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
-			clock_hint->state = used;
+			graffiti_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
 			goto keypad;
@@ -488,7 +488,7 @@ void trigger_puzzle4(){
 				}
 				goto puzzle;
 		} else {
-			printf("It seems you want to nothing at all!\n");
+			printf("It seems you don't want to do anything at all!\n");
 		}
 }
 
@@ -566,6 +566,115 @@ void trigger_puzzle5()
     }
 } 
 
+
+
+
+/**
+ * The seventh puzzle triggered from the manual
+ */
+void trigger_puzzle7(){
+	
+	printf("\nYou found a code-puzzle!\n");
+	/********** Instructions for puzzle 7 **********/
+	instructions:
+		printf("\nInstructions:\n"
+		"********************************************************************\n"
+		"*  c. continue:     continue solving the puzzle                    *\n"
+		"*  k. keypad:       start using the keypad of the blue_lock        *\n"
+		"*  v. view:         view the clues in the manual again             *\n"
+		"*  h. hint:         get a hint about the puzzle (reduced reward)   *\n"
+		"*  i. instructions: see instructions for this puzzle               *\n"
+		"*  q. quit:         quit solving the puzzle and do something else  *\n"
+		"********************************************************************\n");
+	/********** Start of the puzzle **********/
+	puzzle:
+		printf("\nWhat would you like to do? c/k/v/h/i/q\n");
+		char user_intent = fgetc(stdin);
+		fflush(stdin);		// flush the input buffer
+		
+		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
+			return;
+		} else if (tolower(user_intent) == 'i'){
+			goto instructions;
+		} else if (tolower(user_intent) == 'h'){
+			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
+			code_hint->state = used;
+			goto puzzle;
+		} else if (tolower(user_intent) == 'k'){
+			goto keypad;
+		} else if (tolower(user_intent) == 'v'){
+			goto clues;
+		} else if (tolower(user_intent) == 'c'){
+			printf("\n... ... ...\n"
+			"\nFinally, you find five sentences that seems to relate to a hidden code.\n");
+		/***** View the relevant clues *****/
+			clues:
+				printf("\nYou carefully explore the relevant pages...\n\n"
+				"manual page 47\n"
+				"---------------\n"
+				"[7] [8] [2]\n"
+				"clue: one number is correct\n"
+				"and well placed.\n\n");
+				
+				printf("manual page 132\n"
+				"---------------\n"
+				"[7] [0] [4]\n"
+				"clue: one number is correct\n"
+				"but wrongly placed.\n\n");
+				
+				printf("manual page 139\n"
+				"---------------\n"
+				"[4] [8] [3]\n"
+				"clue: nothing is correct.\n\n");
+				
+				printf("manual page 241\n"
+				"---------------\n"
+				"[2] [1] [7]\n"
+				"clue: two numbers are correct\n"
+				"but wrongly placed.\n\n");
+				
+				printf("manual page 438\n"
+				"---------------\n"
+				"[4] [8] [1]\n"
+				"clue: one number is correct\n"
+				"but wrongly placed.\n\n");
+				
+				printf("With these hints you might be able to figure out\n"
+				"the code of the blue_lock!\n");
+				goto puzzle;
+			
+			keypad:
+				printf("\nYou check the keypad of the blue_lock.\n"
+				"it seems you will need a 3-digit key to open it.\n");
+				
+				printf("\nWhich keys would you like to press?\n");
+					int user_result = 0;		// initialize with an invalid keypad number
+					scanf("%d", &user_result);
+					fflush(stdin);
+					if (user_result >= 100 && user_result <= 999){
+						printf("\nYou entered [%d].\n", user_result);
+						
+						if (user_result == 371){
+							code_puzzle->state = solved;
+							blue_lock->state = open;
+							printf("You hear a mechanized sound!\n"
+							"The blue_lock unlocks in front of your eyes.\n"
+							"The keypad doesn't respond to your presses anymore.\n"
+							"Congrats! You have found the hidden code and solved this puzzle!\n");
+	//						check_solved_stage3();		// check if all puzzles have been solved
+							return;
+						} else {
+							printf("But nothing happened!\n");
+						}
+					} else {
+						printf("\nI'm not sure what you're trying to do.\n"
+						"You should go back to school and learn about three-digit numbers first!\n");
+					}
+					goto puzzle;
+		} else {
+			printf("It seems you don't want to do anything at all!\n");
+		}
+}
 
 
 

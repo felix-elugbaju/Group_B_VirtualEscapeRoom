@@ -105,11 +105,16 @@ OBJECT_t objs[] = {
 	"the connections define the ultimate result.\n" , graffiti_puzzle},
     
     
-    /******************** Lock with code ********************/
+    	/* the blue_lock and the 7th puzzle */
 	{"a blue_lock", "blue_lock", usable_object, closed, 
-	"You find a small piece of paper attached to the key\n"
+	"You find a small piece of paper attached to the lock\n"
 	"It seems to be some sort of instruction manual\n"
-	"You should try to View the Manual for further information\n", stage3},
-	{"an instruction manual", "manual", hidden_object, regular, NULL , stage3},
-	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3}
+	"You should try to Examine the Manual for further information\n", stage3},
+	{"an instruction manual", "manual", usable_object, regular, 
+	"The manual contains a long series of instructions.\n"
+	"You skipped over some stuff to find any relevant information.\n"
+	"... ... ...\n", stage3},
+	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
+	{"a hint for the code_puzzle", "code_hint", hint, unused,
+	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle}
 };

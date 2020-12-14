@@ -25,7 +25,10 @@ bool parse_and_execute(char *input){
 			execute_get(arg);
 		} else if (strcmp(command, "bag") == 0){			// User enters "bag"
 			execute_check();
-		} else if (strcmp(command, "use") == 0){			// User enters "use <arg>"
+		} else if (strcmp(command, "map") == 0){
+			execute_map();
+		}
+		else if (strcmp(command, "use") == 0){			// User enters "use <arg>"
 			execute_use(arg);
 		} else if (strcmp(command, "open") == 0){			// User enters "open <arg>"
 			execute_open(arg);

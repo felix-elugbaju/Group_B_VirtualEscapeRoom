@@ -79,7 +79,7 @@ $RECYCLE.BIN/
 
 # Object and binary files
 *.o
-*.OUT
+*.exe
 
 # Windows shortcuts
 *.lnk

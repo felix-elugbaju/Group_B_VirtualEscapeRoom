@@ -23,7 +23,6 @@ extern void trigger_puzzle4();
 
 
 /**
- * @brief a function that is triggered when the fourth graffiti_puzzle is activated
+ * @brief a function that is triggered when the fifth piano_puzzle is activated
  */
-
 extern void trigger_puzzle5();

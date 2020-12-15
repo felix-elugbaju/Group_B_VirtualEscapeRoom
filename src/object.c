@@ -87,6 +87,7 @@ OBJECT_t objs[] = {
     {"a piano_puzzle", "piano_puzzle", puzzle, unsolved, NULL, stage2},
 	
 	/********************  Hints ********************/
+
     {"a hint for the clock_puzzle", "clock_hint", hint, unused,
     "hands of the clock..\n"
     "dance as they flock...\n"
@@ -99,7 +100,7 @@ OBJECT_t objs[] = {
     "or vice versa for a cycle in the opposite direction\n, where the empty\n"
     "piece is in the top right or top left 4x4 quadrant of the grid\n"
     "Step 4: Have patience :) \n", stage1},
-	
+
     
 	/* the graffiti and the 4th puzzle */
 	{"a hand-drawn graffiti", "graffiti", visible_object, regular, 
@@ -117,13 +118,21 @@ OBJECT_t objs[] = {
 	
 	
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
+	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
+	"Intertwined fates connect the occult...\n"
+	"the connections define the ultimate result.\n" , graffiti_puzzle},
     
     
-    /******************** Lock with code ********************/
+    	/* the blue_lock and the 7th puzzle */
 	{"a blue_lock", "blue_lock", usable_object, closed, 
-	"You find a small piece of paper attached to the key\n"
+	"You find a small piece of paper attached to the lock\n"
 	"It seems to be some sort of instruction manual\n"
-	"You should try to View the Manual for further information\n", stage3},
-	{"an instruction manual", "manual", hidden_object, regular, NULL , stage3},
-	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3}
+	"You should try to Examine the Manual for further information\n", stage3},
+	{"an instruction manual", "manual", usable_object, regular, 
+	"The manual contains a long series of instructions.\n"
+	"You skipped over some stuff to find any relevant information.\n"
+	"... ... ...\n", stage3},
+	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
+	{"a hint for the code_puzzle", "code_hint", hint, unused,
+	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle}
 };

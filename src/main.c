@@ -52,7 +52,7 @@ int main (){
 	printf("\n");
 	
 	while (parse_and_execute(input) && get_input() && !game_cleared());
-	printf("\nByeBye!\n");
+	printf("Thanks for playing the game!\n\n");
 	
 	return 0;
 }

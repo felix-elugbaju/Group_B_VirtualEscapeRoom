@@ -32,7 +32,7 @@ void check_solved_stage1(){
 
 void check_solved_stage2(){
 	if (piano_puzzle->state == solved && graffiti_puzzle->state == solved){
-		gold_key->state = revealed;		//reveal the first key
+		gold_key->state = revealed;		//reveal the second key
 		printf("\nYou hear a clank!\n"
 		"Suddenly, out of nowhere, a gold key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"

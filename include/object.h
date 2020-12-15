@@ -48,7 +48,7 @@ extern OBJECT_t objs[];
 #define letter			  (objs + 5)
 #define clock 			  (objs + 6)
 #define jigsaw_puzzle     (objs + 7)
-#define bag               (objs + 8)
+#define treasure_bag      (objs + 8)
 /* Objects Visible in Stage 2 */
 #define sheet_musc 		  (objs + 9)
 #define old_piano    	  (objs + 10)
@@ -63,15 +63,15 @@ extern OBJECT_t objs[];
 /* Puzzles */
 #define clock_puzzle 		(objs + 18)
 #define sliding_puzzle 		(objs + 19)
-#define piano_puzzle    	(objs + 20)
-#define paper_puzzle    	(objs + 21)
+#define paper_puzzle    	(objs + 20)
+#define piano_puzzle    	(objs + 21)
 #define riddle_puzzle    	(objs + 22)
 /* Hints */
 #define clock_hint		    (objs + 23)
-#define graffiti 		    (objs + 24)
-#define graffiti_puzzle 	(objs + 25)
-#define graffiti_hint		(objs + 26)
-#define paper_hint		    (objs + 27)
+#define paper_hint		    (objs + 24)
+#define graffiti 		    (objs + 25)
+#define graffiti_puzzle 	(objs + 26)
+#define graffiti_hint		(objs + 27)
 #define riddle_hint		    (objs + 28)
 /* Lock with code */
 #define blue_lock 		    (objs + 29)

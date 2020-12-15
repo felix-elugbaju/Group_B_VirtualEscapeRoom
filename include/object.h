@@ -38,43 +38,49 @@ extern OBJECT_t objs[];
 
 /***** Object References using symbolic names *****/
 /* Stages */
-#define stage1 			(objs + 0)
-#define stage2 			(objs + 1)
-#define stage3 			(objs + 2)
+#define stage1 			  (objs + 0)
+#define stage2 			  (objs + 1)
+#define stage3 			  (objs + 2)
 /* Actors */
-#define player 			(objs + 3)
+#define player 			  (objs + 3)
 /* Objects Visible in Stage 1 */
-#define table 			(objs + 4)
-#define letter			(objs + 5)
-#define clock 			(objs + 6)
-#define jigsaw_puzzle (objs + 7)
+#define table 			  (objs + 4)
+#define letter			  (objs + 5)
+#define clock 			  (objs + 6)
+#define jigsaw_puzzle     (objs + 7)
+#define bag               (objs + 8)
 /* Objects Visible in Stage 2 */
-#define sheet_musc 		(objs + 8)
-#define old_piano    		(objs + 9)
+#define sheet_musc 		  (objs + 9)
+#define old_piano    	  (objs + 10)
+#define pirate_chest      (objs + 11)
 /* Doors and Keys */
-#define silver_key 		(objs + 10)
-#define silver_door 		(objs + 11)
-#define gold_key 		(objs + 12)
-#define gold_door 		(objs + 13)
-#define ruby_key 		(objs + 14)
-#define ruby_door 		(objs + 15)
+#define silver_key 		  (objs + 12)
+#define silver_door 	  (objs + 13)
+#define gold_key 		  (objs + 14)
+#define gold_door 		  (objs + 15)
+#define ruby_key 		  (objs + 16)
+#define ruby_door 		  (objs + 17)
 /* Puzzles */
-#define clock_puzzle 		(objs + 16)
-#define sliding_puzzle 		(objs + 17)
-#define piano_puzzle    	(objs + 18)
+#define clock_puzzle 		(objs + 18)
+#define sliding_puzzle 		(objs + 19)
+#define piano_puzzle    	(objs + 20)
+#define paper_puzzle    	(objs + 21)
+#define riddle_puzzle    	(objs + 22)
 /* Hints */
-#define clock_hint		(objs + 19)
-#define graffiti 		(objs + 20)
-#define graffiti_puzzle 	(objs + 21)
-#define graffiti_hint		(objs + 22)
+#define clock_hint		    (objs + 23)
+#define graffiti 		    (objs + 24)
+#define graffiti_puzzle 	(objs + 25)
+#define graffiti_hint		(objs + 26)
+#define paper_hint		    (objs + 27)
+#define riddle_hint		    (objs + 28)
 /* Lock with code */
-#define blue_lock 		(objs + 23)
-#define manual 			(objs + 24)
-#define code_puzzle		(objs + 25)
-#define code_hint 		(objs + 26)
+#define blue_lock 		    (objs + 29)
+#define manual 			    (objs + 30)
+#define code_puzzle		    (objs + 31)
+#define code_hint 		    (objs + 32)
 
 /* End: always update this! */
-#define end_of_objs 		(objs + 27)
+#define end_of_objs 		(objs + 33)
 
 
 

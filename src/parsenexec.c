@@ -47,7 +47,7 @@ bool parse_and_execute(char *input){
 		}else {
 			/* Add an interesting messsage if the user tries to do something absurd */
 			printf("You tried to %s\n", command);
-			printf("Turns out, %sing is impossible right now!!\n", command, arg);
+			printf("Turns out, %sing is impossible right now!!\n", command);
 		}
 	}
 	return true;

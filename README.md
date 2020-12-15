@@ -1,6 +1,6 @@
 # VIRTUAL ESCAPE ROOM
 
-#### Created by: Alvi Jawad, Felix Elugbaju, John Jegede, and Isaac Wiebe
+#### Created by: Alvi Jawad, Isaac Wiebe, John Jegede, and Felix Elugbaju
 #### Carleton University
 
 # Table of Contents
@@ -37,21 +37,6 @@ The complete file structure is as follows:
 /bin
 
 /build
-- arghandling.o
-- execution.o
-- helper.o
-- main.o
-- object.o
-- parsenexec.o
-- puzzle.o
-
-/include 
-- arghandling.h
-- execution.h
-- helper.h
-- object.h
-- parsenexec.h
-- puzzle.h 
 
 /src
 - arghandling.c 
@@ -62,7 +47,18 @@ The complete file structure is as follows:
 - parsenexec.c 
 - puzzle.c
 
+/include 
+- arghandling.h
+- execution.h
+- helper.h
+- object.h
+- parsenexec.h
+- puzzle.h 
+
+/data
+
 /test
+
 
 # <a name ="install"></a>
 ### Compilation Instructions
@@ -70,8 +66,11 @@ The complete file structure is as follows:
 In order to compile the program:
 1) Open the command prompt
 2) Navigate to the root directory of the project
-3) Enter ""make all"" into the command line
-4) The application may now be run by entering ""./bin/Application.OUT""" into the command line
+3) Enter "make executable" or "make all" (without the quotes) into the command line
+4) Navigate to the bin directory by entering "cd bin"
+5) The application may now be run by entering "./VER.exe" into the command line
+
+6) To clean the automatically created object and binary files, enter "make clean" while inside the root directory
 
 
 # <a name = "gameplay"></a>

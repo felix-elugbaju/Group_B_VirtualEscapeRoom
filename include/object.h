@@ -47,15 +47,15 @@ extern OBJECT_t objs[];
 #define table 			  (objs + 4)
 #define letter			  (objs + 5)
 #define clock 			  (objs + 6)
-#define jigsaw_puzzle     (objs + 7)
-#define treasure_bag      (objs + 8)
+#define jigsaw_puzzle     	  (objs + 7)
+#define treasure_bag     	  (objs + 8)
 /* Objects Visible in Stage 2 */
-#define sheet_musc 		  (objs + 9)
-#define old_piano    	  (objs + 10)
-#define pirate_chest      (objs + 11)
+#define sheet_music 		  (objs + 9)
+#define old_piano    	  	  (objs + 10)
+#define pirate_chest      	  (objs + 11)
 /* Doors and Keys */
 #define silver_key 		  (objs + 12)
-#define silver_door 	  (objs + 13)
+#define silver_door 	  	  (objs + 13)
 #define gold_key 		  (objs + 14)
 #define gold_door 		  (objs + 15)
 #define ruby_key 		  (objs + 16)
@@ -70,18 +70,21 @@ extern OBJECT_t objs[];
 
 #define clock_hint		    (objs + 23)
 #define paper_hint		    (objs + 24)
-#define graffiti 		    (objs + 25)
-#define graffiti_puzzle 	(objs + 26)
-#define graffiti_hint		(objs + 27)
-#define riddle_hint		    (objs + 28)
+#define slider_hint		    (objs + 25)
+#define graffiti 		    (objs + 26)
+#define graffiti_puzzle 	    (objs + 27)
+#define graffiti_hint		    (objs + 28)
+#define piano_hint		    (objs + 29)
+#define riddle_hint		    (objs + 30)
 /* Lock with code */
-#define blue_lock 		    (objs + 29)
-#define manual 			    (objs + 30)
-#define code_puzzle		    (objs + 31)
-#define code_hint 		    (objs + 32)
+#define blue_lock 		    (objs + 31)
+#define manual 			    (objs + 32)
+#define code_puzzle		    (objs + 33)
+#define code_hint 		    (objs + 34)
+
 
 /* End: always update this! */
-#define end_of_objs 		(objs + 33)
+#define end_of_objs 		(objs + 35)
 
 
 #endif

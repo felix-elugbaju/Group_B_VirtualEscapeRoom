@@ -26,7 +26,7 @@ void trigger_puzzle1(){
 		printf("\nWhat would you like to do? c/h/i/q\n");
 		char user_intent = fgetc(stdin);
 		fflush(stdin);		// flush the input buffer
-		
+
 		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
 			return;
 		} else if (tolower(user_intent) == 'i'){
@@ -82,8 +82,8 @@ void trigger_puzzle2()
         return;
     }
     else
-    { 
-    
+    {
+
 
         char puzzle[PUZZLE_LENGTH][PUZZLE_LENGTH] = {
             {'\\', '0', '/'},
@@ -211,7 +211,7 @@ void trigger_puzzle2()
 
             int input_char;
             input_char = fgetc(stdin);
-            
+
 
             if (input_char == 119)
             {
@@ -267,7 +267,7 @@ void trigger_puzzle2()
                 fflush(stdin);
                 return;
             }
-            
+
             if (input_char == 104)
             {
             	printf("HINT\n");
@@ -277,7 +277,7 @@ void trigger_puzzle2()
             	getchar();
             	slider_hint->state = used;
             }
-            
+
 
             printf("\n");
             printf("\n");
@@ -364,13 +364,98 @@ void trigger_puzzle2()
         printf("The puzzle has been solved!\n");
         sliding_puzzle->state = solved;
         check_solved_stage1();
-        
-        
+
+
         fflush(stdin);        // flush the input buffer
         return;
     }
 }
 
+/**
+ * The third puzzle which is the paper puzzle
+ */
+void trigger_puzzle3()
+{
+    printf("A | B | C");
+    printf("_ | _ | _");
+    printf("D | E | T");
+    printf("_ | _ | _");
+    printf("I | O | U");
+
+    printf("\n");
+
+    printf(" \\  N  / ");
+    printf(" \\ _ /  ");
+    printf("Q | P | F");
+    printf("  / _ \\  ");
+    printf(" / Y   \\ ");
+
+    printf("With the above information solve this puzzle");
+
+    printf("  |");
+    printf(" _|");
+
+    printf("\n");
+
+    printf("  _   ");
+    printf("|   |  ");
+    printf("| _ |");
+
+    printf("\n");
+
+    printf("  /");
+    printf(" /");
+    printf("|");
+    printf(" \\");
+    printf("  \\");
+
+    printf("Please your inputs should be in capital letters");
+    printf("To quit press q \n To get a hint press h");
+
+    char user_input = fgetc(stdin);
+    char word[3];
+    int len_word =0;
+
+    if( user_input == 'q')
+    {
+        return;
+    }else {
+        while(len_word < 3)
+        {
+
+            if( user_input == 'q')
+            {
+                return;
+            }else if( user_input == 'h')
+            {
+                printf("\n%s\n",paper_hint->description);
+                paper_hint->state = used;
+            }else{
+                word[len_word++] = user_input;
+            }
+
+            user_input = fgetc(stdin);
+        }
+
+    }
+
+    if(strcmp(word,"AEF") == 0)
+    {
+        printf("PASS");
+        paper_puzzle->state = solved;
+    }else{
+        printf("FAIL");
+        printf("Please examine object again");
+
+    }
+
+    return;
+
+
+
+
+
+}
 
 /**
  * The fourth puzzle triggered from the graffiti
@@ -379,7 +464,7 @@ void trigger_puzzle4(){
 	printf("You look closely at the lines\n"
 	"It seems like a lot of effort was put into the carvings\n"
 	"The carvings are traceable.\n");
-	
+
 	printf("\nYou found a graffiti-puzzle!\n");
 	/********** Instructions for puzzle 4 **********/
 	instructions:
@@ -397,7 +482,7 @@ void trigger_puzzle4(){
 		printf("\nWhat would you like to do? c/k/p/h/i/q\n");
 		char user_intent = fgetc(stdin);
 		fflush(stdin);		// flush the input buffer
-		
+
 		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
 			return;
 		} else if (tolower(user_intent) == 'i'){
@@ -460,31 +545,31 @@ void trigger_puzzle4(){
 				"        |        |        \n"
 				"        |        |        \n"
 				"\n");
-				
-				
+
+
 				printf("You also find three bright red number slots.\n"
 				"\n"
 				"[9] [1] [?]\n"
 				"\n"
 				"The [?] slot is accompanied by a keypad containing single-digit keys\n"
 				"you might be able to press the keys and see what happens.\n\n");
-			/***** start pressing the keypad *****/	
+			/***** start pressing the keypad *****/
 			keypad:
 				printf("\nWhich key would you like to press?\n");
 				int user_result = 10;	// initialize with an invalid keypad number
 				scanf("%d", &user_result);
 				fflush(stdin);
-				if (user_result == 0 
+				if (user_result == 0
 					|| user_result == 1 || user_result == 2 || user_result == 3
 					|| user_result == 4 || user_result == 5 || user_result == 6
 					|| user_result == 7 || user_result == 8 || user_result == 9){
-						
+
 					printf("\nYou pressed %d.\n", user_result);
 					printf("\nThe slots now read:\n"
 					"\n"
 					"[9] [1] [%d]\n"
 					"\n", user_result);
-					
+
 					if (user_result == 4){
 						graffiti_puzzle->state = solved;
 						printf("Suddenly, all the slots light up!\n"
@@ -533,7 +618,7 @@ void trigger_puzzle5()
     			done = 1;
     		}
     		else if (strcmp(noteString, "q") == 0) {
-    			fflush(stdin); 
+    			fflush(stdin);
     			return;
     		}
     		else if (strcmp(noteString, "h") == 0) {
@@ -548,12 +633,12 @@ void trigger_puzzle5()
     			printf("Maybe there is sheet music nearby?\n");
     		}
     	}
-    	
+
     	printf("An internal mechanism clinks around in the piano.\n");
     	printf("However, it stopped! It looks like another combination\n");
     	printf("Of notes is needed. A second verse if you will.\n");
     	printf("\n");
-    	
+
     	done = 0;
     	char * secondVerse = "FDFDFDBDG";
     	while (!done) {
@@ -571,7 +656,7 @@ void trigger_puzzle5()
     			done = 1;
     		}
     		else if (strcmp(noteString, "q") == 0) {
-    			fflush(stdin); 
+    			fflush(stdin);
     			return;
     		}
     		else if (strcmp(noteString, "h") == 0) {
@@ -592,8 +677,58 @@ void trigger_puzzle5()
     	piano_puzzle->state = solved;
     	check_solved_stage2();
     }
-} 
+}
 
+/**
+ * @brief This is the puzzle for the riddle
+ */
+void trigger_puzzle6(){
+
+    printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY ");
+    printf(" WHAT AM I");
+
+    printf("Please your inputs should be in capital letters");
+    printf("To quit press q \n To get a hint press h");
+
+    char user_input = fgetc(stdin);
+    char word[1];
+    int len_word =0;
+
+    if( user_input == 'q')
+    {
+        return;
+    }else {
+        while(len_word < 1)
+        {
+
+            if( user_input == 'q')
+            {
+                return;
+            }else if( user_input == 'h')
+            {
+                printf("\n%s\n",riddle_hint->description);
+                riddle_hint->state = used;
+            }else{
+                word[len_word++] = user_input;
+            }
+
+            user_input = fgetc(stdin);
+        }
+
+    }
+
+    if(strcmp(word,"E") == 0)
+    {
+        printf("PASS");
+        riddle_puzzle->state = solved;
+    }else{
+        printf("FAIL");
+        printf("Please examine object again");
+
+    }
+
+    return;
+}
 
 
 
@@ -601,7 +736,7 @@ void trigger_puzzle5()
  * The seventh puzzle triggered from the manual
  */
 void trigger_puzzle7(){
-	
+
 	printf("\nYou found a code-puzzle!\n");
 	/********** Instructions for puzzle 7 **********/
 	instructions:
@@ -619,7 +754,7 @@ void trigger_puzzle7(){
 		printf("\nWhat would you like to do? c/k/v/h/i/q\n");
 		char user_intent = fgetc(stdin);
 		fflush(stdin);		// flush the input buffer
-		
+
 		if(tolower(user_intent) == 'q'){		// user wants to quit the puzzle
 			return;
 		} else if (tolower(user_intent) == 'i'){
@@ -643,45 +778,45 @@ void trigger_puzzle7(){
 				"[7] [8] [2]\n"
 				"clue: one number is correct\n"
 				"and well placed.\n\n");
-				
+
 				printf("manual page 132\n"
 				"---------------\n"
 				"[7] [0] [4]\n"
 				"clue: one number is correct\n"
 				"but wrongly placed.\n\n");
-				
+
 				printf("manual page 139\n"
 				"---------------\n"
 				"[4] [8] [3]\n"
 				"clue: nothing is correct.\n\n");
-				
+
 				printf("manual page 241\n"
 				"---------------\n"
 				"[2] [1] [7]\n"
 				"clue: two numbers are correct\n"
 				"but wrongly placed.\n\n");
-				
+
 				printf("manual page 438\n"
 				"---------------\n"
 				"[4] [8] [1]\n"
 				"clue: one number is correct\n"
 				"but wrongly placed.\n\n");
-				
+
 				printf("With these hints you might be able to figure out\n"
 				"the code of the blue_lock!\n");
 				goto puzzle;
-			
+
 			keypad:
 				printf("\nYou check the keypad of the blue_lock.\n"
 				"it seems you will need a 3-digit key to open it.\n");
-				
+
 				printf("\nWhich keys would you like to press?\n");
 					int user_result = 0;		// initialize with an invalid keypad number
 					scanf("%d", &user_result);
 					fflush(stdin);
 					if (user_result >= 100 && user_result <= 999){
 						printf("\nYou entered [%d].\n", user_result);
-						
+
 						if (user_result == 371){
 							code_puzzle->state = solved;
 							blue_lock->state = open;

@@ -60,6 +60,10 @@ void execute_examine(const char *arg){
             if (strcmp(arg, "pirate_chest") == 0 && player->location == stage2) {
                 trigger_puzzle6();
             }
+
+            if (strcmp(arg, "cupboard") == 0 && player->location == stage3) {
+                trigger_puzzle9();
+            }
 		}
 	} else {
 		/* When there's no examination target */

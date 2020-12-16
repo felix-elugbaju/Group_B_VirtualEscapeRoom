@@ -217,14 +217,14 @@ void execute_open(const char *arg){
 }
 
 void execute_map(){
-	printf("        |       \n"
+	printf("         |       \n"
 		   " stage1 -> stage2     \n"
-		   "        |   |    \n"
-		   "_______ |___|___\n"
-		   "        |   V   \n"
-		   "        | stage3       \n"
-		   "        |       \n"
-		   "        |       \n");
+		   "  |     <-  |         \n"
+		   "__|__^___|__|____^____\n"
+		   "  V  |      V    |     \n"
+		   "       stage3       \n"
+		   "               \n"
+		   "               \n");
 }
 
 void execute_call(const char *arg)

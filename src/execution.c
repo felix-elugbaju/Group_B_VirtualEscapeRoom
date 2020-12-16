@@ -189,7 +189,6 @@ void execute_open(const char *arg){
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
-	printf("It seems that %s however is in state %d\n", silver_door->tag, silver_door->state);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
 	} else if (obj->location != player->location){				// door and player not in the same room
@@ -214,6 +213,48 @@ void execute_map(){
 		   "        | stage3       \n"
 		   "        |       \n"
 		   "        |       \n");
+}
+
+void execute_call(const char *arg)
+{
+	char user_response[10];
+	if(player->location != phone->location)
+	{
+		printf("You call out, but no one answers!\n");
+		return;
+	}
+	
+	if (strcmp(arg, "friend") == 0)
+	{
+		printf("*Ring Ring*\n");
+		printf("*Ring Ring*\n");
+		printf("Friend:Hello player! This is your best friend! How've you been?\n");
+		printf("Oh, you're stuck in an escape room?\n");
+		printf("Well let me tell you a story, if you have time that is.\n");
+		printf("\n");
+		printf("Do you want to here your friend's story?(y\n)");
+		scanf("%s", user_response);
+		
+		if (strcmp(user_response, "y") == 0){
+			trigger_puzzle8();
+		}
+		else
+		{
+			printf("Friend: No worries! Just call me again if you have time\n");
+			printf("Goodbye!\n");
+			printf("*Click*\n");
+		
+		}
+	
+	
+	}
+	else
+	{
+		printf("You should probably find someone to call. A friend perhaps?\n");
+		return;
+	}
+
+
 
 }
 
@@ -227,9 +268,8 @@ void execute_help(){
 	"*  5. use <object>:     try to make use of an object in your bag             *\n"
 	"*  6. open <door>:      try to open a door                                   *\n"
 	"*  7. bag:              check your bag to see what you can find              *\n"
-	"*  8. hint:             get a hint if you are stuck                          *\n"
-	"*  9. help:             get a list of helpful common commands                *\n"
-	"* 10. map:              display a map showing this world                     *\n"
-    "* 11. quit:             exit the program gracefully                          *\n"
+	"*  8. help:             get a list of helpful common commands                *\n"
+	"*  9. map:              display a map showing this world                     *\n"
+    "* 10. quit:             exit the program gracefully                          *\n"
 	"******************************************************************************\n");
 }

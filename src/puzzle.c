@@ -403,8 +403,8 @@ void trigger_puzzle4(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-			printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
-			graffiti_hint->state = used;
+		//	printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
+		//	graffiti_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
 			goto keypad;
@@ -625,8 +625,8 @@ void trigger_puzzle7(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
-			code_hint->state = used;
+		//	printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
+		//	code_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
 			goto keypad;
@@ -704,5 +704,62 @@ void trigger_puzzle7(){
 		}
 }
 
+void trigger_puzzle8()
+{
+ 	char * telephone_num = "3210225";
+ 	char makes_call[10];
+	printf("Friend: Alright, listen closely, I have a story to tell.\n");
+	printf("\n");
+	printf("So I started running again, I went to the gym and I haven't\n");
+	printf("ran since September. I'm really out of shape, I'll tell you\n");
+	printf("I ran three laps, and I was gasping for air at the end of it\n");
+	printf("I decided to see the Parliament Building to sort of cool down, but I was stuck\n");
+	printf("in this roundabout, so many pedestrians, it took me two times to get out of there.\n");
+	printf("When I finally got there, I managed to count the provinces on a monument, all ten of them.\n");
+	printf("I realized I can't keep this fitness charade up for long,\n");
+	printf("So I drove to pizza pizza, and its so nice, I had two slices.\n");
+	printf("After that, I listened to 'It takes two to tango' by Louis Armstrong\n");
+	printf("In the car on the ride home. I am really looking forward to a five\n");
+	printf("O'Clock dinner tonight with our families\n");
+	printf("\n");
+	printf("Say, can you call your mother and tell her you won't make it?\n");
+	printf("You should know her number by heart, and if not\n");
+	printf("I've told what it is earlier in my story\n");
+	printf("\n");
+	printf("Your friend has hung up.\n");
+	printf("Do you call your mother?(y/n)");
+	scanf("%s", makes_call);
+	if (strcmp(makes_call, "y"))
+	{
+		int done = 0;
+		while (!done) {
+			printf("Enter a telephone number to dial. No area code, just a seven digit number\n");
+			printf("Enter h for a hint, however be warned, using hints affects your score!");
+			printf("Enter q to quit");
+			scanf("%s", makes_call);
+			
+			if (strcmp(makes_call, "q") == 0){
+				return;
+			}
+			if (strcmp(makes_call, "h") == 0){
+				//TODO: ADD HINT
+			}
+			if (strcmp(makes_call, telephone_num) == 0)
+			{
+				printf("You have dialed your mother!\n");
+				printf("Puzzle is solved\n");
+				done  = 1;
+			}
+			else
+			{
+				printf("Stranger: Sorry, I think this is the wrong number!\n");
+			
+			}
+		
+		}
+		phone_puzzle->state = solved;
+		//check_solved_stage3();
+	}
+}
 
 

@@ -69,10 +69,10 @@ OBJECT_t objs[] = {
         "open it and there is a riddle inside it examine the riddle_puzzle\n"
         "solve the riddle\n", stage2},
     /************************* Doors and Keys *************************/
-	{"a silver_key", "silver_key", usable_object, hidden,
+    {"a silver_key", "silver_key", usable_object, hidden,
 	"The key glows with a bright silver color\n"
 	"It might be useful in opening a door of some kind.\n", stage1},
-	{"a silver_door", "silver_door", visible_object, closed,
+    {"a silver_door", "silver_door", visible_object, closed,
 	"It seems like there is only one lock on the door.\n"
 	"The lock requires a matching key to open.\n", stage1},
     {"a gold_key", "gold_key", usable_object, hidden,
@@ -93,8 +93,8 @@ OBJECT_t objs[] = {
     "You should examine it further.\n", stage3},
 
     /************************* Puzzles *************************/
-	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
-	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
+    {"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
+    {"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
     {"a paper_puzzle", "paper_puzzle", puzzle, unsolved, NULL, stage1},
     {"a piano_puzzle", "piano_puzzle", puzzle, unsolved, NULL, stage2},
     {"a riddle_puzzle", "riddle_puzzle", puzzle, unsolved, NULL, stage2},
@@ -129,7 +129,12 @@ OBJECT_t objs[] = {
 	"You see a carefully curved garffiti with fine knifework\n"
 	"The design seems to match that of several criss-crossing lines\n"
 	"Looking Closely might lead to some interesting patterns\n", stage2},
-
+	
+	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
+	
+	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
+	"Intertwined fates connect the occult...\n"
+	"the connections define the ultimate result.\n" , graffiti_puzzle},
 
 	{"A hint for the piano puzzle:", "piano_hint", hint, unused,
 	"A triad is defined as notes spaced out 3 apart on a piano\n"
@@ -138,16 +143,8 @@ OBJECT_t objs[] = {
 	"But the sheet music specified some inversion. If you're familiar with this piece\n"
 	"of music, maybe you can hum it out and find out what the correct order is!\n", stage2},
 
-
-
-
-	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
-	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
-	"Intertwined fates connect the occult...\n"
-	"the connections define the ultimate result.\n" , graffiti_puzzle},
-
 	    /* riddle puzzle hint the 6th puzzle */
-    {"a hint for the riddle_puzzle", "riddle_hint", hint, unused,
+    	{"a hint for the riddle_puzzle", "riddle_hint", hint, unused,
 	"Look for the alphabet that appears frequently in each month\n", stage2},
 
     	/* the blue_lock and the 7th puzzle */
@@ -160,13 +157,15 @@ OBJECT_t objs[] = {
 	"You skipped over some stuff to find any relevant information.\n"
 	"... ... ...\n", stage3},
 	
+	
+	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
+	{"a hint for the code_puzzle", "code_hint", hint, unused,
+	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle},
+	
 	{"a rotary telephone", "phone", visible_object, regular, 
 	"Surprisingly this rotary telephone is fully functioning.\n"
 	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
 	},	
 	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
-    
-	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
-	{"a hint for the code_puzzle", "code_hint", hint, unused,
-	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle}
+
 };

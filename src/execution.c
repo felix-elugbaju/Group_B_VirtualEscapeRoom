@@ -7,18 +7,22 @@
 
 
 void execute_look(const char *arg){
-	if ((arg != NULL) && (strcmp(arg, "around") == 0)){
-		printf("You are in %s.\n", player->location->description);
-		list_objects_at_location(player->location, visible_object);
-	} else if (strcmp(arg, "closely") == 0){
-		if(player->location == graffiti_puzzle->location){
-			trigger_puzzle4();
+	if (arg != NULL){
+		if ((strcmp(arg, "around") == 0)){
+			printf("You are in %s.\n", player->location->description);
+			list_objects_at_location(player->location, visible_object);
+		} else if (strcmp(arg, "closely") == 0){
+			if(player->location == graffiti_puzzle->location){
+				trigger_puzzle4();
+			} else {
+				printf("There's nothing here that warrants that much attention!");
+			}
 		} else {
-			printf("There's nothing here that warrants that much attention!");
+			/* Another witty message dictating what the user sees when he tries to look at something weird */
+			printf("Even you're not sure what you want to see.\n");
 		}
 	} else {
-		/* Another witty message dictating what the user sees when he tries to look at something weird */
-		printf("Even you're not sure what you want to see.\n");
+		printf("Do you even want to see anything?.\n");
 	}
 }
 
@@ -44,10 +48,18 @@ void execute_examine(const char *arg){
             if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
                 trigger_puzzle2();
             }
+            
+            if (strcmp(arg, "paper_puzzle") == 0 && player->location == stage1) {
+                trigger_puzzle3();
+            }
             if (strcmp(arg, "old_piano") == 0 && player->location == stage2)
             {
             	trigger_puzzle5();
             } 
+            
+            if (strcmp(arg, "riddle_puzzle") == 0 && player->location == stage2) {
+                trigger_puzzle6();
+            }
 		}
 	} else {
 		/* When there's no examination target */
@@ -205,6 +217,18 @@ void execute_open(const char *arg){
 	}
 }
 
+void execute_map(){
+	printf("        |       \n"
+		   " stage1 -> stage2     \n"
+		   "        |   |    \n"
+		   "_______ |___|___\n"
+		   "        |   V   \n"
+		   "        | stage3       \n"
+		   "        |       \n"
+		   "        |       \n");
+
+}
+
 void execute_help(){
 	printf("Helpful Common Commands:\n"
 	"******************************************************************************\n"
@@ -217,6 +241,7 @@ void execute_help(){
 	"*  7. bag:              check your bag to see what you can find              *\n"
 	"*  8. hint:             get a hint if you are stuck                          *\n"
 	"*  9. help:             get a list of helpful common commands                *\n"
-    "* 10. quit              exit the program gracefully                          *\n"
+	"* 10. map:              display a map showing this world                     *\n"
+    "* 11. quit:             exit the program gracefully                          *\n"
 	"******************************************************************************\n");
 }

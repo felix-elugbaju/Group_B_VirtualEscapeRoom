@@ -64,18 +64,16 @@ extern OBJECT_t objs[];
 #define piano_puzzle    	(objs + 18)
 /* Hints */
 #define clock_hint		(objs + 19)
-#define graffiti 		(objs + 20)
-#define graffiti_puzzle 	(objs + 21)
-#define graffiti_hint		(objs + 22)
+#define slider_hint     (objs + 20)
+#define graffiti 		(objs + 21)
+#define piano_hint      (objs + 22)
+#define graffiti_puzzle (objs + 23)
 /* Lock with code */
-#define blue_lock 		(objs + 23)
-#define manual 			(objs + 24)
-#define code_puzzle		(objs + 25)
-#define code_hint 		(objs + 26)
+#define blue_lock 		(objs + 24)
+#define manual 			(objs + 25)
+#define code_puzzle		(objs + 26)
 
 /* End: always update this! */
-#define end_of_objs 		(objs + 27)
-
-
+#define end_of_objs (objs + 27)
 
 #endif

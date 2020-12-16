@@ -100,11 +100,12 @@ OBJECT_t objs[] = {
     {"a riddle_puzzle", "riddle_puzzle", puzzle, unsolved, NULL, stage2},
 
 	/********************  Hints ********************/
+
     {"a hint for the clock_puzzle", "clock_hint", hint, unused,
-	"hands of the clock..\n"
-	"dance as they flock...\n"
-	"towards the writings of the old....\n"
-	"CAPITAL of wishes manifold.\n", clock_puzzle},
+    "hands of the clock..\n"
+    "dance as they flock...\n"
+    "towards the writings of the old....\n"
+    "CAPITAL of wishes manifold\n", stage1},
 
     /* paper puzzle hint the 3rd puzzle*/
     {"a hint for the paper_puzzle", "paper_hint", hint, unused,
@@ -112,7 +113,15 @@ OBJECT_t objs[] = {
 	"example\n"
 	"|   |\n"
 	"| _ |\n"
-    "the shape above is letter B in the diagram", paper_puzzle},
+    "the shape above is letter B in the diagram", stage1},
+
+    {"a hint for the Sliding puzzle:", "slider_hint", hint, unused,
+    "Step 1: Solve the bottom row first. \n "
+    "Step 2: Perform a cycle in either the top left or top right corner \n"
+    "Step 3: A 'cycle' is defined as a rotation of 'S', 'A' 'W', 'D', \n"
+    "or vice versa for a cycle in the opposite direction\n, where the empty\n"
+    "piece is in the top right or top left 4x4 quadrant of the grid\n"
+    "Step 4: Have patience :) \n", stage1},
 
 
 	/* the graffiti and the 4th puzzle */
@@ -120,6 +129,18 @@ OBJECT_t objs[] = {
 	"You see a carefully curved garffiti with fine knifework\n"
 	"The design seems to match that of several criss-crossing lines\n"
 	"Looking Closely might lead to some interesting patterns\n", stage2},
+
+
+	{"A hint for the piano puzzle:", "piano_hint", hint, unused,
+	"A triad is defined as notes spaced out 3 apart on a piano\n"
+	"For example: A minor is 'ACE'. Ironically, GNU debugger i.e. 'GDB' \n"
+	"Spells out an inversion of the G Major triad GDB. \n"
+	"But the sheet music specified some inversion. If you're familiar with this piece\n"
+	"of music, maybe you can hum it out and find out what the correct order is!\n", stage2},
+
+
+
+
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
 	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
 	"Intertwined fates connect the occult...\n"
@@ -127,7 +148,7 @@ OBJECT_t objs[] = {
 
 	    /* riddle puzzle hint the 6th puzzle */
     {"a hint for the riddle_puzzle", "riddle_hint", hint, unused,
-	"Look for the alphabet that appears frequently in each month\n", riddle_puzzle},
+	"Look for the alphabet that appears frequently in each month\n", stage2},
 
     	/* the blue_lock and the 7th puzzle */
 	{"a blue_lock", "blue_lock", usable_object, closed,

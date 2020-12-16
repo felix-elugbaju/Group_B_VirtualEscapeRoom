@@ -5,6 +5,7 @@
  * void execute_go(): executed when the player is trying to go to a new stage
  * void execute_help(): executed when the player needs directions for common commands
  * void execute_get(): executed when the player tries to put a usable item into their bag
+ * void execute_map(): executed when player tries to view a map of the world
  * void execute_check(): executed when the player tries to check what they currently have in their bag
  */
 
@@ -23,5 +24,7 @@ extern void execute_use(const char *arg);
 extern void execute_open(const char *arg);
 
 extern void execute_help(void);
+
+extern void execute_map(void);
 
 extern void execute_check(void);

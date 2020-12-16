@@ -213,6 +213,18 @@ void execute_open(const char *arg){
 	}
 }
 
+void execute_map(){
+	printf("        |       \n"
+		   " stage1 -> stage2     \n"
+		   "        |   |    \n"
+		   "_______ |___|___\n"
+		   "        |   V   \n"
+		   "        | stage3       \n"
+		   "        |       \n"
+		   "        |       \n");
+
+}
+
 void execute_help(){
 	printf("Helpful Common Commands:\n"
 	"******************************************************************************\n"
@@ -225,6 +237,7 @@ void execute_help(){
 	"*  7. bag:              check your bag to see what you can find              *\n"
 	"*  8. hint:             get a hint if you are stuck                          *\n"
 	"*  9. help:             get a list of helpful common commands                *\n"
-    "* 10. quit              exit the program gracefully                          *\n"
+	"* 10. map:              display a map showing this world                     *\n"
+    "* 11. quit:             exit the program gracefully                          *\n"
 	"******************************************************************************\n");
 }

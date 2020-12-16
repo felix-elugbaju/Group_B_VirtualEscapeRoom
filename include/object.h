@@ -67,6 +67,7 @@ extern OBJECT_t objs[];
 #define piano_puzzle    	(objs + 21)
 #define riddle_puzzle    	(objs + 22)
 /* Hints */
+
 #define clock_hint		    (objs + 23)
 #define paper_hint		    (objs + 24)
 #define graffiti 		    (objs + 25)
@@ -81,7 +82,6 @@ extern OBJECT_t objs[];
 
 /* End: always update this! */
 #define end_of_objs 		(objs + 33)
-
 
 
 #endif

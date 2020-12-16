@@ -16,6 +16,10 @@ extern void trigger_puzzle1();
  */
 extern void trigger_puzzle2();
 
+/**
+ * @brief a function that is triggers the third puzzle which is the paper puzzle
+ */
+extern void trigger_puzzle3();
 
 /**
  * @brief a function that is triggered when the fourth graffiti_puzzle is activated
@@ -28,6 +32,10 @@ extern void trigger_puzzle4();
  */
 extern void trigger_puzzle5();
 
+/**
+ * @brief a function that is triggers the sixth puzzle which is the riddle puzzle
+ */
+extern void trigger_puzzle6();
 
 /**
  * @brief a function that is triggered when the seventh code_puzzle is activated

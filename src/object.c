@@ -9,7 +9,7 @@ OBJECT_t objs[] = {
 	{"a crimson red room", "stage3", location, confined, NULL, NULL},
 	/***** Actors *****/
 	{"yourself", "yourself", actor, regular, NULL, stage1},				// player starts in stage 1
-	
+
 	/******************** stage 1 objects ********************/
 	/** Table with a letter **/
 	{"a wooden table", "table", visible_object, regular,
@@ -20,7 +20,7 @@ OBJECT_t objs[] = {
 	"Some parts of the letter seems to be legible\n"
 	"Reading the Letter might give you a better idea about its contents\n", stage1},
 	/** A letter **/
-	{"a dusty letter", "letter", hidden_object, regular, 
+	{"a dusty letter", "letter", hidden_object, regular,
 	"dear ashford,\n"
 	"it has been a LONG time since i wrote a letter to you. the weather is\n"
 	"getting pretty cold right now, enough to freeze my HAND. i bought a\n"
@@ -33,7 +33,7 @@ OBJECT_t objs[] = {
 	"............................\n"
 	"The rest of the letter is illegible", stage1},
 	/** A clock **/
-	{"a broken clock", "clock", visible_object, regular, 
+	{"a broken clock", "clock", visible_object, regular,
 	"The clock hands are not moving.\n"
 	"You check the battery, only to find that it's long dead\n"
 	"The hand for seconds is missing.\n"
@@ -42,7 +42,12 @@ OBJECT_t objs[] = {
     { "a jigsaw_puzzle", "jigsaw_puzzle", visible_object, regular,
         "It looks like a piece is missing.\n"
         "You might be able to slide the pieces around\n", stage1},
-        
+    /** A treasure_bag **/
+     { "a treasure_bag", "treasure_bag", visible_object, regular,
+        "Look inside the treasure_bag.\n"
+        "There is a paper with a with a drawing examine the paper_puzzle\n"
+        "Figure out the interpretation of the drawing\n", stage1},
+
     /************************* Objects Visible in Stage 2 *************************/
     {"Some sheet_music", "sheet_music", visible_object, regular,
       "It reads 'Eine Kleine Nachtmusik en C MAJOR' by J.S. Bach\n"
@@ -51,17 +56,23 @@ OBJECT_t objs[] = {
       "Followed by another massive blot of ink, followed by a note: \n"
       "My apologies for ruining Bach's work. In Unix: FILE DESCRIPTOR,"
       "FILE DESCRIPTOR, FILE DESCRIPTOR, for debugging use GDB. However a BROKEN TRIAD"
-      " IN G MAJOR might work a bit better.\n", stage2}, 
-      
-    {"An old_piano", "old_piano", visible_object, regular, 
+      " IN G MAJOR might work a bit better.\n", stage2},
+
+    {"An old_piano", "old_piano", visible_object, regular,
     "This piano is grossly out of tune!\n"
     "And to make matters worse, someone tore off the sharps and flats!\n"
-    "This crime couldn't be... accidental?! Ha! \n", stage2}, 
+    "This crime couldn't be... accidental?! Ha! \n", stage2},
+
+    /** A pirate chest **/
+     { "a pirate_chest of gold ", "pirate_chest", visible_object, regular,
+        "Here is a pirates chest.\n"
+        "open it and there is a riddle inside it examine the riddle_puzzle\n"
+        "solve the riddle\n", stage2},
     /************************* Doors and Keys *************************/
-	{"a silver_key", "silver_key", usable_object, hidden, 
+	{"a silver_key", "silver_key", usable_object, hidden,
 	"The key glows with a bright silver color\n"
 	"It might be useful in opening a door of some kind.\n", stage1},
-	{"a silver_door", "silver_door", visible_object, closed, 
+	{"a silver_door", "silver_door", visible_object, closed,
 	"It seems like there is only one lock on the door.\n"
 	"The lock requires a matching key to open.\n", stage1},
     {"a gold_key", "gold_key", usable_object, hidden,
@@ -80,12 +91,14 @@ OBJECT_t objs[] = {
     "The blue_lock can be opened with a code.\n"
     "The blue_lock seems to have something attached to it.\n"
     "You should examine it further.\n", stage3},
-    
+
     /************************* Puzzles *************************/
 	{"a clock_puzzle", "clock_puzzle", puzzle, unsolved, NULL , stage1},
 	{"a sliding_puzzle", "sliding_puzzle", puzzle, unsolved, NULL, stage1},
+    {"a paper_puzzle", "paper_puzzle", puzzle, unsolved, NULL, stage1},
     {"a piano_puzzle", "piano_puzzle", puzzle, unsolved, NULL, stage2},
-	
+    {"a riddle_puzzle", "riddle_puzzle", puzzle, unsolved, NULL, stage2},
+
 	/********************  Hints ********************/
 
     {"a hint for the clock_puzzle", "clock_hint", hint, unused,
@@ -93,8 +106,15 @@ OBJECT_t objs[] = {
     "dance as they flock...\n"
     "towards the writings of the old....\n"
     "CAPITAL of wishes manifold\n", stage2},
-    
-    
+
+    /* paper puzzle hint the 3rd puzzle*/
+    {"a hint for the paper_puzzle", "paper_hint", hint, unused,
+	"Each of the section forms a shape that encloses an alphabet in the image\n"
+	"example\n"
+	"|   |\n"
+	"| _ |\n"
+    "the shape above is letter B in the diagram", stage1},
+
     {"a hint for the Sliding puzzle:", "slider_hint", hint, unused,
     "Step 1: Solve the bottom row first. \n "
     "Step 2: Perform a cycle in either the top left or top right corner \n"
@@ -103,35 +123,39 @@ OBJECT_t objs[] = {
     "piece is in the top right or top left 4x4 quadrant of the grid\n"
     "Step 4: Have patience :) \n", stage1},
 
-    
+
 	/* the graffiti and the 4th puzzle */
-	{"a hand-drawn graffiti", "graffiti", visible_object, regular, 
+	{"a hand-drawn graffiti", "graffiti", visible_object, regular,
 	"You see a carefully curved garffiti with fine knifework\n"
 	"The design seems to match that of several criss-crossing lines\n"
 	"Looking Closely might lead to some interesting patterns\n", stage2},
+
+
 	{"A hint for the piano puzzle:", "piano_hint", hint, unused,
 	"A triad is defined as notes spaced out 3 apart on a piano\n"
 	"For example: A minor is 'ACE'. Ironically, GNU debugger i.e. 'GDB' \n"
 	"Spells out an inversion of the G Major triad GDB. \n"
 	"But the sheet music specified some inversion. If you're familiar with this piece\n"
 	"of music, maybe you can hum it out and find out what the correct order is!\n", stage2},
-	
-	
-	
-	
+
+
+
+
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
 	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
 	"Intertwined fates connect the occult...\n"
 	"the connections define the ultimate result.\n" , graffiti_puzzle},
-	
 
-    
+	    /* riddle puzzle hint the 6th puzzle */
+    {"a hint for the riddle_puzzle", "riddle_hint", hint, unused,
+	"Look for the alphabet that appears frequently in each month\n", stage2},
+
     	/* the blue_lock and the 7th puzzle */
-	{"a blue_lock", "blue_lock", usable_object, closed, 
+	{"a blue_lock", "blue_lock", usable_object, closed,
 	"You find a small piece of paper attached to the lock\n"
 	"It seems to be some sort of instruction manual\n"
 	"You should try to Examine the Manual for further information\n", stage3},
-	{"an instruction manual", "manual", usable_object, regular, 
+	{"an instruction manual", "manual", usable_object, regular,
 	"The manual contains a long series of instructions.\n"
 	"You skipped over some stuff to find any relevant information.\n"
 	"... ... ...\n", stage3},

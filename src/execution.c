@@ -44,10 +44,18 @@ void execute_examine(const char *arg){
             if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
                 trigger_puzzle2();
             }
+            
+            if (strcmp(arg, "paper_puzzle") == 0 && player->location == stage1) {
+                trigger_puzzle3();
+            }
             if (strcmp(arg, "old_piano") == 0 && player->location == stage2)
             {
             	trigger_puzzle5();
             } 
+            
+            if (strcmp(arg, "riddle_puzzle") == 0 && player->location == stage2) {
+                trigger_puzzle6();
+            }
 		}
 	} else {
 		/* When there's no examination target */

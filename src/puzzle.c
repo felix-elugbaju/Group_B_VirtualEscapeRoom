@@ -376,44 +376,45 @@ void trigger_puzzle2()
  */
 void trigger_puzzle3()
 {
-    printf("A | B | C");
-    printf("_ | _ | _");
-    printf("D | E | T");
-    printf("_ | _ | _");
-    printf("I | O | U");
+    printf("A | B | C \n");
+    printf("_ | _ | _ \n");
+    printf("D | E | T \n");
+    printf("_ | _ | _ \n");
+    printf("I | O | U \n");
 
     printf("\n");
 
-    printf(" \\  N  / ");
-    printf(" \\ _ /  ");
-    printf("Q | P | F");
-    printf("  / _ \\  ");
-    printf(" / Y   \\ ");
+    printf(" \\  N  /  \n");
+    printf("  \\ _ /   \n");
+    printf("Q | P | F \n");
+    printf("  / _ \\   \n");
+    printf(" / Y   \\  \n");
 
-    printf("With the above information solve this puzzle");
+    printf("With the above information solve this puzzle \n");
 
-    printf("  |");
-    printf(" _|");
-
-    printf("\n");
-
-    printf("  _   ");
-    printf("|   |  ");
-    printf("| _ |");
+    printf("  | \n");
+    printf(" _| \n");
 
     printf("\n");
 
-    printf("  /");
-    printf(" /");
-    printf("|");
-    printf(" \\");
-    printf("  \\");
+    printf("  _   \n");
+    printf("|   |  \n");
+    printf("| _ | \n");
 
-    printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("\n");
+
+    printf("  / \n");
+    printf(" / \n");
+    printf("| \n");
+    printf(" \\ \n");
+    printf("  \\ \n");
+
+    printf("Enter a character and press enter, \nThis riddle requires THREE characters \n");
+    printf("To quit press q \nTo get a hint press h \n");
 
     char user_input = fgetc(stdin);
-    char word[3];
+    fflush(stdin);
+    char word[4];
     int len_word =0;
 
     if( user_input == 'q')
@@ -431,13 +432,19 @@ void trigger_puzzle3()
                 printf("\n%s\n",paper_hint->description);
                 paper_hint->state = used;
             }else{
-                word[len_word++] = user_input;
+                word[len_word++] = toupper(user_input);
             }
 
-            user_input = fgetc(stdin);
+            if(len_word < 3)
+            {
+                user_input = fgetc(stdin);
+                fflush(stdin);
+            }
         }
 
     }
+
+    word[len_word] = '\0';
 
     if(strcmp(word,"AEF") == 0)
     {
@@ -684,14 +691,15 @@ void trigger_puzzle5()
  */
 void trigger_puzzle6(){
 
-    printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY ");
-    printf(" WHAT AM I");
+    printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
+    printf(" WHAT AM I \n");
 
-    printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("Enter a character and press enter, \nThis riddle requires ONE character \n");
+    printf("To quit press q \nTo get a hint press h \n");
 
     char user_input = fgetc(stdin);
-    char word[1];
+    fflush(stdin);
+    char word[2];
     int len_word =0;
 
     if( user_input == 'q')
@@ -709,13 +717,18 @@ void trigger_puzzle6(){
                 printf("\n%s\n",riddle_hint->description);
                 riddle_hint->state = used;
             }else{
-                word[len_word++] = user_input;
+                word[len_word++] = toupper(user_input);
             }
 
-            user_input = fgetc(stdin);
+            if(len_word < 1){
+                user_input = fgetc(stdin);
+                fflush(stdin);
+            }
+
         }
 
     }
+    word[len_word] = '\0';
 
     if(strcmp(word,"E") == 0)
     {
@@ -842,21 +855,22 @@ void trigger_puzzle7(){
 void trigger_puzzle9(){
 
 
-    printf(" I GOES UP BUT DOESN'T COME DOWN");
-    printf(" WHAT AM I");
+    printf(" I GOES UP BUT DOESN'T COME DOWN \n");
+    printf(" WHAT AM I \n");
 
-    printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("Enter a character and press enter, \nThis riddle requires THREE characters \n");
+    printf("To quit press q \nTo get a hint press h \n");
 
     char user_input = fgetc(stdin);
-    char word[3];
+    fflush(stdin);
+    char word[4];
     int len_word =0;
 
     if( user_input == 'q')
     {
         return;
     }else {
-        while(len_word < 1)
+        while(len_word < 3)
         {
 
             if( user_input == 'q')
@@ -867,13 +881,19 @@ void trigger_puzzle9(){
                 printf("\n%s\n",cupboard_hint->description);
                 cupboard_hint->state = used;
             }else{
-                word[len_word++] = user_input;
+                word[len_word++] = toupper(user_input);
             }
 
-            user_input = fgetc(stdin);
+
+            if(len_word < 3){
+                user_input = fgetc(stdin);
+                fflush(stdin);
+            }
+
         }
 
     }
+     word[len_word] = '\0';
 
     if(strcmp(word,"AGE") == 0)
     {

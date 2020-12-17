@@ -45,7 +45,7 @@ OBJECT_t objs[] = {
     /** A treasure_bag **/
      { "a treasure_bag", "treasure_bag", visible_object, regular,
         "Look inside the treasure_bag.\n"
-        "There is a paper with a drawing examine the paper_puzzle\n"
+        "There is a paper with a drawing examine the treasue bag\n"
         "Figure out the interpretation of the drawing\n", stage1},
 
     /************************* Objects Visible in Stage 2 *************************/
@@ -66,7 +66,7 @@ OBJECT_t objs[] = {
     /** A pirate chest **/
      { "a pirate_chest of gold ", "pirate_chest", visible_object, regular,
         "Here is a pirates chest.\n"
-        "open it and there is a riddle inside it examine the riddle_puzzle\n"
+        "open it and there is a riddle inside it\n"
         "solve the riddle\n", stage2},
     /************************* Doors and Keys *************************/
     {"a silver_key", "silver_key", usable_object, hidden,

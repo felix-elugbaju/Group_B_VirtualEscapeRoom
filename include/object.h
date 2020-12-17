@@ -82,9 +82,12 @@ extern OBJECT_t objs[];
 #define code_puzzle		    (objs + 33)
 #define code_hint 		    (objs + 34)
 
+#define cupboard            (objs + 35)
+#define cupboard_puzzle     (objs + 36)
+#define cupboard_hint       (objs + 37)
 
 /* End: always update this! */
-#define end_of_objs 		(objs + 35)
+#define end_of_objs 		(objs + 38)
 
 
 #endif

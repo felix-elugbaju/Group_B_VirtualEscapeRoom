@@ -20,7 +20,7 @@ int list_objects_at_location(OBJECT_t *location, type_t type){
 
 
 void check_solved_stage1(){
-	if (clock_puzzle->state == solved && sliding_puzzle->state == solved){
+	if (clock_puzzle->state == solved && sliding_puzzle->state == solved && paper_puzzle->state == solved){
 		silver_key->state = revealed;		//reveal the first key
 		printf("\nYou hear a clank!\n"
 		"Suddenly, out of nowhere, a silver key falls in front of you.\n"
@@ -31,7 +31,7 @@ void check_solved_stage1(){
 }
 
 void check_solved_stage2(){
-	if (piano_puzzle->state == solved && graffiti_puzzle->state == solved){
+	if (piano_puzzle->state == solved && graffiti_puzzle->state == solved && riddle_puzzle->state == solved){
 		gold_key->state = revealed;		//reveal the second key
 		printf("\nYou hear a clank!\n"
 		"Suddenly, out of nowhere, a gold key falls in front of you.\n"

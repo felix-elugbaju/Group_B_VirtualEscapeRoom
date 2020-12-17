@@ -45,8 +45,7 @@ void check_solved_stage2(){
 
 
 void check_solved_stage3(){
-	if (phone_puzzle->state == solved && code_puzzle->state == solved)
-	{
+	if (phone_puzzle->state == solved && code_puzzle->state == solved && cupboard_puzzle->state == solved){
 		ruby_key->state = revealed;
 		printf("\nYou hear a clank!\n"
 		"Suddenly, out of nowhere, a ruby key falls in front of you.\n"

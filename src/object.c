@@ -170,7 +170,7 @@ OBJECT_t objs[] = {
 	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
 	
 	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
-	"all the numbers together?\n", stage3}
+	"all the numbers together?\n", stage3},
 	
 
 

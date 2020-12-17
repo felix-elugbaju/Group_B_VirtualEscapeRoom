@@ -376,41 +376,41 @@ void trigger_puzzle2()
  */
 void trigger_puzzle3()
 {
-    printf("A | B | C");
-    printf("_ | _ | _");
-    printf("D | E | T");
-    printf("_ | _ | _");
-    printf("I | O | U");
+    printf("A | B | C\n");
+    printf("_ | _ | _\n");
+    printf("D | E | T\n");
+    printf("_ | _ | _\n");
+    printf("I | O | U\n");
 
     printf("\n");
 
-    printf(" \\  N  / ");
-    printf(" \\ _ /  ");
-    printf("Q | P | F");
-    printf("  / _ \\  ");
-    printf(" / Y   \\ ");
+    printf(" \\  N  / \n");
+    printf(" \\ _ /  \n");
+    printf("Q | P | F\n");
+    printf("  / _ \\  \n");
+    printf(" / Y   \\ \n");
 
-    printf("With the above information solve this puzzle");
+    printf("With the above information solve this puzzle\n");
 
-    printf("  |");
-    printf(" _|");
-
-    printf("\n");
-
-    printf("  _   ");
-    printf("|   |  ");
-    printf("| _ |");
+    printf("  |\n");
+    printf(" _|\n");
 
     printf("\n");
 
-    printf("  /");
-    printf(" /");
-    printf("|");
-    printf(" \\");
-    printf("  \\");
+    printf("  _   \n");
+    printf("|   |  \n");
+    printf("| _ |\n");
+
+    printf("\n");
+
+    printf("  /\n");
+    printf(" /\n");
+    printf("|\n");
+    printf(" \\\n");
+    printf("  \\\n");
 
     printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("To quit press q \n To get a hint press h ");
 
     char user_input = fgetc(stdin);
     char word[3];
@@ -428,7 +428,7 @@ void trigger_puzzle3()
                 return;
             }else if( user_input == 'h')
             {
-                printf("\n%s\n",paper_hint->description);
+                printf("\n%s\n",paper_hint->detailed_description);
                 paper_hint->state = used;
             }else{
                 word[len_word++] = user_input;
@@ -488,8 +488,8 @@ void trigger_puzzle4(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-		//	printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
-		//	graffiti_hint->state = used;
+			printf("\n%s\n", graffiti_hint->detailed_description); 	//show hint for the graffiti_puzzle
+			graffiti_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
 			goto keypad;
@@ -706,7 +706,7 @@ void trigger_puzzle6(){
                 return;
             }else if( user_input == 'h')
             {
-                printf("\n%s\n",riddle_hint->description);
+                printf("\n%s\n",riddle_hint->detailed_description);
                 riddle_hint->state = used;
             }else{
                 word[len_word++] = user_input;
@@ -760,8 +760,8 @@ void trigger_puzzle7(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-		//	printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
-		//	code_hint->state = used;
+			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the code_puzzle
+			code_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
 			goto keypad;

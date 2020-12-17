@@ -839,6 +839,7 @@ void trigger_puzzle7(){
 		}
 }
 
+
 void trigger_puzzle8()
 {
  	char * telephone_num = "3210225";
@@ -898,4 +899,56 @@ void trigger_puzzle8()
 	}
 }
 
+void trigger_puzzle9(){
+
+
+
+    printf(" I GOES UP BUT DOESN'T COME DOWN");
+    printf(" WHAT AM I");
+
+    printf("Please your inputs should be in capital letters");
+    printf("To quit press q \n To get a hint press h");
+
+    char user_input = fgetc(stdin);
+    char word[3];
+    int len_word =0;
+
+    if( user_input == 'q')
+    {
+        return;
+    }else {
+        while(len_word < 1)
+        {
+
+            if( user_input == 'q')
+            {
+                return;
+            }else if( user_input == 'h')
+            {
+                printf("\n%s\n",cupboard_hint->description);
+                cupboard_hint->state = used;
+            }else{
+                word[len_word++] = user_input;
+            }
+
+            user_input = fgetc(stdin);
+        }
+
+    }
+
+    if(strcmp(word,"AGE") == 0)
+    {
+        printf("PASS");
+        cupboard_puzzle->state = solved;
+    }else{
+        printf("FAIL");
+        printf("Please examine object again");
+
+    }
+
+    return;
+
+
+
+}
 

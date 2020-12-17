@@ -48,17 +48,21 @@ void execute_examine(const char *arg){
             if (strcmp(arg, "jigsaw_puzzle") == 0 && player->location == stage1) {
                 trigger_puzzle2();
             }
-            
-            if (strcmp(arg, "paper_puzzle") == 0 && player->location == stage1) {
+
+            if (strcmp(arg, "treasure_bag") == 0 && player->location == stage1) {
                 trigger_puzzle3();
             }
             if (strcmp(arg, "old_piano") == 0 && player->location == stage2)
             {
             	trigger_puzzle5();
-            } 
-            
-            if (strcmp(arg, "riddle_puzzle") == 0 && player->location == stage2) {
+            }
+
+            if (strcmp(arg, "pirate_chest") == 0 && player->location == stage2) {
                 trigger_puzzle6();
+            }
+
+            if (strcmp(arg, "cupboard") == 0 && player->location == stage3) {
+                trigger_puzzle9();
             }
 		}
 	} else {
@@ -89,14 +93,14 @@ void execute_read(const char *arg){
 
 void execute_go(const char *arg){
 	if (arg == NULL){
-		printf("Maybe you should decide where to go first\n");	
+		printf("Maybe you should decide where to go first\n");
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such place exists
 	} else if (obj == player->location){			// player is trying to move to where he already is
-		printf("You're already in %s\n", arg);	
+		printf("You're already in %s\n", arg);
 	} else if (obj->type != location){			// trying to move to a non-location
 		printf("%s is not a location\n", arg);
 	} else if (player->location->state == confined){			// trying to move from a confined loaction
@@ -114,15 +118,15 @@ void execute_go(const char *arg){
 
 void execute_get(const char *arg){
 	if (arg == NULL){
-		printf("Maybe you should decide what to get first\n");	
+		printf("Maybe you should decide what to get first\n");
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
 	} else if (obj->type != usable_object){
-		printf("%s is too large to fit in your bag\n", arg);	
-	} else if (obj->location == player){					
+		printf("%s is too large to fit in your bag\n", arg);
+	} else if (obj->location == player){
 		printf("You already have %s\n", arg);
 	} else if (obj->location != player->location){			// player and object are not in the same location
 		printf("You don't see any %s in here\n", arg);		// player might try to get gold_key while in stage1
@@ -130,18 +134,18 @@ void execute_get(const char *arg){
 		if (strcmp(arg, "silver_key") == 0){
 			/** Conditions for getting silver_key **/
 			if (silver_key->state == revealed){
-				obj->location = player;				
+				obj->location = player;
 				printf("You moved %s to your bag\n", arg);
 			} else {
 				printf("You have not found %s yet\n", arg);
 			}
 		} else if (strcmp(arg, "gold_key") == 0){
 			/** Conditions for getting gold_key **/
-			obj->location = player;				
+			obj->location = player;
 			printf("You moved %s to your bag\n", arg);
 		} else if (strcmp(arg, "ruby_key") == 0){
 			/** Conditions for getting ruby_key **/
-			obj->location = player;				
+			obj->location = player;
 			printf("You moved %s to your bag\n", arg);
 		}
 	}
@@ -155,17 +159,17 @@ void execute_check(void){
 
 void execute_use(const char *arg){
 	if (arg == NULL){
-		printf("Maybe you should decide what you want to use first\n");	
+		printf("Maybe you should decide what you want to use first\n");
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
 	} else if (obj->type != usable_object){
-		printf("%s is not usable\n", arg);	
+		printf("%s is not usable\n", arg);
 	} else if (obj->location != player){					// player does not have object yet
-		printf("You have not found %s yet\n", arg);	
-	} else if (obj->location == player){					
+		printf("You have not found %s yet\n", arg);
+	} else if (obj->location == player){
 		if (strcmp(obj->tag,"silver_key")==0 && strcmp(player->location->tag,"stage1")==0)	{
 			if (silver_door->state == open){
 				printf("The silver door seems to be already open\n");
@@ -190,24 +194,24 @@ void execute_use(const char *arg){
 		} else {
 			printf("Nothing happened!\n");
 		}
-	} else {	
+	} else {
 		printf("Nothing happened!\n");
 	}
 }
 
 void execute_open(const char *arg){
 	if (arg == NULL){
-		printf("Maybe you should find something to open first\n");	
+		printf("Maybe you should find something to open first\n");
 		return;
 	}
 	OBJECT_t *obj = get_object(arg);
 	if (obj == NULL){
 		printf("%s does not exist in this world!!\n", arg);		// if no such object exists
 	} else if (obj->location != player->location){				// door and player not in the same room
-		printf("You don't see any %s in here\n", arg);	
-	} else if (obj->state == closed){					
+		printf("You don't see any %s in here\n", arg);
+	} else if (obj->state == closed){
 		printf("It seems that %s is locked\n"
-		"You should find something that can open it\n", arg);				
+		"You should find something that can open it\n", arg);
 	} else {			// Push and open the door
 		player->location->state = unrestricted;
 		printf("The door opens with a loud creak!\n"

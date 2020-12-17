@@ -45,7 +45,7 @@ OBJECT_t objs[] = {
     /** A treasure_bag **/
      { "a treasure_bag", "treasure_bag", visible_object, regular,
         "Look inside the treasure_bag.\n"
-        "There is a paper with a with a drawing examine the paper_puzzle\n"
+        "There is a paper with a drawing examine the paper_puzzle\n"
         "Figure out the interpretation of the drawing\n", stage1},
 
     /************************* Objects Visible in Stage 2 *************************/
@@ -129,7 +129,7 @@ OBJECT_t objs[] = {
 	"You see a carefully curved garffiti with fine knifework\n"
 	"The design seems to match that of several criss-crossing lines\n"
 	"Looking Closely might lead to some interesting patterns\n", stage2},
-	
+
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
 	
 	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
@@ -161,6 +161,7 @@ OBJECT_t objs[] = {
 	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
 	{"a hint for the code_puzzle", "code_hint", hint, unused,
 	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle},
+
 	
 	{"a rotary telephone", "phone", visible_object, regular, 
 	"Surprisingly this rotary telephone is fully functioning.\n"
@@ -171,4 +172,28 @@ OBJECT_t objs[] = {
 	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
 	"all the numbers together?\n", stage3}
 	
+
+
+	    /** A cupboard **/
+    { "a cupboard with medicine ", "cupboard", visible_object, regular,
+    "Here is a cupboard.\n"
+    "open it and there is a medicine bottle with an inscription on it please examine bottle\n"
+    "solve the riddle on the inscription\n", stage3},
+
+    {"a cupboard_puzzle", "cupboard_puzzle", puzzle, unsolved, NULL, stage3},
+
+      /* cupboard puzzle hint the 9th puzzle */
+    {"a hint for the cupboard_puzzle", "cupboard_puzzle", hint, unused,
+	"What increases on your birthday\n", cupboard_puzzle},
+	
+	{"a rotary telephone", "phone", visible_object, regular, 
+	"Surprisingly this rotary telephone is fully functioning.\n"
+	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
+	},	
+	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
+	
+	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
+	"all the numbers together?\n", stage3}
+
+
 };

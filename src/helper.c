@@ -10,8 +10,9 @@ int list_objects_at_location(OBJECT_t *location, type_t type){
 		if (obj->location == location && obj != player && obj->type == type){	// No point in the player seeing himself
 			if (count == 0){
 				printf("You see: \n");			// Print this only at the beginning of every list
-				count++;
+
 			}
+			count++;
 			printf("%s\n", obj->description);
 		}
 	}
@@ -52,7 +53,7 @@ void check_solved_stage3(){
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the ruby_key.\n");
 		return;
-	
+
 	}
 }
 
@@ -65,10 +66,10 @@ void get_reward(int stage)
 	for (obj = objs; obj < end_of_objs; obj++){			// scan through the object list (objs)
 		if (obj->type == hint && obj->location == player->location){
 			if (obj->state == used)
-				count++;			
+				count++;
 		}
 	}
-	
+
 	printf("For stage %d, you have achieved the %s award!", stage, rewards[count]);
 
 

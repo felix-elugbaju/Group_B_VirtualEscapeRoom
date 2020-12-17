@@ -824,7 +824,7 @@ void trigger_puzzle7(){
 							"The blue_lock unlocks in front of your eyes.\n"
 							"The keypad doesn't respond to your presses anymore.\n"
 							"Congrats! You have found the hidden code and solved this puzzle!\n");
-	//						check_solved_stage3();		// check if all puzzles have been solved
+							check_solved_stage3();		// check if all puzzles have been solved
 							return;
 						} else {
 							printf("But nothing happened!\n");
@@ -877,7 +877,8 @@ void trigger_puzzle8()
 				return;
 			}
 			if (strcmp(makes_call, "h") == 0){
-				//TODO: ADD HINT
+				piano_hint->state = used;
+				printf("%s", piano_hint->detailed_description);
 			}
 			if (strcmp(makes_call, telephone_num) == 0)
 			{
@@ -893,7 +894,7 @@ void trigger_puzzle8()
 		
 		}
 		phone_puzzle->state = solved;
-		//check_solved_stage3();
+		check_solved_stage3();
 	}
 }
 

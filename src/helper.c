@@ -42,3 +42,34 @@ void check_solved_stage2(){
 
 
 }
+
+void check_solved_stage3(){
+	if (phone_puzzle->state == solved && code_puzzle->state == solved)
+	{
+		ruby_key->state = revealed;
+		printf("\nYou hear a clank!\n"
+		"Suddenly, out of nowhere, a ruby key falls in front of you.\n"
+		"The color of the key seems to resemble that of the door.\n"
+		"You might be able to pick up (get) the ruby_key.\n");
+		return;
+	
+	}
+}
+
+void get_reward(int stage)
+{
+
+	char * rewards[] = {"gold", "silver", "bronze", "Lost Explorer"};
+	int count = 0;
+	OBJECT_t *obj = NULL;
+	for (obj = objs; obj < end_of_objs; obj++){			// scan through the object list (objs)
+		if (obj->type == hint && obj->location == player->location){
+			if (obj->state == used)
+				count++;			
+		}
+	}
+	
+	printf("For stage %d, you have achieved the %s award!", stage, rewards[count]);
+
+
+}

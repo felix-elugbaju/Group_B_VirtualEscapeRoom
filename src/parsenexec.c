@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
@@ -34,7 +35,11 @@ bool parse_and_execute(char *input){
 			execute_open(arg);
 		} else if (strcmp(command, "read") == 0){			// User enters "read <arg>"
 			execute_read(arg);
-		} else if (strcmp(command, "ask") == 0){			// User enters "ask <arg>"
+		} else if (strcmp(command, "call") == 0) {
+			execute_call(arg);
+		}
+		
+		else if (strcmp(command, "ask") == 0){			// User enters "ask <arg>"
 			if (strcmp (arg, "hint") == 0){				// User asks for hint
 //				execute_hint();
 			} else if (strcmp (arg, "help") == 0){

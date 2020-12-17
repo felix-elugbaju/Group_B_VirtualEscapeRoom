@@ -44,6 +44,7 @@ extern OBJECT_t objs[];
 /* Actors */
 #define player 			  (objs + 3)
 /* Objects Visible in Stage 1 */
+
 #define table 			  (objs + 4)
 #define letter			  (objs + 5)
 #define clock 			  (objs + 6)
@@ -69,25 +70,29 @@ extern OBJECT_t objs[];
 /* Hints */
 
 #define clock_hint		    (objs + 23)
-#define paper_hint		    (objs + 24)
+#define paper_hint         (objs + 24)
 #define slider_hint		    (objs + 25)
 #define graffiti 		    (objs + 26)
-#define graffiti_puzzle 	    (objs + 27)
-#define graffiti_hint		    (objs + 28)
-#define piano_hint		    (objs + 29)
+#define graffiti_puzzle 	(objs + 27)
+#define graffiti_hint		(objs + 28)
+#define piano_hint	        (objs + 29)
 #define riddle_hint		    (objs + 30)
 /* Lock with code */
 #define blue_lock 		    (objs + 31)
 #define manual 			    (objs + 32)
 #define code_puzzle		    (objs + 33)
 #define code_hint 		    (objs + 34)
-
 #define cupboard            (objs + 35)
 #define cupboard_puzzle     (objs + 36)
 #define cupboard_hint       (objs + 37)
 
+#define phone               (objs + 38)
+#define phone_puzzle        (objs + 39)
+#define phone_hint           (objs + 40)
+
+
 /* End: always update this! */
-#define end_of_objs 		(objs + 38)
+#define end_of_objs 		(objs + 41)
 
 
 #endif

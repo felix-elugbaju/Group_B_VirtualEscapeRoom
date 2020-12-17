@@ -105,7 +105,7 @@ OBJECT_t objs[] = {
     "hands of the clock..\n"
     "dance as they flock...\n"
     "towards the writings of the old....\n"
-    "CAPITAL of wishes manifold\n", stage1},
+    "CAPITAL of wishes manifold\n", stage2},
 
     /* paper puzzle hint the 3rd puzzle*/
     {"a hint for the paper_puzzle", "paper_hint", hint, unused,
@@ -119,7 +119,7 @@ OBJECT_t objs[] = {
     "Step 1: Solve the bottom row first. \n "
     "Step 2: Perform a cycle in either the top left or top right corner \n"
     "Step 3: A 'cycle' is defined as a rotation of 'S', 'A' 'W', 'D', \n"
-    "or vice versa for a cycle in the opposite direction\n, where the empty\n"
+    "or vice versa for a cycle in the opposite direction, where the empty\n"
     "piece is in the top right or top left 4x4 quadrant of the grid\n"
     "Step 4: Have patience :) \n", stage1},
 
@@ -131,6 +131,7 @@ OBJECT_t objs[] = {
 	"Looking Closely might lead to some interesting patterns\n", stage2},
 
 	{"a graffiti_puzzle", "graffiti_puzzle", puzzle, unsolved, NULL, stage2},
+	
 	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
 	"Intertwined fates connect the occult...\n"
 	"the connections define the ultimate result.\n" , graffiti_puzzle},
@@ -155,9 +156,23 @@ OBJECT_t objs[] = {
 	"The manual contains a long series of instructions.\n"
 	"You skipped over some stuff to find any relevant information.\n"
 	"... ... ...\n", stage3},
+	
+	
 	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
 	{"a hint for the code_puzzle", "code_hint", hint, unused,
 	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle},
+
+	
+	{"a rotary telephone", "phone", visible_object, regular, 
+	"Surprisingly this rotary telephone is fully functioning.\n"
+	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
+	},	
+	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
+	
+	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
+	"all the numbers together?\n", stage3},
+	
+
 
 	    /** A cupboard **/
     { "a cupboard with medicine ", "cupboard", visible_object, regular,
@@ -170,5 +185,15 @@ OBJECT_t objs[] = {
       /* cupboard puzzle hint the 9th puzzle */
     {"a hint for the cupboard_puzzle", "cupboard_puzzle", hint, unused,
 	"What increases on your birthday\n", cupboard_puzzle},
+	
+	{"a rotary telephone", "phone", visible_object, regular, 
+	"Surprisingly this rotary telephone is fully functioning.\n"
+	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
+	},	
+	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
+	
+	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
+	"all the numbers together?\n", stage3}
+
 
 };

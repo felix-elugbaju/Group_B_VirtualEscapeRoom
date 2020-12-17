@@ -384,33 +384,35 @@ void trigger_puzzle3()
 
     printf("\n");
 
-    printf(" \\  N  /  \n");
-    printf("  \\ _ /   \n");
+    printf(" \\  N  / \n");
+    printf("  \\ _ /  \n");
     printf("Q | P | F \n");
-    printf("  / _ \\   \n");
-    printf(" / Y   \\  \n");
+    printf("  / _ \\  \n");
+    printf(" / Y   \\ \n");
 
-    printf("With the above information solve this puzzle \n");
+    printf("With the above information solve this puzzle\n");
 
     printf("  | \n");
     printf(" _| \n");
 
+
     printf("\n");
 
-    printf("  _   \n");
+    printf("  _    \n");
     printf("|   |  \n");
-    printf("| _ | \n");
+    printf("| _ |  \n");
 
     printf("\n");
 
-    printf("  / \n");
-    printf(" / \n");
-    printf("| \n");
-    printf(" \\ \n");
+    printf("  /  \n");
+    printf(" /   \n");
+    printf("|    \n");
+    printf(" \\  \n");
     printf("  \\ \n");
 
-    printf("Enter a character and press enter, \nThis riddle requires THREE characters \n");
+    printf("This  a riddle and it requires THREE characters \n");
     printf("To quit press q \nTo get a hint press h \n");
+
 
     char user_input = fgetc(stdin);
     fflush(stdin);
@@ -429,7 +431,7 @@ void trigger_puzzle3()
                 return;
             }else if( user_input == 'h')
             {
-                printf("\n%s\n",paper_hint->description);
+                printf("\n%s\n",paper_hint->detailed_description);
                 paper_hint->state = used;
             }else{
                 word[len_word++] = toupper(user_input);
@@ -714,7 +716,7 @@ void trigger_puzzle6(){
                 return;
             }else if( user_input == 'h')
             {
-                printf("\n%s\n",riddle_hint->description);
+                printf("\n%s\n",riddle_hint->detailed_description);
                 riddle_hint->state = used;
             }else{
                 word[len_word++] = toupper(user_input);
@@ -773,7 +775,7 @@ void trigger_puzzle7(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
+			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the code_puzzle
 			code_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
@@ -837,7 +839,7 @@ void trigger_puzzle7(){
 							"The blue_lock unlocks in front of your eyes.\n"
 							"The keypad doesn't respond to your presses anymore.\n"
 							"Congrats! You have found the hidden code and solved this puzzle!\n");
-	//						check_solved_stage3();		// check if all puzzles have been solved
+							check_solved_stage3();		// check if all puzzles have been solved
 							return;
 						} else {
 							printf("But nothing happened!\n");
@@ -852,8 +854,67 @@ void trigger_puzzle7(){
 		}
 }
 
-void trigger_puzzle9(){
 
+void trigger_puzzle8()
+{
+ 	char * telephone_num = "3210225";
+ 	char makes_call[10];
+	printf("Friend: Alright, listen closely, I have a story to tell.\n");
+	printf("\n");
+	printf("So I started running again, I went to the gym and I haven't\n");
+	printf("ran since September. I'm really out of shape, I'll tell you\n");
+	printf("I ran three laps, and I was gasping for air at the end of it\n");
+	printf("I decided to see the Parliament Building to sort of cool down, but I was stuck\n");
+	printf("in this roundabout, so many pedestrians, it took me two times to get out of there.\n");
+	printf("When I finally got there, I managed to count the provinces on a monument, all ten of them.\n");
+	printf("I realized I can't keep this fitness charade up for long,\n");
+	printf("So I drove to pizza pizza, and its so nice, I had two slices.\n");
+	printf("After that, I listened to 'It takes two to tango' by Louis Armstrong\n");
+	printf("In the car on the ride home. I am really looking forward to a five\n");
+	printf("O'Clock dinner tonight with our families\n");
+	printf("\n");
+	printf("Say, can you call your mother and tell her you won't make it?\n");
+	printf("You should know her number by heart, and if not\n");
+	printf("I've told what it is earlier in my story\n");
+	printf("\n");
+	printf("Your friend has hung up.\n");
+	printf("Do you call your mother?(y/n)");
+	scanf("%s", makes_call);
+	if (strcmp(makes_call, "y"))
+	{
+		int done = 0;
+		while (!done) {
+			printf("Enter a telephone number to dial. No area code, just a seven digit number\n");
+			printf("Enter h for a hint, however be warned, using hints affects your score!");
+			printf("Enter q to quit");
+			scanf("%s", makes_call);
+
+			if (strcmp(makes_call, "q") == 0){
+				return;
+			}
+			if (strcmp(makes_call, "h") == 0){
+				piano_hint->state = used;
+				printf("%s", piano_hint->detailed_description);
+			}
+			if (strcmp(makes_call, telephone_num) == 0)
+			{
+				printf("You have dialed your mother!\n");
+				printf("Puzzle is solved\n");
+				done  = 1;
+			}
+			else
+			{
+				printf("Stranger: Sorry, I think this is the wrong number!\n");
+
+			}
+
+		}
+		phone_puzzle->state = solved;
+		check_solved_stage3();
+	}
+}
+
+void trigger_puzzle9(){
 
     printf(" I GOES UP BUT DOESN'T COME DOWN \n");
     printf(" WHAT AM I \n");

@@ -28,4 +28,18 @@ extern void check_solved_stage1();
 extern void check_solved_stage2();
 
 
+
+/**
+ * @brief checks whether all puzzles in stage 3 has been solved
+ */
+extern void check_solved_stage3();
+
+
+
+/**
+ * @brief calculates the amount of hints used in that particular stage, and prints a reward
+ */
+extern void get_reward(int stage);
+
 #endif
+

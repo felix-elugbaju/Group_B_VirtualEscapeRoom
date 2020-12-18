@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "object.h"
 #include "helper.h"
 
@@ -72,6 +74,18 @@ void get_reward(int stage)
 
 	printf("For stage %d, you have achieved the %s award!", stage, rewards[count]);
 
+
+}
+
+void capitalize(char *word)
+{
+    int i =0;
+    while(word[i])
+    {
+
+        word[i] = toupper(word[i]);
+        i++;
+    }
 
 }
 

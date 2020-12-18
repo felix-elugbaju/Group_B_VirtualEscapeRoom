@@ -4,7 +4,7 @@
  * void check_solved_stage1(): checks whether all puzzles in stage 1 has been solved
  * void check_solved_stage2(): checks whether all puzzles in stage 2 has been solved
  */
- 
+
 #ifndef __HELPER_H__
 #define __HELPER_H__
 
@@ -40,6 +40,13 @@ extern void check_solved_stage3();
  * @brief calculates the amount of hints used in that particular stage, and prints a reward
  */
 extern void get_reward(int stage);
+
+
+/**
+ * @brief capitalize a word
+ */
+extern void capitalize(char *word);
+
 
 #endif
 

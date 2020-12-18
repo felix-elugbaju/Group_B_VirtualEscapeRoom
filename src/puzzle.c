@@ -376,84 +376,89 @@ void trigger_puzzle2()
  */
 void trigger_puzzle3()
 {
-    printf("A | B | C");
-    printf("_ | _ | _");
-    printf("D | E | T");
-    printf("_ | _ | _");
-    printf("I | O | U");
-
-    printf("\n");
-
-    printf(" \\  N  / ");
-    printf(" \\ _ /  ");
-    printf("Q | P | F");
-    printf("  / _ \\  ");
-    printf(" / Y   \\ ");
-
-    printf("With the above information solve this puzzle");
-
-    printf("  |");
-    printf(" _|");
-
-    printf("\n");
-
-    printf("  _   ");
-    printf("|   |  ");
-    printf("| _ |");
-
-    printf("\n");
-
-    printf("  /");
-    printf(" /");
-    printf("|");
-    printf(" \\");
-    printf("  \\");
-
-    printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("This a paper puzzle and it requires a THREE letter word \n");
+    printf("To quit press q \nTo get a hint press h \n");
+    printf("Do you want to start y/n \n");
 
     char user_input = fgetc(stdin);
-    char word[3];
-    int len_word =0;
+    fflush(stdin);
 
-    if( user_input == 'q')
+
+    if( tolower(user_input) == 'n')
     {
         return;
     }else {
-        while(len_word < 3)
+        int done = 0;
+        char *answer = "AEF";
+
+        printf("A | B | C \n");
+        printf("_ | _ | _ \n");
+        printf("D | E | T \n");
+        printf("_ | _ | _ \n");
+        printf("I | O | U \n");
+
+        printf("\n");
+
+        printf(" \\  N  / \n");
+        printf("  \\ _ /  \n");
+        printf("Q | P | F \n");
+        printf("  / _ \\  \n");
+        printf(" / Y   \\ \n");
+
+        printf("With the above information solve this puzzle \n");
+
+        printf("  | \n");
+        printf(" _| \n");
+
+
+        printf("\n");
+
+        printf("  _    \n");
+        printf("|   |  \n");
+        printf("| _ |  \n");
+
+        printf("\n");
+
+        printf("  /  \n");
+        printf(" /   \n");
+        printf("|    \n");
+        printf(" \\  \n");
+        printf("  \\ \n");
+
+        while(!done)
         {
+            char word[4];
+            scanf("%3s", word);
+            capitalize(word);
 
-            if( user_input == 'q')
+
+            if(strcmp(word,"Q") == 0)
             {
+                fflush(stdin);
                 return;
-            }else if( user_input == 'h')
+            }else if(strcmp(word,"H") == 0 )
             {
-                printf("\n%s\n",paper_hint->description);
+                fflush(stdin);
+                printf("\n%s\n",paper_hint->detailed_description);
                 paper_hint->state = used;
-            }else{
-                word[len_word++] = user_input;
-            }
+            }else if (strcmp(word,answer) == 0){
+                done = 1;
+                printf("The puzzle has been solved \n");
+                paper_puzzle->state = solved;
+                check_solved_stage1();
 
-            user_input = fgetc(stdin);
+            }else {
+
+                printf("You fail please check the hint \n");
+                printf("Please examine object again \n");
+                printf("TRY AGAIN or q to quit \n");
+
+            }
         }
 
     }
 
-    if(strcmp(word,"AEF") == 0)
-    {
-        printf("PASS");
-        paper_puzzle->state = solved;
-    }else{
-        printf("FAIL");
-        printf("Please examine object again");
-
-    }
-
     return;
-
-
-
-
 
 }
 
@@ -684,47 +689,53 @@ void trigger_puzzle5()
  */
 void trigger_puzzle6(){
 
-    printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY ");
-    printf(" WHAT AM I");
-
-    printf("Please your inputs should be in capital letters");
-    printf("To quit press q \n To get a hint press h");
+    printf("This a riddle and it requires ONE letter \n");
+    printf("To quit press q \nTo get a hint press h \n");
+    printf("Do you want to start y/n \n");
 
     char user_input = fgetc(stdin);
-    char word[1];
-    int len_word =0;
+    fflush(stdin);
 
-    if( user_input == 'q')
+
+    if( tolower(user_input) == 'n')
     {
         return;
     }else {
-        while(len_word < 1)
+        int done = 0;
+        char *answer = "E";
+
+        printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
+        printf(" WHAT AM I \n");
+
+        while(!done)
         {
+            char word[2];
+            scanf("%1s", word);
+            capitalize(word);
 
-            if( user_input == 'q')
+            if(strcmp(word,"Q") == 0)
             {
+                fflush(stdin);
                 return;
-            }else if( user_input == 'h')
+            }else if(strcmp(word,"H") == 0 )
             {
-                printf("\n%s\n",riddle_hint->description);
+                fflush(stdin);
+                printf("\n%s\n",riddle_hint->detailed_description);
                 riddle_hint->state = used;
-            }else{
-                word[len_word++] = user_input;
+            }else if (strcmp(word,answer) == 0){
+                done = 1;
+                 printf("This riddle has been solved hurray \n");
+                riddle_puzzle->state = solved;
+                check_solved_stage2();
+
+            }else {
+
+                printf("You failed please check the hint \n");
+                printf("Please examine object again \n");
+                printf("TRY AGAIN or q to quit \n");
+
             }
-
-            user_input = fgetc(stdin);
         }
-
-    }
-
-    if(strcmp(word,"E") == 0)
-    {
-        printf("PASS");
-        riddle_puzzle->state = solved;
-    }else{
-        printf("FAIL");
-        printf("Please examine object again");
-
     }
 
     return;
@@ -760,7 +771,7 @@ void trigger_puzzle7(){
 		} else if (tolower(user_intent) == 'i'){
 			goto instructions;
 		} else if (tolower(user_intent) == 'h'){
-			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the graffiti_puzzle
+			printf("\n%s\n", code_hint->detailed_description); 	//show hint for the code_puzzle
 			code_hint->state = used;
 			goto puzzle;
 		} else if (tolower(user_intent) == 'k'){
@@ -824,7 +835,7 @@ void trigger_puzzle7(){
 							"The blue_lock unlocks in front of your eyes.\n"
 							"The keypad doesn't respond to your presses anymore.\n"
 							"Congrats! You have found the hidden code and solved this puzzle!\n");
-	//						check_solved_stage3();		// check if all puzzles have been solved
+							check_solved_stage3();		// check if all puzzles have been solved
 							return;
 						} else {
 							printf("But nothing happened!\n");
@@ -840,4 +851,118 @@ void trigger_puzzle7(){
 }
 
 
+void trigger_puzzle8()
+{
+ 	char * telephone_num = "3210225";
+ 	char makes_call[10];
+	printf("Friend: Alright, listen closely, I have a story to tell.\n");
+	printf("\n");
+	printf("So I started running again, I went to the gym and I haven't\n");
+	printf("ran since September. I'm really out of shape, I'll tell you\n");
+	printf("I ran three laps, and I was gasping for air at the end of it\n");
+	printf("I decided to see the Parliament Building to sort of cool down, but I was stuck\n");
+	printf("in this roundabout, so many pedestrians, it took me two times to get out of there.\n");
+	printf("When I finally got there, I managed to count the provinces on a monument, all ten of them.\n");
+	printf("I realized I can't keep this fitness charade up for long,\n");
+	printf("So I drove to pizza pizza, and its so nice, I had two slices.\n");
+	printf("After that, I listened to 'It takes two to tango' by Louis Armstrong\n");
+	printf("In the car on the ride home. I am really looking forward to a five\n");
+	printf("O'Clock dinner tonight with our families\n");
+	printf("\n");
+	printf("Say, can you call your mother and tell her you won't make it?\n");
+	printf("You should know her number by heart, and if not\n");
+	printf("I've told what it is earlier in my story\n");
+	printf("\n");
+	printf("Your friend has hung up.\n");
+	printf("Do you call your mother?(y/n)");
+	scanf("%s", makes_call);
+	if (strcmp(makes_call, "y"))
+	{
+		int done = 0;
+		while (!done) {
+			printf("Enter a telephone number to dial. No area code, just a seven digit number\n");
+			printf("Enter h for a hint, however be warned, using hints affects your score!");
+			printf("Enter q to quit");
+			scanf("%s", makes_call);
+
+			if (strcmp(makes_call, "q") == 0){
+				return;
+			}
+			if (strcmp(makes_call, "h") == 0){
+				piano_hint->state = used;
+				printf("%s", piano_hint->detailed_description);
+			}
+			if (strcmp(makes_call, telephone_num) == 0)
+			{
+				printf("You have dialed your mother!\n");
+				printf("Puzzle is solved\n");
+				done  = 1;
+			}
+			else
+			{
+				printf("Stranger: Sorry, I think this is the wrong number!\n");
+
+			}
+
+		}
+		phone_puzzle->state = solved;
+		check_solved_stage3();
+	}
+}
+
+void trigger_puzzle9(){
+
+    printf("This is a riddle and it requires a THREE letter word \n");
+    printf("To quit press q \nTo get a hint press h \n");
+    printf("Do you want to start y/n \n");
+
+
+    char user_input = fgetc(stdin);
+    fflush(stdin);
+
+    if( tolower(user_input) == 'n')
+    {
+        return;
+    }else {
+
+        int done = 0;
+        char *answer = "AGE";
+
+        printf(" I GOES UP BUT DOESN'T COME DOWN \n");
+        printf(" WHAT AM I \n");
+
+        while(!done)
+        {
+            char word[4];
+            scanf("%3s", word);
+            capitalize(word);
+
+            if(strcmp(word,"Q") == 0)
+            {
+                fflush(stdin);
+                return;
+            }else if(strcmp(word,"H") == 0 )
+            {
+                fflush(stdin);
+                printf("\n%s\n",cupboard_hint->description);
+                cupboard_hint->state = used;
+            }else if (strcmp(word,answer) == 0){
+                done = 1;
+                cupboard_puzzle->state = solved;
+                check_solved_stage3();
+                printf("Hurray the riddle in the cupboard has been solved \n");
+
+            }else {
+
+                printf("The riddle is not yet solved you can use the hint \n");
+                printf("Please examine object again \n");
+                printf("TRY AGAIN or q to quit \n");
+
+            }
+        }
+    }
+
+    return;
+
+}
 

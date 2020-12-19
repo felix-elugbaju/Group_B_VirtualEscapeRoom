@@ -43,14 +43,14 @@ extern void execute_get(const char *arg);
 /**
  * \brief Attempt to use item with tag `arg`
  * 
- * @param[in] arg TODO
+ * @param[in] arg Tag of item to use
  */
 extern void execute_use(const char *arg);
 
 /**
  * \brief Attempt to open door with tag `arg`
  * 
- * @param[in] arg TODO
+ * @param[in] arg Tag of item to open
  */
 extern void execute_open(const char *arg);
 
@@ -65,9 +65,9 @@ extern void execute_help(void);
 extern void execute_map(void);
 
 /**
- * \brief TODO
+ * \brief Executed when the player attempst to make a call (mostly used for calling a friend)
  * 
- * @param[in] arg TODO
+ * @param[in] arg Name to call.
  */
 extern void execute_call(const char *arg);
 

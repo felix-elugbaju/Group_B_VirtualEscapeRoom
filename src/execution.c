@@ -6,6 +6,20 @@
 #include "puzzle.h"
 
 
+bool execute_leave()
+{
+	if (stage1->state == unrestricted && stage2->state == unrestricted && stage3->state == unrestricted){
+		printf("CONGRATS!!\n"
+		"You have just cleared the game!\n");
+		printf("I wish you well on your next adventure!\n");
+		printf("Farewell!\n");
+		return false;
+	}
+	printf("You must solve all three rooms before you win the game\n");
+	return true;
+}
+
+
 void execute_look(const char *arg){
 	if (arg != NULL){
 		if ((strcmp(arg, "around") == 0)){
@@ -199,10 +213,10 @@ void execute_use(const char *arg){
 	}
 }
 
-void execute_open(const char *arg){
+bool execute_open(const char *arg){
 	if (arg == NULL){
 		printf("Maybe you should find something to open first\n");
-		return;
+		return true;
 	}
 	OBJECT_t *obj = get_object(arg);
 	if (obj == NULL){
@@ -217,7 +231,9 @@ void execute_open(const char *arg){
 		printf("The door opens with a loud creak!\n"
 		"You see two dark passages lighting up\n"
 		"You are now able to move from this place\n");
+		return execute_leave();
 	}
+	return true;
 }
 
 void execute_map(){
@@ -248,7 +264,7 @@ void execute_call(const char *arg)
 		printf("Oh, you're stuck in an escape room?\n");
 		printf("Well let me tell you a story, if you have time that is.\n");
 		printf("\n");
-		printf("Do you want to here your friend's story?(y\n)");
+		printf("Do you want to here your friend's story?(y/n)");
 		scanf("%s", user_response);
 		
 		if (strcmp(user_response, "y") == 0){
@@ -269,10 +285,12 @@ void execute_call(const char *arg)
 		printf("You should probably find someone to call. A friend perhaps?\n");
 		return;
 	}
-
-
+	fflush(stdin);
 
 }
+
+
+
 
 void execute_help(){
 	printf("Helpful Common Commands:\n"

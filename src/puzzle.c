@@ -947,9 +947,10 @@ void trigger_puzzle9(){
                 cupboard_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
+                printf("Hurray the riddle in the cupboard has been solved \n");
                 cupboard_puzzle->state = solved;
                 check_solved_stage3();
-                printf("Hurray the riddle in the cupboard has been solved \n");
+
 
             }else {
 

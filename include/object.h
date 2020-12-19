@@ -1,9 +1,11 @@
 #ifndef __OBJECT_H__
 #define __OBJECT_H__
 
-
-
-/***** OBJECT Types and States *****/
+/**
+ * \brief Game object type
+ * 
+ * Used to indicate what type a game object is, such as `location`, `usable_object`, etc.
+ */
 typedef enum type{
 	location = 0,
 	visible_object = 1,
@@ -14,6 +16,11 @@ typedef enum type{
 	actor = 6
 } type_t;
 
+/**
+ * \brief Game object state
+ * 
+ * Used to indicate state of any game object, including stages, puzzles, and hints
+ */
 typedef enum state{
 	closed = 0, open = 1,				// For doors and locks
 	confined = 2, unrestricted = 3,		// For stages
@@ -21,9 +28,13 @@ typedef enum state{
 	hidden = 6, revealed = 7,			// For keys
 	used = 8, unused =9,				// For hints
 	regular = 10						// generic state
-} state_t;      
-	 
-/***** OBJECT Structure *****/
+} state_t;
+
+/**
+ * \brief Main game object
+ * 
+ * Used for any entity in the game, including locations
+ */
 typedef struct object{
 	const char *description;			//!< Short text description of object
 	const char *tag;					//!< Short name for object

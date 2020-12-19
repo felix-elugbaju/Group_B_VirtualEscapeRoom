@@ -376,8 +376,12 @@ void trigger_puzzle2()
  */
 void trigger_puzzle3()
 {
+<<<<<<< HEAD
     printf("This a paper puzzle and it requires THREE characters \n");
     printf("Please your inputs should be in capital letters \n");
+=======
+    printf("This a paper puzzle and it requires a THREE letter word \n");
+>>>>>>> 9cda2ab8d6f6ea7c629655e5007f6c96898ac27c
     printf("To quit press q \nTo get a hint press h \n");
     printf("Do you want to start y/n \n");
 
@@ -430,24 +434,45 @@ void trigger_puzzle3()
         {
             char word[4];
             scanf("%3s", word);
+<<<<<<< HEAD
 
             if(strcmp(word,"q") == 0)
             {
                 fflush(stdin);
                 return;
             }else if(strcmp(word,"h") == 0 )
+=======
+            capitalize(word);
+
+
+            if(strcmp(word,"Q") == 0)
+            {
+                fflush(stdin);
+                return;
+            }else if(strcmp(word,"H") == 0 )
+>>>>>>> 9cda2ab8d6f6ea7c629655e5007f6c96898ac27c
             {
                 fflush(stdin);
                 printf("\n%s\n",paper_hint->detailed_description);
                 paper_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
+<<<<<<< HEAD
                 paper_puzzle->state = solved;
                 printf("PASS \n");
 
             }else {
 
                 printf("FAIL \n");
+=======
+                printf("The puzzle has been solved \n");
+                paper_puzzle->state = solved;
+                check_solved_stage1();
+
+            }else {
+
+                printf("You fail please check the hint \n");
+>>>>>>> 9cda2ab8d6f6ea7c629655e5007f6c96898ac27c
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
 
@@ -687,8 +712,9 @@ void trigger_puzzle5()
  */
 void trigger_puzzle6(){
 
-    printf("This a riddle and it requires ONE characters \n");
-    printf("Please your inputs should be in capital letters \n");
+
+
+    printf("This a riddle and it requires ONE letter \n");
     printf("To quit press q \nTo get a hint press h \n");
     printf("Do you want to start y/n \n");
 
@@ -696,7 +722,7 @@ void trigger_puzzle6(){
     fflush(stdin);
 
 
-    if( user_input == 'q')
+    if( tolower(user_input) == 'n')
     {
         return;
     }else {
@@ -711,22 +737,26 @@ void trigger_puzzle6(){
             char word[2];
             scanf("%1s", word);
 
-            if(strcmp(word,"q") == 0)
+            capitalize(word);
+
+            if(strcmp(word,"Q") == 0)
             {
                 fflush(stdin);
                 return;
-            }else if(strcmp(word,"h") == 0 )
+            }else if(strcmp(word,"H") == 0 )
             {
                 fflush(stdin);
                 printf("\n%s\n",riddle_hint->detailed_description);
                 riddle_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
+                printf("This riddle has been solved hurray \n");
                 riddle_puzzle->state = solved;
-                printf("PASS \n");
+                check_solved_stage2();
+
             }else {
 
-                printf("FAIL \n");
+                printf("You failed please check the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
 
@@ -908,8 +938,8 @@ void trigger_puzzle8()
 
 void trigger_puzzle9(){
 
-    printf("This is a riddle and it requires THREE characters \n");
-    printf("Please your inputs should be in capital letters \n");
+
+    printf("This is a riddle and it requires a THREE letter word \n");
     printf("To quit press q \nTo get a hint press h \n");
     printf("Do you want to start y/n \n");
 
@@ -932,23 +962,28 @@ void trigger_puzzle9(){
         {
             char word[4];
             scanf("%3s", word);
+            capitalize(word);
 
-            if(strcmp(word,"q") == 0)
+            if(strcmp(word,"Q") == 0)
             {
                 fflush(stdin);
                 return;
-            }else if(strcmp(word,"h") == 0 )
+            }else if(strcmp(word,"H") == 0 )
+
             {
                 fflush(stdin);
                 printf("\n%s\n",cupboard_hint->description);
                 cupboard_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
-                printf("PASS \n");
+<
                 cupboard_puzzle->state = solved;
+                check_solved_stage3();
+                printf("Hurray the riddle in the cupboard has been solved \n");
+
             }else {
 
-                printf("FAIL \n");
+                printf("The riddle is not yet solved you can use the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
 

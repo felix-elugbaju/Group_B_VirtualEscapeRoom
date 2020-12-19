@@ -1,6 +1,6 @@
 /**
- * This header file contains the function to parse the user input 
- * and execute different execution function based on the input
+ * @file parsenexec.h
+ * This header file contains the function to parse the user input and execute different execution function based on the input
  */
  
 #ifndef __PARSENEXEC_H__

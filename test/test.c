@@ -1,3 +1,4 @@
+#include <string.h>
 #include "unity.h"
 #include "object.h"
 #include "arghandling.h"
@@ -27,6 +28,21 @@ void test_list_objects_at_location_function(void)
 void test_parse_and_execute_function(void)
 {
    TEST_ASSERT_EQUAL_INT(0, parse_and_execute("quit"));
+   //TEST_ASSERT_EQUAL_INT(1, parse_and_execute("look around"));
+   char input[15] = "look around";
+   TEST_ASSERT_EQUAL_INT(1,parse_and_execute(input));
+
+   strcpy(input,"");
+   TEST_ASSERT_EQUAL_INT(1,parse_and_execute(input));
+
+   strcpy(input,"    ");
+   TEST_ASSERT_EQUAL_INT(1,parse_and_execute(input));
+
+   strcpy(input,"look:outside");
+   TEST_ASSERT_EQUAL_INT(1,parse_and_execute(input));
+
+   strcpy(input,"create key");
+   TEST_ASSERT_EQUAL_INT(1,parse_and_execute(input));
 }
 
 int main(void)

@@ -82,3 +82,5 @@ See the [User Manual](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoo
 ### For developers
 
 See the [Developer's Section](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoom/wiki/Developer-Manual) in the Wiki.
+
+API documentation is hosted on [GitHub pages in the docs branch](https://felix-elugbaju.github.io/Group_B_VirtualEscapeRoom/files.html).

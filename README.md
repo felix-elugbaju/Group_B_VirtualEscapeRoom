@@ -76,8 +76,9 @@ In order to compile the program:
 # <a name = "gameplay"></a>
 ### User Manual
 
-See the [User Manual](https://www.google.com) in the Wiki. 
+See the [User Manual](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoom/wiki/User-Manual) in the Wiki. 
 
 # <a name = "development"></a>
 ### For developers
-See the [Developer's Section](https://www.google.com) in the Wiki. 
+
+See the [Developer's Section](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoom/wiki/Developer-Manual) in the Wiki.

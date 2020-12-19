@@ -6,6 +6,8 @@
 #include "puzzle.h"
 
 
+
+
 void execute_look(const char *arg){
 	if (arg != NULL){
 		if ((strcmp(arg, "around") == 0)){
@@ -270,9 +272,22 @@ void execute_call(const char *arg)
 		return;
 	}
 
+}
 
+bool execute_leave()
+{
+	if (stage1->state == unrestricted && stage2->state == unrestricted && stage3->state == unrestricted){
+		printf("CONGRATS!!\n"
+		"You have just cleared the game!\n");
+		printf("I wish you well on your next adventure!\n");
+		printf("Farewell!\n");
+		return false;
+	}
+	printf("You must solve all three rooms before you can leave this place\n");
+	return true;
 
 }
+
 
 void execute_help(){
 	printf("Helpful Common Commands:\n"

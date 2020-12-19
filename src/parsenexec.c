@@ -38,6 +38,12 @@ bool parse_and_execute(char *input){
 		} else if (strcmp(command, "call") == 0) {
 			execute_call(arg);
 		}
+		else if (strcmp(command, "leave") == 0) {
+			bool result = execute_leave();
+			if (!result){
+				return false;
+			}
+		}
 		
 		else if (strcmp(command, "ask") == 0){			// User enters "ask <arg>"
 			if (strcmp (arg, "hint") == 0){				// User asks for hint
@@ -50,9 +56,8 @@ bool parse_and_execute(char *input){
 			}
 		} else if (strcmp(command, "help") == 0){
 			execute_help();
-		} else if (strcmp(command, "hint") == 0){
-//			execute_hint();
-		}else {
+		} 
+		else {
 			/* Add an interesting messsage if the user tries to do something absurd */
 			printf("You tried to %s\n", command);
 			printf("Turns out, %sing is impossible right now!!\n", command);

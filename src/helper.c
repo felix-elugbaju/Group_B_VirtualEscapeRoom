@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include "object.h"
 #include "helper.h"
+#include "execution.h"
 
 
 int list_objects_at_location(OBJECT_t *location, type_t type){
@@ -28,6 +30,7 @@ void check_solved_stage1(){
 		"You might be able to pick up (get) the silver_key.\n");
 		return;
 	}
+	execute_leave();
 }
 
 void check_solved_stage2(){
@@ -39,6 +42,8 @@ void check_solved_stage2(){
 		"You might be able to pick up (get) the gold_key.\n");
 		return;
 	}
+	
+	execute_leave();
 
 
 }
@@ -52,8 +57,8 @@ void check_solved_stage3(){
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the ruby_key.\n");
 		return;
-	
 	}
+	execute_leave();
 }
 
 void get_reward(int stage)

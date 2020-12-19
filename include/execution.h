@@ -30,3 +30,5 @@ extern void execute_map(void);
 extern void execute_call(const char *arg);
 
 extern void execute_check(void);
+
+bool execute_leave(void);

@@ -158,9 +158,9 @@ OBJECT_t objs[] = {
 	"... ... ...\n", stage3},
 
 
-	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
+	{"a code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
 	{"a hint for the code_puzzle", "code_hint", hint, unused,
-	"One bird, two wings, seven feathers, solved riddles\n" , stage3},
+	"two legs, one extra wing, seven feathers, solved riddles\n" , stage3},
 
 
 

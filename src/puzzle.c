@@ -792,7 +792,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 139\n"
 				"---------------\n"
-				"[4] [8] [3]\n"
+				"[4] [8] [1]\n"
 				"clue: nothing is correct.\n\n");
 
 				printf("manual page 241\n"
@@ -803,7 +803,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 438\n"
 				"---------------\n"
-				"[4] [8] [1]\n"
+				"[8] [2] [1]\n"
 				"clue: one number is correct\n"
 				"but wrongly placed.\n\n");
 
@@ -822,7 +822,7 @@ void trigger_puzzle7(){
 					if (user_result >= 100 && user_result <= 999){
 						printf("\nYou entered [%d].\n", user_result);
 
-						if (user_result == 371){
+						if (user_result == 372){
 							code_puzzle->state = solved;
 							blue_lock->state = open;
 							printf("You hear a mechanized sound!\n"

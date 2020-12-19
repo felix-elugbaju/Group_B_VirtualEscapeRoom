@@ -56,6 +56,10 @@ bin/testy.txt: bin/test.out
 .PHONY: all
 all: executable bin/test.out bin/testy.txt
 
+.PHONY: docs
+docs:
+	doxygen
+
 #CLEAN COMMANDS
 .PHONY: clean
 clean:

@@ -1,9 +1,16 @@
+/**
+ * @file object.h
+ * @brief Functions for executing puzzles
+ */
+
 #ifndef __OBJECT_H__
 #define __OBJECT_H__
 
-
-
-/***** OBJECT Types and States *****/
+/**
+ * @brief Game object type
+ * 
+ * Used to indicate what type a game object is, such as `location`, `usable_object`, etc.
+ */
 typedef enum type{
 	location = 0,
 	visible_object = 1,
@@ -14,6 +21,11 @@ typedef enum type{
 	actor = 6
 } type_t;
 
+/**
+ * @brief Game object state
+ * 
+ * Used to indicate state of any game object, including stages, puzzles, and hints
+ */
 typedef enum state{
 	closed = 0, open = 1,				// For doors and locks
 	confined = 2, unrestricted = 3,		// For stages
@@ -23,14 +35,46 @@ typedef enum state{
 	regular = 10						// generic state
 } state_t;
 
-
-/***** OBJECT Structure *****/
+/**
+ * @brief Main game object
+ * 
+ * Used for any entity in the game, including locations
+ */
 typedef struct object{
+	/**
+	 * @brief Short text description of object
+	 * Description of object in the current stage of game
+	 */
 	const char *description;
+
+	/**
+	 * @brief Tag for object
+	 * Used to look up objects in the global list of objects.
+	 */
 	const char *tag;
+
+	/**
+	 * @brief Type of object
+	 * Used to determine the type of an object, such as `location`, `usable_objects`, etc.
+	 */
 	type_t type;
+	
+	/**
+	 * @brief State of object
+	 * Used to keep track of state, such as whether a door is open, a puzzle is compelte, etc.
+	 */
 	state_t state;
+
+	/**
+	 * @brief Long text description of object
+	 * Used to describe the object in more detail, when inspecting an object
+	 */
 	const char *detailed_description;
+
+	/**
+	 * @brief Location of object
+	 * Location of object as another object.
+	 */
 	struct object *location;
 } OBJECT_t;
 extern OBJECT_t objs[];
@@ -95,4 +139,4 @@ extern OBJECT_t objs[];
 #define end_of_objs 		(objs + 41)
 
 
-#endif
+#endif//__OBJECT_H__

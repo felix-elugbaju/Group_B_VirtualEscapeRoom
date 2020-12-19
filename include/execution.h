@@ -71,7 +71,7 @@ extern void execute_use(const char *arg);
  * 
  * @param[in] arg Tag of item to open
  */
-extern void execute_open(const char *arg);
+bool execute_open(const char *arg);
 
 /**
  * @brief Executed when the player needs directions for common commands
@@ -104,5 +104,13 @@ extern void execute_call(const char *arg);
  * Prints a list of usable items in the current stage.
  */
 extern void execute_check(void);
+
+/**
+ * @brief Executed when the player tries to leave the final stage
+ * 
+ * Prints a congratulatory message if all three stages have been cleared.
+ * Otherwise, prints an error message.
+ */
+bool execute_leave(void);
 
 #endif//__EXECUTION_H__

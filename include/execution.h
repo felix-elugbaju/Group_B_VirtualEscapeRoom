@@ -56,15 +56,11 @@ extern void execute_open(const char *arg);
 
 /**
  * \brief Executed when the player needs directions for common commands
- * 
- * @param[in] arg TODO
  */
 extern void execute_help(void);
 
 /**
  * \brief Executed when player tries to view a map of the world
- * 
- * @param[in] arg TODO
  */
 extern void execute_map(void);
 

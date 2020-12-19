@@ -32,17 +32,11 @@ bool parse_and_execute(char *input){
 		else if (strcmp(command, "use") == 0){			// User enters "use <arg>"
 			execute_use(arg);
 		} else if (strcmp(command, "open") == 0){			// User enters "open <arg>"
-			execute_open(arg);
+			return execute_open(arg);
 		} else if (strcmp(command, "read") == 0){			// User enters "read <arg>"
 			execute_read(arg);
 		} else if (strcmp(command, "call") == 0) {
 			execute_call(arg);
-		}
-		else if (strcmp(command, "leave") == 0) {
-			bool result = execute_leave();
-			if (!result){
-				return false;
-			}
 		}
 		
 		else if (strcmp(command, "ask") == 0){			// User enters "ask <arg>"

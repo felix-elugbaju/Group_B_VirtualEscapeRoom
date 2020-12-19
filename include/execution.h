@@ -21,7 +21,7 @@ extern void execute_get(const char *arg);
 
 extern void execute_use(const char *arg);
 
-extern void execute_open(const char *arg);
+bool execute_open(const char *arg);
 
 extern void execute_help(void);
 
@@ -30,3 +30,5 @@ extern void execute_map(void);
 extern void execute_call(const char *arg);
 
 extern void execute_check(void);
+
+bool execute_leave(void);

@@ -26,20 +26,6 @@ static bool get_input(void){
 }
 
 
-/**
- * @brief A function to check whether all three stages were cleared
- * @return 1 if all three stages are cleared, 0 otherwise
- */
-static bool game_cleared(void){
-	if (stage1->state == unrestricted && stage2->state == unrestricted && stage3->state == unrestricted){
-		printf("CONGRATS!!\n"
-		"You have just cleared the game!\n"
-		"You get a GRANDPRIZEXYZ!!!\n");
-		return true;
-	} else {
-		return false;
-	}
-}
 
 
 /**
@@ -51,7 +37,7 @@ int main (){
 	execute_help();
 	printf("\n");
 	
-	while (parse_and_execute(input) && get_input() && !game_cleared());
+	while (parse_and_execute(input) && get_input());
 	printf("Thanks for playing the game!\n\n");
 	
 	return 0;

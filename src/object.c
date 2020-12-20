@@ -105,7 +105,7 @@ OBJECT_t objs[] = {
     "hands of the clock..\n"
     "dance as they flock...\n"
     "towards the writings of the old....\n"
-    "CAPITAL of wishes manifold\n", stage2},
+    "CAPITAL of wishes manifold\n", stage1},
 
     /* paper puzzle hint the 3rd puzzle*/
     {"a hint for the paper_puzzle", "paper_hint", hint, unused,
@@ -134,7 +134,7 @@ OBJECT_t objs[] = {
 
 	{"a hint for the graffiti_puzzle", "graffiti_hint", hint, unused,
 	"Intertwined fates connect the occult...\n"
-	"the connections define the ultimate result.\n" , graffiti_puzzle},
+	"the connections define the ultimate result.\n" , stage2},
 
 	{"A hint for the piano puzzle:", "piano_hint", hint, unused,
 	"A triad is defined as notes spaced out 3 apart on a piano\n"
@@ -158,24 +158,13 @@ OBJECT_t objs[] = {
 	"... ... ...\n", stage3},
 
 
-	{"an code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
+	{"a code_puzzle", "code_puzzle", puzzle, unsolved, NULL , stage3},
 	{"a hint for the code_puzzle", "code_hint", hint, unused,
-	"One bird, two wings, seven feathers, solved riddles\n" , code_puzzle},
-
-
-	{"a rotary telephone", "phone", visible_object, regular,
-	"Surprisingly this rotary telephone is fully functioning.\n"
-	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
-	},
-	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
-
-	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
-	"all the numbers together?\n", stage3},
-
+	"two legs, one extra wing, seven feathers, solved riddles\n" , stage3},
 
 
 	    /** A cupboard **/
-    { "a cupboard with medicine ", "cupboard", visible_object, regular,
+    { "a medicine cupboard  ", "cupboard", visible_object, regular,
     "Here is a cupboard.\n"
     "open it and there is a medicine bottle with an inscription on it please examine bottle\n"
     "solve the riddle on the inscription\n", stage3},
@@ -184,16 +173,16 @@ OBJECT_t objs[] = {
 
       /* cupboard puzzle hint the 9th puzzle */
     {"a hint for the cupboard_puzzle", "cupboard_puzzle", hint, unused,
-	"What increases on your birthday\n", cupboard_puzzle},
+	"What increases on your birthday\n", stage3},
 
-	{"a rotary telephone", "phone", visible_object, regular,
+	{"a rotary phone", "phone", visible_object, regular,
 	"Surprisingly this rotary telephone is fully functioning.\n"
 	"Perhaps you can use it to call a friend? Its pretty lonely in here\n", stage3
 	},
 	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
 
 	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
-	"all the numbers together?\n", stage3}
+	" all the numbers together?\n", stage3}
 
 
 };

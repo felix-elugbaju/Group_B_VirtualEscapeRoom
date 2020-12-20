@@ -7,9 +7,6 @@
 #include "puzzle.h"
 #include "object.h"
 
-/**
- * The first puzzle triggered from the clock
- */
 void trigger_puzzle1(){
 	printf("\nYou found a clock-puzzle!\n");
 	/********** Instructions for puzzle 1 **********/
@@ -371,11 +368,9 @@ void trigger_puzzle2()
     }
 }
 
-/**
- * The third puzzle which is the paper puzzle
- */
 void trigger_puzzle3()
 {
+
     printf("This a paper puzzle and it requires a THREE letter word \n");
     printf("To quit press q \nTo get a hint press h \n");
     printf("Do you want to start y/n \n");
@@ -384,49 +379,49 @@ void trigger_puzzle3()
     fflush(stdin);
 
 
-    if( tolower(user_input) == 'n')
+    if(tolower(user_input) != 'y')
     {
         return;
     }else {
         int done = 0;
         char *answer = "AEF";
 
-        printf("A | B | C \n");
-        printf("_ | _ | _ \n");
-        printf("D | E | T \n");
-        printf("_ | _ | _ \n");
-        printf("I | O | U \n");
-
-        printf("\n");
-
-        printf(" \\  N  / \n");
-        printf("  \\ _ /  \n");
-        printf("Q | P | F \n");
-        printf("  / _ \\  \n");
-        printf(" / Y   \\ \n");
-
-        printf("With the above information solve this puzzle \n");
-
-        printf("  | \n");
-        printf(" _| \n");
-
-
-        printf("\n");
-
-        printf("  _    \n");
-        printf("|   |  \n");
-        printf("| _ |  \n");
-
-        printf("\n");
-
-        printf("  /  \n");
-        printf(" /   \n");
-        printf("|    \n");
-        printf(" \\  \n");
-        printf("  \\ \n");
-
         while(!done)
         {
+            printf("A | B | C \n");
+            printf("_ | _ | _ \n");
+            printf("D | E | T \n");
+            printf("_ | _ | _ \n");
+            printf("I | O | U \n");
+
+            printf("\n");
+
+            printf(" \\  N  / \n");
+            printf("  \\ _ /  \n");
+            printf("Q | P | F \n");
+            printf("  / _ \\  \n");
+            printf(" / Y   \\ \n");
+
+            printf("With the above information solve this puzzle \n");
+
+            printf("  | \n");
+            printf(" _| \n");
+
+
+            printf("\n");
+
+            printf("  _    \n");
+            printf("|   |  \n");
+            printf("| _ |  \n");
+
+            printf("\n");
+
+            printf("  /  \n");
+            printf(" /   \n");
+            printf("|    \n");
+            printf(" \\  \n");
+            printf("  \\ \n");
+
             char word[4];
             scanf("%3s", word);
             capitalize(word);
@@ -452,19 +447,16 @@ void trigger_puzzle3()
                 printf("You fail please check the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
 
     }
-
-    return;
+	fflush(stdin);        // flush the input buffer
 
 }
 
-/**
- * The fourth puzzle triggered from the graffiti
- */
 void trigger_puzzle4(){
 	printf("You look closely at the lines\n"
 	"It seems like a lot of effort was put into the carvings\n"
@@ -581,7 +573,7 @@ void trigger_puzzle4(){
 						"In place of the question mark, you now see a 4.\n"
 						"The keypad doesn't respond to your presses anymore.\n"
 						"Congrats! You have solved this puzzle!\n");
-//						check_solved_stage2();		// check if all puzzles have been solved
+						check_solved_stage2();		// check if all puzzles have been solved
 						return;
 					} else {
 						printf("But nothing happened!\n");
@@ -630,15 +622,18 @@ void trigger_puzzle5()
     			fflush(stdin);
     			printf("%s", piano_hint->detailed_description);
     			printf("Press the ENTER key to continue\n");
+    			piano_hint->state = used;
     			getchar();
     		}
     		else {
+    			printf("\n");
     			printf("The out of tune piano is ghastly to listen to.\n");
     			printf("This string of notes doesn't sound like a song at all\n");
     			printf("Maybe there is sheet music nearby?\n");
     		}
     	}
 
+		printf("\n");
     	printf("An internal mechanism clinks around in the piano.\n");
     	printf("However, it stopped! It looks like another combination\n");
     	printf("Of notes is needed. A second verse if you will.\n");
@@ -667,6 +662,7 @@ void trigger_puzzle5()
     		else if (strcmp(noteString, "h") == 0) {
     			fflush(stdin);
     			printf("%s", piano_hint->detailed_description);
+    			piano_hint->state = used;
     			printf("Press the ENTER key to continue\n");
     			getchar();
     		}
@@ -682,12 +678,12 @@ void trigger_puzzle5()
     	piano_puzzle->state = solved;
     	check_solved_stage2();
     }
+      fflush(stdin);        // flush the input buffer
 }
 
-/**
- * @brief This is the puzzle for the riddle
- */
 void trigger_puzzle6(){
+
+
 
     printf("This a riddle and it requires ONE letter \n");
     printf("To quit press q \nTo get a hint press h \n");
@@ -697,20 +693,21 @@ void trigger_puzzle6(){
     fflush(stdin);
 
 
-    if( tolower(user_input) == 'n')
+    if(tolower(user_input) != 'y')
     {
         return;
     }else {
         int done = 0;
         char *answer = "E";
 
-        printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
-        printf(" WHAT AM I \n");
-
         while(!done)
         {
+            printf(" I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
+            printf(" WHAT AM I \n");
+
             char word[2];
             scanf("%1s", word);
+
             capitalize(word);
 
             if(strcmp(word,"Q") == 0)
@@ -724,7 +721,7 @@ void trigger_puzzle6(){
                 riddle_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
-                 printf("This riddle has been solved hurray \n");
+                printf("This riddle has been solved hurray \n");
                 riddle_puzzle->state = solved;
                 check_solved_stage2();
 
@@ -733,19 +730,16 @@ void trigger_puzzle6(){
                 printf("You failed please check the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
     }
-
-    return;
+	fflush(stdin);        // flush the input buffer
 }
 
 
 
-/**
- * The seventh puzzle triggered from the manual
- */
 void trigger_puzzle7(){
 
 	printf("\nYou found a code-puzzle!\n");
@@ -798,7 +792,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 139\n"
 				"---------------\n"
-				"[4] [8] [3]\n"
+				"[4] [8] [1]\n"
 				"clue: nothing is correct.\n\n");
 
 				printf("manual page 241\n"
@@ -809,7 +803,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 438\n"
 				"---------------\n"
-				"[4] [8] [1]\n"
+				"[8] [2] [1]\n"
 				"clue: one number is correct\n"
 				"but wrongly placed.\n\n");
 
@@ -828,7 +822,7 @@ void trigger_puzzle7(){
 					if (user_result >= 100 && user_result <= 999){
 						printf("\nYou entered [%d].\n", user_result);
 
-						if (user_result == 371){
+						if (user_result == 372){
 							code_puzzle->state = solved;
 							blue_lock->state = open;
 							printf("You hear a mechanized sound!\n"
@@ -874,23 +868,23 @@ void trigger_puzzle8()
 	printf("I've told what it is earlier in my story\n");
 	printf("\n");
 	printf("Your friend has hung up.\n");
-	printf("Do you call your mother?(y/n)");
+	printf("Do you call your mother? (y/n) ");
 	scanf("%s", makes_call);
-	if (strcmp(makes_call, "y"))
+	if (strcmp(makes_call, "y") == 0)
 	{
 		int done = 0;
 		while (!done) {
 			printf("Enter a telephone number to dial. No area code, just a seven digit number\n");
-			printf("Enter h for a hint, however be warned, using hints affects your score!");
-			printf("Enter q to quit");
+			printf("Enter h for a hint, however be warned, using hints affects your score!\n");
+			printf("Enter q to quit: ");
 			scanf("%s", makes_call);
 
 			if (strcmp(makes_call, "q") == 0){
 				return;
 			}
 			if (strcmp(makes_call, "h") == 0){
-				piano_hint->state = used;
-				printf("%s", piano_hint->detailed_description);
+				phone_hint->state = used;
+				printf("%s", phone_hint->detailed_description);
 			}
 			if (strcmp(makes_call, telephone_num) == 0)
 			{
@@ -907,10 +901,14 @@ void trigger_puzzle8()
 		}
 		phone_puzzle->state = solved;
 		check_solved_stage3();
+
+
 	}
+	fflush(stdin);
 }
 
 void trigger_puzzle9(){
+
 
     printf("This is a riddle and it requires a THREE letter word \n");
     printf("To quit press q \nTo get a hint press h \n");
@@ -920,7 +918,7 @@ void trigger_puzzle9(){
     char user_input = fgetc(stdin);
     fflush(stdin);
 
-    if( tolower(user_input) == 'n')
+    if( tolower(user_input) != 'y')
     {
         return;
     }else {
@@ -928,11 +926,12 @@ void trigger_puzzle9(){
         int done = 0;
         char *answer = "AGE";
 
-        printf(" I GOES UP BUT DOESN'T COME DOWN \n");
-        printf(" WHAT AM I \n");
+
 
         while(!done)
         {
+            printf(" IT GOES UP BUT DOESN'T COME DOWN \n");
+            printf(" WHAT IS IT \n");
             char word[4];
             scanf("%3s", word);
             capitalize(word);
@@ -942,27 +941,29 @@ void trigger_puzzle9(){
                 fflush(stdin);
                 return;
             }else if(strcmp(word,"H") == 0 )
+
             {
                 fflush(stdin);
-                printf("\n%s\n",cupboard_hint->description);
+                printf("\n%s\n",cupboard_hint->detailed_description);
                 cupboard_hint->state = used;
             }else if (strcmp(word,answer) == 0){
                 done = 1;
+                printf("Hurray the riddle in the cupboard has been solved \n");
                 cupboard_puzzle->state = solved;
                 check_solved_stage3();
-                printf("Hurray the riddle in the cupboard has been solved \n");
+
 
             }else {
 
                 printf("The riddle is not yet solved you can use the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
     }
-
-    return;
+	fflush(stdin);
 
 }
 

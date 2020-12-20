@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
 #include "object.h"
 #include "helper.h"
+#include "execution.h"
 
 
 int list_objects_at_location(OBJECT_t *location, type_t type){
@@ -29,6 +31,7 @@ void check_solved_stage1(){
 		"Suddenly, out of nowhere, a silver key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the silver_key.\n");
+		get_reward(1);
 		return;
 	}
 }
@@ -40,8 +43,10 @@ void check_solved_stage2(){
 		"Suddenly, out of nowhere, a gold key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the gold_key.\n");
+		get_reward(2);
 		return;
 	}
+	
 
 
 }
@@ -54,6 +59,7 @@ void check_solved_stage3(){
 		"Suddenly, out of nowhere, a ruby key falls in front of you.\n"
 		"The color of the key seems to resemble that of the door.\n"
 		"You might be able to pick up (get) the ruby_key.\n");
+		get_reward(3);
 		return;
 
 	}
@@ -67,8 +73,10 @@ void get_reward(int stage)
 	OBJECT_t *obj = NULL;
 	for (obj = objs; obj < end_of_objs; obj++){			// scan through the object list (objs)
 		if (obj->type == hint && obj->location == player->location){
-			if (obj->state == used)
+			if (obj->state == used){
 				count++;
+			}
+				
 		}
 	}
 

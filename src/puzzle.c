@@ -385,49 +385,49 @@ void trigger_puzzle3()
     fflush(stdin);
 
 
-    if( tolower(user_input) == 'n')
+    if(tolower(user_input) != 'y')
     {
         return;
     }else {
         int done = 0;
         char *answer = "AEF";
 
-        printf("A | B | C \n");
-        printf("_ | _ | _ \n");
-        printf("D | E | T \n");
-        printf("_ | _ | _ \n");
-        printf("I | O | U \n");
-
-        printf("\n");
-
-        printf(" \\  N  / \n");
-        printf("  \\ _ /  \n");
-        printf("Q | P | F \n");
-        printf("  / _ \\  \n");
-        printf(" / Y   \\ \n");
-
-        printf("With the above information solve this puzzle \n");
-
-        printf("  | \n");
-        printf(" _| \n");
-
-
-        printf("\n");
-
-        printf("  _    \n");
-        printf("|   |  \n");
-        printf("| _ |  \n");
-
-        printf("\n");
-
-        printf("  /  \n");
-        printf(" /   \n");
-        printf("|    \n");
-        printf(" \\  \n");
-        printf("  \\ \n");
-
         while(!done)
         {
+            printf("A | B | C \n");
+            printf("_ | _ | _ \n");
+            printf("D | E | T \n");
+            printf("_ | _ | _ \n");
+            printf("I | O | U \n");
+
+            printf("\n");
+
+            printf(" \\  N  / \n");
+            printf("  \\ _ /  \n");
+            printf("Q | P | F \n");
+            printf("  / _ \\  \n");
+            printf(" / Y   \\ \n");
+
+            printf("With the above information solve this puzzle \n");
+
+            printf("  | \n");
+            printf(" _| \n");
+
+
+            printf("\n");
+
+            printf("  _    \n");
+            printf("|   |  \n");
+            printf("| _ |  \n");
+
+            printf("\n");
+
+            printf("  /  \n");
+            printf(" /   \n");
+            printf("|    \n");
+            printf(" \\  \n");
+            printf("  \\ \n");
+
             char word[4];
             scanf("%3s", word);
             capitalize(word);
@@ -453,13 +453,13 @@ void trigger_puzzle3()
                 printf("You fail please check the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
 
     }
 	fflush(stdin);        // flush the input buffer
-    return;
 
 }
 
@@ -641,7 +641,7 @@ void trigger_puzzle5()
     			printf("Maybe there is sheet music nearby?\n");
     		}
     	}
-		
+
 		printf("\n");
     	printf("An internal mechanism clinks around in the piano.\n");
     	printf("However, it stopped! It looks like another combination\n");
@@ -705,18 +705,18 @@ void trigger_puzzle6(){
     fflush(stdin);
 
 
-    if(tolower(user_input) == 'n')
+    if(tolower(user_input) != 'y')
     {
         return;
     }else {
         int done = 0;
         char *answer = "E";
 
-        printf("I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
-        printf(" WHAT AM I \n");
-
         while(!done)
         {
+            printf(" I APPEAR 3 TIMES IN SEPTEMBER 2 TIMES IN NOVEMBER 1 TIME IN FEBURARY BUT NEVER IN JULY \n");
+            printf(" WHAT AM I \n");
+
             char word[2];
             scanf("%1s", word);
 
@@ -742,12 +742,12 @@ void trigger_puzzle6(){
                 printf("You failed please check the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
     }
 	fflush(stdin);        // flush the input buffer
-    return;
 }
 
 
@@ -916,7 +916,7 @@ void trigger_puzzle8()
 		}
 		phone_puzzle->state = solved;
 		check_solved_stage3();
-		
+
 
 	}
 	fflush(stdin);
@@ -933,7 +933,7 @@ void trigger_puzzle9(){
     char user_input = fgetc(stdin);
     fflush(stdin);
 
-    if( tolower(user_input) == 'n')
+    if( tolower(user_input) != 'y')
     {
         return;
     }else {
@@ -941,11 +941,12 @@ void trigger_puzzle9(){
         int done = 0;
         char *answer = "AGE";
 
-        printf(" I GOES UP BUT DOESN'T COME DOWN \n");
-        printf(" WHAT AM I \n");
+
 
         while(!done)
         {
+            printf(" IT GOES UP BUT DOESN'T COME DOWN \n");
+            printf(" WHAT IS IT \n");
             char word[4];
             scanf("%3s", word);
             capitalize(word);
@@ -972,12 +973,12 @@ void trigger_puzzle9(){
                 printf("The riddle is not yet solved you can use the hint \n");
                 printf("Please examine object again \n");
                 printf("TRY AGAIN or q to quit \n");
+                fflush(stdin);
 
             }
         }
     }
 	fflush(stdin);
-    return;
 
 }
 

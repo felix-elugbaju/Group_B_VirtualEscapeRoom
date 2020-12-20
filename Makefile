@@ -48,13 +48,13 @@ bin/test.out:  build/unity.o build/test.o build/execution.o build/arghandling.o 
                  build/object.o build/parsenexec.o build/puzzle.o -o bin/test.out
 
 
-bin/testy.txt: bin/test.out
+program_output/testy.txt: bin/test.out
 	-./$< > $@ 2>&1
 
 
 #TARGET TO GENERATE ALL THE EXECUTABLES
 .PHONY: all
-all: executable bin/test.out bin/testy.txt
+all: executable bin/test.out program_output/testy.txt
 
 #CLEAN COMMANDS
 .PHONY: clean

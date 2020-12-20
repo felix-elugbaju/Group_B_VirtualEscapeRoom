@@ -38,25 +38,28 @@ build/unity.o: test/Unity/src/unity.c
 build/test.o: test/test.c
 	$(CC) -g -c $(INCLUDE_test) $(INCLUDE_DIR)  test/test.c -o build/test.o 
 	
+
 #TARGET TO GENERATE THE EXECUTABLE OF THE PROGRAM
 executable:  build/execution.o build/arghandling.o build/helper.o build/main.o build/object.o build/parsenexec.o build/puzzle.o 
 	$(CC) -g build/execution.o build/arghandling.o build/helper.o build/main.o \
                  build/object.o build/parsenexec.o build/puzzle.o -o bin/VER.exe
 
-bin/test.out:  build/unity.o build/test.o build/execution.o build/arghandling.o build/helper.o build/object.o build/parsenexec.o build/puzzle.o
+bin/test.exe:  program_output/test_result.txt build/unity.o build/test.o build/execution.o build/arghandling.o build/helper.o build/object.o build/parsenexec.o build/puzzle.o
 	$(CC) -g build/unity.o build/test.o build/execution.o build/arghandling.o build/helper.o  \
-                 build/object.o build/parsenexec.o build/puzzle.o -o bin/test.out
+                 build/object.o build/parsenexec.o build/puzzle.o -o bin/test.exe
 
-
-program_output/test_result.txt: bin/test.out
+program_output/test_result.txt: bin/test.exe
 	-./$< > $@ 2>&1
 
+#TARGET TO GENERATE ONLY TESTFILES
+.PHONY: test
+test: bin/test.exe program_output/test_result.txt
 
 #TARGET TO GENERATE ALL THE EXECUTABLES
 .PHONY: all
-all: executable bin/test.out program_output/test_result.txt
+all: executable test
 
 #CLEAN COMMANDS
 .PHONY: clean
 clean:
-	rm -f bin/* build/*
+	rm -f bin/* build/* program_output/*

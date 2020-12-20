@@ -7,9 +7,6 @@
 #include "puzzle.h"
 #include "object.h"
 
-/**
- * The first puzzle triggered from the clock
- */
 void trigger_puzzle1(){
 	printf("\nYou found a clock-puzzle!\n");
 	/********** Instructions for puzzle 1 **********/
@@ -371,9 +368,6 @@ void trigger_puzzle2()
     }
 }
 
-/**
- * The third puzzle which is the paper puzzle
- */
 void trigger_puzzle3()
 {
 
@@ -463,9 +457,6 @@ void trigger_puzzle3()
 
 }
 
-/**
- * The fourth puzzle triggered from the graffiti
- */
 void trigger_puzzle4(){
 	printf("You look closely at the lines\n"
 	"It seems like a lot of effort was put into the carvings\n"
@@ -690,9 +681,6 @@ void trigger_puzzle5()
       fflush(stdin);        // flush the input buffer
 }
 
-/**
- * @brief This is the puzzle for the riddle
- */
 void trigger_puzzle6(){
 
 
@@ -752,9 +740,6 @@ void trigger_puzzle6(){
 
 
 
-/**
- * The seventh puzzle triggered from the manual
- */
 void trigger_puzzle7(){
 
 	printf("\nYou found a code-puzzle!\n");
@@ -807,7 +792,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 139\n"
 				"---------------\n"
-				"[4] [8] [3]\n"
+				"[4] [8] [1]\n"
 				"clue: nothing is correct.\n\n");
 
 				printf("manual page 241\n"
@@ -818,7 +803,7 @@ void trigger_puzzle7(){
 
 				printf("manual page 438\n"
 				"---------------\n"
-				"[4] [8] [1]\n"
+				"[8] [2] [1]\n"
 				"clue: one number is correct\n"
 				"but wrongly placed.\n\n");
 
@@ -837,7 +822,7 @@ void trigger_puzzle7(){
 					if (user_result >= 100 && user_result <= 999){
 						printf("\nYou entered [%d].\n", user_result);
 
-						if (user_result == 371){
+						if (user_result == 372){
 							code_puzzle->state = solved;
 							blue_lock->state = open;
 							printf("You hear a mechanized sound!\n"

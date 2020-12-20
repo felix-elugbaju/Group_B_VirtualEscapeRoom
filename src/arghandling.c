@@ -2,12 +2,9 @@
 #include <string.h>
 #include "arghandling.h"
 
-
 bool object_has_tag(OBJECT_t *obj, const char *arg){
 	return (arg != NULL) && (*arg != '\0') && (strcmp(arg, obj->tag) == 0);
 }
-
-
 
 OBJECT_t *get_object(const char *arg){
 	OBJECT_t *obj, *result = NULL;

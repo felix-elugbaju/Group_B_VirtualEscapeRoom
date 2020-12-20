@@ -237,14 +237,24 @@ bool execute_open(const char *arg){
 }
 
 void execute_map(){
-	printf("         |       \n"
-		   " stage1 -> stage2     \n"
-		   "  |     <-  |         \n"
-		   "__|__^___|__|____^____\n"
-		   "  V  |      V    |     \n"
-		   "       stage3       \n"
-		   "               \n"
-		   "               \n");
+	printf("\n"
+"**********                 \n" 
+"*        *<********        \n"
+"* stage1 *        *        \n"
+"*        *******  *        \n"
+"**********     *  *        \n"
+"  *	^      V  *        \n"
+"  *     *    **********     \n"
+"  *	*    *        *     \n"
+"  *	*    * stage2 *     \n"
+"  *	*    *        *     \n"
+"  *	*    **********     \n"
+"  V	*      ^  *        \n"
+"**********     *  *        \n"
+"*        *******  *        \n"
+"* stage3 *        *        \n"
+"*        *<********        \n"
+"**********\n");
 }
 
 void execute_call(const char *arg)

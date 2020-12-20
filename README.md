@@ -81,3 +81,6 @@ See the [User Manual](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoo
 # <a name = "development"></a>
 ### For developers
 See the [Developer's Section](https://github.com/felix-elugbaju/Group_B_VirtualEscapeRoom/wiki/Developer-Manual) in the Wiki. 
+
+# <a name = "doxygen documentation"></a>
+Doxygen documentation is hosted in [here](https://felix-elugbaju.github.io/Group_B_VirtualEscapeRoom/files.html).

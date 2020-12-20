@@ -48,17 +48,13 @@ bin/test.out:  build/unity.o build/test.o build/execution.o build/arghandling.o 
                  build/object.o build/parsenexec.o build/puzzle.o -o bin/test.out
 
 
-bin/testy.txt: bin/test.out
+program_output/test_result.txt: bin/test.out
 	-./$< > $@ 2>&1
 
 
 #TARGET TO GENERATE ALL THE EXECUTABLES
 .PHONY: all
-all: executable bin/test.out bin/testy.txt
-
-.PHONY: docs
-docs:
-	doxygen
+all: executable bin/test.out program_output/test_result.txt
 
 #CLEAN COMMANDS
 .PHONY: clean

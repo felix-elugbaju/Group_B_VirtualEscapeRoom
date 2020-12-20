@@ -164,7 +164,7 @@ OBJECT_t objs[] = {
 
 
 	    /** A cupboard **/
-    { "a cupboard with medicine ", "cupboard", visible_object, regular,
+    { "a medicine cupboard  ", "cupboard", visible_object, regular,
     "Here is a cupboard.\n"
     "open it and there is a medicine bottle with an inscription on it please examine bottle\n"
     "solve the riddle on the inscription\n", stage3},

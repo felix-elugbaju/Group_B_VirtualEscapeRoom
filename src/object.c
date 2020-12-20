@@ -163,8 +163,6 @@ OBJECT_t objs[] = {
 	"One bird, two wings, seven feathers, solved riddles\n" , stage3},
 
 
-
-
 	    /** A cupboard **/
     { "a cupboard with medicine ", "cupboard", visible_object, regular,
     "Here is a cupboard.\n"
@@ -184,7 +182,7 @@ OBJECT_t objs[] = {
 	{"a phone_puzzle", "phone_puzzle", puzzle, unsolved, NULL, stage3},
 
 	{"A hint for the phone puzzle:", "phone_hint", hint, unused, "Maybe you should merge"
-	"all the numbers together?\n", stage3}
+	" all the numbers together?\n", stage3}
 
 
 };

@@ -66,7 +66,7 @@ The complete file structure is as follows:
 In order to compile the program:
 1) Open the command prompt
 2) Navigate to the root directory of the project
-3) Enter "make executable" or "make all" (without the quotes) into the command line
+3) Enter "make all" (without the quotes) into the command line
 4) Navigate to the bin directory by entering "cd bin"
 5) The application may now be run by entering "./VER.exe" into the command line
 
